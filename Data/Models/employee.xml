@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <employees>
     <employee>
-        <firstname></firstname>
-        <lastname></lastname>
-        <gender></gender>
-        <age></age>
-        <salary></salary>
-        
+        <firstname>John</firstname>
+        <lastname>Collins</lastname>
+        <gender>Male</gender>
+        <age>42</age>
+        <salary>100.000</salary>
     </employee>
 </employees>
