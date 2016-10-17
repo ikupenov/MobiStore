@@ -35,7 +35,7 @@ $(function () {
     };
 
     if (window.File && window.FileReader && window.FileList && window.Blob) {
-        $('#upload').on('click', handleFileSelect);
+        $('.upload').on('click', handleFileSelect);
     } else {
         alert('The File APIs are not fully supported by this browser.');
     }
