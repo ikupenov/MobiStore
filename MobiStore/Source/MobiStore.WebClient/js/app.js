@@ -52,7 +52,9 @@ $(function () {
 
                 requester
                     .post(url, headers, fileData)
-                    .then(response => console.log(response), error => console.log(error));
+                    .then(response => {
+                        console.log(response);
+                    }).catch(error => console.log(error));
             };
 
             reader.readAsBinaryString(file);

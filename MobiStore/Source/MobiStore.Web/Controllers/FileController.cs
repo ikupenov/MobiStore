@@ -11,7 +11,7 @@ namespace MobiStore.Web.Controllers
         [EnableCors("*", "*", "*")]
         public IHttpActionResult Post([FromBody]File file)
         {
-            return this.Ok(file.Content);
+            return this.Ok("Content:" + file.Content + "\n" + "Extension:" + file.Extension);
         }
     }
 }
