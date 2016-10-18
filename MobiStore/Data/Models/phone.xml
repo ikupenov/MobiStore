@@ -115,27 +115,27 @@
   Rear camera: 16MP 
   Front camera: 8MP-->
   <phone>
-      <brand></brand>
+      <brand>OnePlus</brand>
       <model>OnePlus 3</model>
       <camera>
-        <megapixels>5</megapixels>
-        <optical-image-stabilization>False</optical-image-stabilization>
+        <megapixels>16</megapixels>
+        <optical-image-stabilization>True</optical-image-stabilization>
       </camera>
       <battery:battery xmlns:battery="https://www.w3.org/battery">
         <battery:type>LiPo</battery:type>
-        <battery:capacity>1420</battery:capacity>
+        <battery:capacity>3000</battery:capacity>
       </battery:battery>
       <display:display xmlns:display="https://www.w3.org/display">
-        <display:type>Retina</display:type>
-        <display:size>3.5</display:size>
-        <display:resolution>640x960</display:resolution>
+        <display:type>LED</display:type>
+        <display:size>5.5</display:size>
+        <display:resolution>1080 x 1920</display:resolution>
       </display:display>
       <processor>
-        <clock-speed>1.0</clock-speed>
-        <cash-memory>1</cash-memory>
+        <clock-speed>1.6</clock-speed>
+        <cash-memory>3</cash-memory>
       </processor>
-      <ram-capacity>512</ram-capacity>
-      <storage-capacity>16</storage-capacity>
+      <ram-capacity>6</ram-capacity>
+      <storage-capacity>64</storage-capacity>
     </phone>
 
   <!--6. HTC 10
@@ -153,27 +153,27 @@
   Rear camera: 12MP 
   Front camera: 5MP-->
   <phone>
-      <brand>Apple</brand>
-      <model>iPhone 4</model>
+      <brand>HTC</brand>
+      <model>HTC 10</model>
       <camera>
-        <megapixels>5</megapixels>
+        <megapixels>12</megapixels>
         <optical-image-stabilization>False</optical-image-stabilization>
       </camera>
       <battery:battery xmlns:battery="https://www.w3.org/battery">
         <battery:type>LiPo</battery:type>
-        <battery:capacity>1420</battery:capacity>
+        <battery:capacity>3000</battery:capacity>
       </battery:battery>
       <display:display xmlns:display="https://www.w3.org/display">
-        <display:type>Retina</display:type>
-        <display:size>3.5</display:size>
-        <display:resolution>640x960</display:resolution>
+        <display:type>LED</display:type>
+        <display:size>5.2</display:size>
+        <display:resolution>1440 x 2560 </display:resolution>
       </display:display>
       <processor>
-        <clock-speed>1.0</clock-speed>
-        <cash-memory>1</cash-memory>
+        <clock-speed>1.6</clock-speed>
+        <cash-memory>2</cash-memory>
       </processor>
-      <ram-capacity>512</ram-capacity>
-      <storage-capacity>16</storage-capacity>
+      <ram-capacity>4</ram-capacity>
+      <storage-capacity>32</storage-capacity>
     </phone>
 
   <!--5. Motorola Moto Z
@@ -191,27 +191,27 @@
   Rear camera: 13MP 
   Front camera: 5MP-->
   <phone>
-      <brand>Apple</brand>
-      <model>iPhone 4</model>
+      <brand>Motorola</brand>
+      <model>Moto Z</model>
       <camera>
-        <megapixels>5</megapixels>
+        <megapixels>13</megapixels>
         <optical-image-stabilization>False</optical-image-stabilization>
       </camera>
       <battery:battery xmlns:battery="https://www.w3.org/battery">
         <battery:type>LiPo</battery:type>
-        <battery:capacity>1420</battery:capacity>
+        <battery:capacity>2600</battery:capacity>
       </battery:battery>
       <display:display xmlns:display="https://www.w3.org/display">
-        <display:type>Retina</display:type>
-        <display:size>3.5</display:size>
-        <display:resolution>640x960</display:resolution>
+        <display:type>LED</display:type>
+        <display:size>5.5</display:size>
+        <display:resolution>1440 x 2560</display:resolution>
       </display:display>
       <processor>
-        <clock-speed>1.0</clock-speed>
+        <clock-speed>1.6</clock-speed>
         <cash-memory>1</cash-memory>
       </processor>
-      <ram-capacity>512</ram-capacity>
-      <storage-capacity>16</storage-capacity>
+      <ram-capacity>4</ram-capacity>
+      <storage-capacity>64</storage-capacity>
     </phone>
   
   <!--4. iPhone 7
@@ -229,26 +229,26 @@
   Front camera: 7MP-->
   <phone>
     <brand>Apple</brand>
-    <model>iPhone 4</model>
+    <model>iPhone 7</model>
     <camera>
-      <megapixels>5</megapixels>
+      <megapixels>12</megapixels>
       <optical-image-stabilization>False</optical-image-stabilization>
     </camera>
     <battery:battery xmlns:battery="https://www.w3.org/battery">
       <battery:type>LiPo</battery:type>
-      <battery:capacity>1420</battery:capacity>
+      <battery:capacity>1960</battery:capacity>
     </battery:battery>
     <display:display xmlns:display="https://www.w3.org/display">
-      <display:type>Retina</display:type>
-      <display:size>3.5</display:size>
-      <display:resolution>640x960</display:resolution>
+      <display:type>LED</display:type>
+      <display:size>4.7</display:size>
+      <display:resolution>750 x 1334 </display:resolution>
     </display:display>
     <processor>
       <clock-speed>1.0</clock-speed>
       <cash-memory>1</cash-memory>
     </processor>
-    <ram-capacity>512</ram-capacity>
-    <storage-capacity>16</storage-capacity>
+    <ram-capacity>2</ram-capacity>
+    <storage-capacity>128</storage-capacity>
   </phone>
 
   <!--3. iPhone 7 Plus
@@ -268,26 +268,26 @@
   Front camera: 7MP-->
   <phone>
     <brand>Apple</brand>
-    <model>iPhone 4</model>
+    <model>iPhone 7 Plus</model>
     <camera>
-      <megapixels>5</megapixels>
+      <megapixels>12</megapixels>
       <optical-image-stabilization>False</optical-image-stabilization>
     </camera>
     <battery:battery xmlns:battery="https://www.w3.org/battery">
       <battery:type>LiPo</battery:type>
-      <battery:capacity>1420</battery:capacity>
+      <battery:capacity>2900</battery:capacity>
     </battery:battery>
     <display:display xmlns:display="https://www.w3.org/display">
-      <display:type>Retina</display:type>
-      <display:size>3.5</display:size>
-      <display:resolution>640x960</display:resolution>
+      <display:type>LED</display:type>
+      <display:size>5.5</display:size>
+      <display:resolution>1080 x 1920</display:resolution>
     </display:display>
     <processor>
       <clock-speed>1.0</clock-speed>
       <cash-memory>1</cash-memory>
     </processor>
-    <ram-capacity>512</ram-capacity>
-    <storage-capacity>16</storage-capacity>
+    <ram-capacity>3</ram-capacity>
+    <storage-capacity>256</storage-capacity>
   </phone>
 
   <!--2. Samsung Galaxy S7
@@ -306,68 +306,29 @@
   Rear camera: 12MP 
   Front camera: 5MP-->
   <phone>
-    <brand>Apple</brand>
-    <model>iPhone 4</model>
+    <brand>Samsung</brand>
+    <model>Galaxy S7</model>
     <camera>
-      <megapixels>5</megapixels>
+      <megapixels>12</megapixels>
       <optical-image-stabilization>False</optical-image-stabilization>
     </camera>
     <battery:battery xmlns:battery="https://www.w3.org/battery">
       <battery:type>LiPo</battery:type>
-      <battery:capacity>1420</battery:capacity>
+      <battery:capacity>3000</battery:capacity>
     </battery:battery>
     <display:display xmlns:display="https://www.w3.org/display">
-      <display:type>Retina</display:type>
-      <display:size>3.5</display:size>
-      <display:resolution>640x960</display:resolution>
+      <display:type>LED</display:type>
+      <display:size>5.1</display:size>
+      <display:resolution>1440 x 2560</display:resolution>
     </display:display>
     <processor>
       <clock-speed>1.0</clock-speed>
       <cash-memory>1</cash-memory>
     </processor>
-    <ram-capacity>512</ram-capacity>
-    <storage-capacity>16</storage-capacity>
+    <ram-capacity>12</ram-capacity>
+    <storage-capacity>64</storage-capacity>
   </phone>
   
-  <!--2. Samsung Galaxy S7
-
-  One of two five star phones from Samsung
-
-  Weight: 152g 
-  Dimensions: 142.4 x 69.6 x 7.9 mm 
-  OS: Android Marshmallow 
-  Screen size: 5.1-inch 
-  Resolution: 1440 x 2560 
-  CPU: Exynos 8890 
-  RAM: 4GB 
-  Storage: 32GB/64GB 
-  Battery: 3000mAh 
-  Rear camera: 12MP 
-  Front camera: 5MP-->
-  <phone>
-    <brand>Apple</brand>
-    <model>iPhone 4</model>
-    <camera>
-      <megapixels>5</megapixels>
-      <optical-image-stabilization>False</optical-image-stabilization>
-    </camera>
-    <battery:battery xmlns:battery="https://www.w3.org/battery">
-      <battery:type>LiPo</battery:type>
-      <battery:capacity>1420</battery:capacity>
-    </battery:battery>
-    <display:display xmlns:display="https://www.w3.org/display">
-      <display:type>Retina</display:type>
-      <display:size>3.5</display:size>
-      <display:resolution>640x960</display:resolution>
-    </display:display>
-    <processor>
-      <clock-speed>1.0</clock-speed>
-      <cash-memory>1</cash-memory>
-    </processor>
-    <ram-capacity>512</ram-capacity>
-    <storage-capacity>16</storage-capacity>
-  </phone>
-
   <!--1. Samsung Galaxy S7 Edge
 
   The best smartphone in the world - it's a work of art
@@ -384,26 +345,26 @@
   Rear camera: 12MP 
   Front camera: 5MP-->
   <phone>
-  <brand>Apple</brand>
-  <model>iPhone 4</model>
-  <camera>
-    <megapixels>5</megapixels>
-    <optical-image-stabilization>False</optical-image-stabilization>
-  </camera>
-  <battery:battery xmlns:battery="https://www.w3.org/battery">
-    <battery:type>LiPo</battery:type>
-    <battery:capacity>1420</battery:capacity>
-  </battery:battery>
-  <display:display xmlns:display="https://www.w3.org/display">
-    <display:type>Retina</display:type>
-    <display:size>3.5</display:size>
-    <display:resolution>640x960</display:resolution>
-  </display:display>
-  <processor>
-    <clock-speed>1.0</clock-speed>
-    <cash-memory>1</cash-memory>
-  </processor>
-  <ram-capacity>512</ram-capacity>
-  <storage-capacity>16</storage-capacity>
-</phone>
+    <brand>Samsung</brand>
+    <model>Galaxy S7 Edge</model>
+    <camera>
+      <megapixels>12</megapixels>
+      <optical-image-stabilization>False</optical-image-stabilization>
+    </camera>
+    <battery:battery xmlns:battery="https://www.w3.org/battery">
+      <battery:type>LiPo</battery:type>
+      <battery:capacity>3600</battery:capacity>
+    </battery:battery>
+    <display:display xmlns:display="https://www.w3.org/display">
+      <display:type>LED</display:type>
+      <display:size>5.5</display:size>
+      <display:resolution>1440 x 2560 </display:resolution>
+    </display:display>
+    <processor>
+      <clock-speed>2.0</clock-speed>
+      <cash-memory>3</cash-memory>
+    </processor>
+    <ram-capacity>4</ram-capacity>
+    <storage-capacity>64</storage-capacity>
+  </phone>
 </phones>
