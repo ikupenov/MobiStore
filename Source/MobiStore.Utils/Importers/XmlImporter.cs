@@ -7,14 +7,16 @@ namespace MobiStore.Utils.Importers
 {
     public class XmlImporter<T> : IXmlImporter<T> where T : class
     {
+        private const string NullRepositoryMessage = "{0} constructor parameter {1} cannot be null.";
+
         private IRepository<T> repository;
 
         public XmlImporter(IRepository<T> repository)
         {
             if (repository == null)
             {
-                throw new ArgumentNullException(
-                    $"{this.GetType().Name} constructor parameter {repository.GetType().Name} cannot be null.");
+                string exceptionMessage = string.Format(NullRepositoryMessage, this.GetType().Name, repository.GetType().Name);
+                throw new ArgumentNullException(exceptionMessage);
             }
 
             this.repository = repository;

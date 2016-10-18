@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiStore.Models", "MobiSto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiStore.Data", "MobiStore.Data\MobiStore.Data.csproj", "{DCD7C403-C4F3-481F-B56F-E5159BDA74AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiStore.Client", "MobiStore.Client\MobiStore.Client.csproj", "{92A9387F-4ED1-4543-B46F-A4C232703A86}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiStore.Utils", "MobiStore.Utils\MobiStore.Utils.csproj", "{EA16DDB1-53C4-474B-953C-44AEC837EB14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiStore.Web", "MobiStore.Web\MobiStore.Web.csproj", "{5CC507D9-8F15-4EF8-A5EA-7DA0742F82D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +25,14 @@ Global
 		{DCD7C403-C4F3-481F-B56F-E5159BDA74AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCD7C403-C4F3-481F-B56F-E5159BDA74AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCD7C403-C4F3-481F-B56F-E5159BDA74AB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{92A9387F-4ED1-4543-B46F-A4C232703A86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{92A9387F-4ED1-4543-B46F-A4C232703A86}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{92A9387F-4ED1-4543-B46F-A4C232703A86}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{92A9387F-4ED1-4543-B46F-A4C232703A86}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EA16DDB1-53C4-474B-953C-44AEC837EB14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EA16DDB1-53C4-474B-953C-44AEC837EB14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA16DDB1-53C4-474B-953C-44AEC837EB14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA16DDB1-53C4-474B-953C-44AEC837EB14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CC507D9-8F15-4EF8-A5EA-7DA0742F82D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CC507D9-8F15-4EF8-A5EA-7DA0742F82D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CC507D9-8F15-4EF8-A5EA-7DA0742F82D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CC507D9-8F15-4EF8-A5EA-7DA0742F82D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

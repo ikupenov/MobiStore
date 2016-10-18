@@ -24,6 +24,12 @@ namespace MobiStore.Data
 
         public virtual IDbSet<MobileDevice> MobileDevices { get; set; }
 
+        public static MobiStoreDbContext Create()
+        {
+            MobiStoreDbContext instance = new MobiStoreDbContext();
+            return instance;
+        }
+
         IDbSet<T> IMobiStoreDbContext.Set<T>()
         {
             return base.Set<T>();
