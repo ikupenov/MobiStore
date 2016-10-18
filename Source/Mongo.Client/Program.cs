@@ -7,18 +7,25 @@ namespace Mongo.Client
 {
     public class Program
     {
-        static void Main(string[] args)
-        {
-            IMongoDatabase db = MongoDatabase.InitializeDocuments();
+        private const string ServerName = "mongodb://localhost";
+        private const string DatabaseName = "MobiStore";
 
-            MobileDevice phone = new MobileDevice
-            {
-                Battery = new Battery { Capacity = 4 },
-                Model = "dsadas"
-            };
+        public static void Main(string[] args)
+        {
+            IMongoDatabase db = MongoDatabase.GetDatabase(ServerName, DatabaseName);
 
             var phones = db.GetCollection<MobileDevice>("mobileDevices");
-            phones.InsertOne(phone);
+
+            for (int i = 0; i < 100; ++i)
+            {
+                MobileDevice phone = new MobileDevice
+                {
+                    Battery = new Battery { Capacity = 4 },
+                    Model = "dsadas"
+                };
+
+                phones.InsertOne(phone);
+            }
 
             var found = phones.Find(new BsonDocument()).ToList();
             System.Console.WriteLine();
