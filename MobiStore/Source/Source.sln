@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiStore.Models", "MobiStore.Models\MobiStore.Models.csproj", "{C65AEEA6-5269-4FDF-8F27-0EF0DC517318}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiStore.Data", "MobiStore.Data\MobiStore.Data.csproj", "{DCD7C403-C4F3-481F-B56F-E5159BDA74AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiStore.Utils", "MobiStore.Utils\MobiStore.Utils.csproj", "{EA16DDB1-53C4-474B-953C-44AEC837EB14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiStore.Web", "MobiStore.Web\MobiStore.Web.csproj", "{5CC507D9-8F15-4EF8-A5EA-7DA0742F82D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C65AEEA6-5269-4FDF-8F27-0EF0DC517318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C65AEEA6-5269-4FDF-8F27-0EF0DC517318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C65AEEA6-5269-4FDF-8F27-0EF0DC517318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C65AEEA6-5269-4FDF-8F27-0EF0DC517318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCD7C403-C4F3-481F-B56F-E5159BDA74AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCD7C403-C4F3-481F-B56F-E5159BDA74AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCD7C403-C4F3-481F-B56F-E5159BDA74AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCD7C403-C4F3-481F-B56F-E5159BDA74AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA16DDB1-53C4-474B-953C-44AEC837EB14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA16DDB1-53C4-474B-953C-44AEC837EB14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA16DDB1-53C4-474B-953C-44AEC837EB14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA16DDB1-53C4-474B-953C-44AEC837EB14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CC507D9-8F15-4EF8-A5EA-7DA0742F82D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CC507D9-8F15-4EF8-A5EA-7DA0742F82D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CC507D9-8F15-4EF8-A5EA-7DA0742F82D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CC507D9-8F15-4EF8-A5EA-7DA0742F82D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
