@@ -3,5 +3,7 @@
     public class File
     {
         public string Content { get; set; }
+
+        public string Extension { get; set; }
     }
 }

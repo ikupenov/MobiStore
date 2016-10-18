@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiStore.Utils", "MobiStor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiStore.Web", "MobiStore.Web\MobiStore.Web.csproj", "{5CC507D9-8F15-4EF8-A5EA-7DA0742F82D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiStore.WebClient", "MobiStore.WebClient\MobiStore.WebClient.csproj", "{CD31DD0D-C528-4934-A5BB-97E253B86FB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{5CC507D9-8F15-4EF8-A5EA-7DA0742F82D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CC507D9-8F15-4EF8-A5EA-7DA0742F82D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CC507D9-8F15-4EF8-A5EA-7DA0742F82D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD31DD0D-C528-4934-A5BB-97E253B86FB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD31DD0D-C528-4934-A5BB-97E253B86FB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD31DD0D-C528-4934-A5BB-97E253B86FB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD31DD0D-C528-4934-A5BB-97E253B86FB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
