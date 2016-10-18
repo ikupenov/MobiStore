@@ -1,4 +1,4 @@
-﻿namespace Mongo.Models.Enumerations
+﻿namespace MobiStore.Models.Enumerations
 {
     public enum BatteryType
     {

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Mongo.Client")]
+[assembly: AssemblyTitle("MobiStore.Data")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Mongo.Client")]
+[assembly: AssemblyProduct("MobiStore.Data")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("13de0d34-5c89-4dd9-b2ce-3adfe3110fff")]
+[assembly: Guid("dcd7c403-c4f3-481f-b56f-e5159bda74ab")]
 
 // Version information for an assembly consists of the following four values:
 //
