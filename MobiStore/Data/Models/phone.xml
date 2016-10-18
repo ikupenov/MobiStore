@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <phones>
-    <phone>
+  <phone>
         <brand>Apple</brand>
         <model>iPhone 4</model>
         <camera>
@@ -23,4 +23,387 @@
         <ram-capacity>512</ram-capacity>
         <storage-capacity>16</storage-capacity>
     </phone>
+  <!--8. LG G5
+
+  The best innovation in a smartphone we've seen this year
+  Weight: 159g
+  Dimensions: 149.4 x 73.9 x 7.7 mm
+  OS: Android Marshmallow
+  Screen size: 5.3-inch
+  Resolution: 2560 x 1440
+  CPU: value
+  RAM: 4GB
+  Storage: 32GB
+  Battery: 2800mAh
+  Rear camera: 16MP
+  Front camera: 8MP-->
+  <phone>
+      <brand>LG</brand>
+      <model>G5</model>
+      <camera>
+        <megapixels>8</megapixels>
+        <optical-image-stabilization>True</optical-image-stabilization>
+      </camera>
+      <battery:battery xmlns:battery="https://www.w3.org/battery">
+        <battery:type>LiIon</battery:type>
+        <battery:capacity>2800</battery:capacity>
+      </battery:battery>
+      <display:display xmlns:display="https://www.w3.org/display">
+        <display:type>LED</display:type>
+        <display:size>5.3</display:size>
+        <display:resolution>640x960</display:resolution>
+      </display:display>
+      <processor>
+        <clock-speed>1.6</clock-speed>
+        <cash-memory>2</cash-memory>
+      </processor>
+      <ram-capacity>2</ram-capacity>
+      <storage-capacity>32</storage-capacity>
+    </phone>
+
+  <!--9. Sony Xperia XZ
+  
+  Sony finally has its flagship
+  
+  Weight: 161g  
+  Dimensions: 146 x 72 x 8.1 mm  
+  OS: Android Marshmallow  
+  Screen size: 5.2-inch 
+  Resolution: 1920 x 1080 pixels 
+  CPU: Snapdragon 820 
+  RAM: 3GB 
+  Storage: 32/64GB 
+  microSD slot: Yes 
+  Battery: 2900mAh 
+  Rear camera: 23MP 
+  Front camera: 13MP-->
+  <phone>
+      <brand>Sony</brand>
+      <model>Xperia XZ</model>
+      <camera>
+        <megapixels>13</megapixels>
+        <optical-image-stabilization>True</optical-image-stabilization>
+      </camera>
+      <battery:battery xmlns:battery="https://www.w3.org/battery">
+        <battery:type>LiPo</battery:type>
+        <battery:capacity>2900</battery:capacity>
+      </battery:battery>
+      <display:display xmlns:display="https://www.w3.org/display">
+        <display:type>LED</display:type>
+        <display:size>5.2</display:size>
+        <display:resolution>1920 x 1080</display:resolution>
+      </display:display>
+      <processor>
+        <clock-speed>2.0</clock-speed>
+        <cash-memory>2</cash-memory>
+      </processor>
+      <ram-capacity>3</ram-capacity>
+      <storage-capacity>32</storage-capacity>
+    </phone>
+
+  <!--7. OnePlus 3
+  A genuine flagship killer
+  Weight: 158g 
+  Dimensions: 152.7 x 74.7 x 7.4 mm 
+  OS: Android Marshmallow 
+  Screen size: 5.5-inch 
+  Resolution: 1080 x 1920 
+  CPU: Snapdragon 820 
+  RAM: 6GB 
+  Storage: 64GB 
+  Battery: 3000mAh 
+  Rear camera: 16MP 
+  Front camera: 8MP-->
+  <phone>
+      <brand></brand>
+      <model>OnePlus 3</model>
+      <camera>
+        <megapixels>5</megapixels>
+        <optical-image-stabilization>False</optical-image-stabilization>
+      </camera>
+      <battery:battery xmlns:battery="https://www.w3.org/battery">
+        <battery:type>LiPo</battery:type>
+        <battery:capacity>1420</battery:capacity>
+      </battery:battery>
+      <display:display xmlns:display="https://www.w3.org/display">
+        <display:type>Retina</display:type>
+        <display:size>3.5</display:size>
+        <display:resolution>640x960</display:resolution>
+      </display:display>
+      <processor>
+        <clock-speed>1.0</clock-speed>
+        <cash-memory>1</cash-memory>
+      </processor>
+      <ram-capacity>512</ram-capacity>
+      <storage-capacity>16</storage-capacity>
+    </phone>
+
+  <!--6. HTC 10
+  Not 10/10, but the best phone for music by far
+
+  Weight: 161g 
+  Dimensions: 145.9 x 71.9 x 9 mm 
+  OS: Android Marshmallow 
+  Screen size: 5.2-inch 
+  Resolution: 1440 x 2560 
+  CPU: Snapdragon 820 
+  RAM: 4GB 
+  Storage: 32GB 
+  Battery: 3000mAh 
+  Rear camera: 12MP 
+  Front camera: 5MP-->
+  <phone>
+      <brand>Apple</brand>
+      <model>iPhone 4</model>
+      <camera>
+        <megapixels>5</megapixels>
+        <optical-image-stabilization>False</optical-image-stabilization>
+      </camera>
+      <battery:battery xmlns:battery="https://www.w3.org/battery">
+        <battery:type>LiPo</battery:type>
+        <battery:capacity>1420</battery:capacity>
+      </battery:battery>
+      <display:display xmlns:display="https://www.w3.org/display">
+        <display:type>Retina</display:type>
+        <display:size>3.5</display:size>
+        <display:resolution>640x960</display:resolution>
+      </display:display>
+      <processor>
+        <clock-speed>1.0</clock-speed>
+        <cash-memory>1</cash-memory>
+      </processor>
+      <ram-capacity>512</ram-capacity>
+      <storage-capacity>16</storage-capacity>
+    </phone>
+
+  <!--5. Motorola Moto Z
+  The world's thinnest smartphone is also the best modular phone
+
+  Weight: 136g 
+  Dimensions: 153.3 x 75.3 x 5.2 mm 
+  OS: Android Marshmallow 
+  Screen size: 5.5-inch 
+  Resolution: 1440 x 2560 
+  CPU: Snapdragon 820 
+  RAM: 4GB 
+  Storage: 32/64GB 
+  Battery: 2600mAh 
+  Rear camera: 13MP 
+  Front camera: 5MP-->
+  <phone>
+      <brand>Apple</brand>
+      <model>iPhone 4</model>
+      <camera>
+        <megapixels>5</megapixels>
+        <optical-image-stabilization>False</optical-image-stabilization>
+      </camera>
+      <battery:battery xmlns:battery="https://www.w3.org/battery">
+        <battery:type>LiPo</battery:type>
+        <battery:capacity>1420</battery:capacity>
+      </battery:battery>
+      <display:display xmlns:display="https://www.w3.org/display">
+        <display:type>Retina</display:type>
+        <display:size>3.5</display:size>
+        <display:resolution>640x960</display:resolution>
+      </display:display>
+      <processor>
+        <clock-speed>1.0</clock-speed>
+        <cash-memory>1</cash-memory>
+      </processor>
+      <ram-capacity>512</ram-capacity>
+      <storage-capacity>16</storage-capacity>
+    </phone>
+  
+  <!--4. iPhone 7
+
+  Weight: 138g 
+  Dimensions: 138.3 x 67.1 x 7.1mm 
+  OS: iOS 10 
+  Screen size: 4.7-inch 
+  Resolution: 750 x 1334 
+  CPU: Apple A10 Fusion 
+  RAM: 2GB 
+  Storage: 32/128/256GB 
+  Battery: 1960mAh 
+  Rear camera: 12MP 
+  Front camera: 7MP-->
+  <phone>
+    <brand>Apple</brand>
+    <model>iPhone 4</model>
+    <camera>
+      <megapixels>5</megapixels>
+      <optical-image-stabilization>False</optical-image-stabilization>
+    </camera>
+    <battery:battery xmlns:battery="https://www.w3.org/battery">
+      <battery:type>LiPo</battery:type>
+      <battery:capacity>1420</battery:capacity>
+    </battery:battery>
+    <display:display xmlns:display="https://www.w3.org/display">
+      <display:type>Retina</display:type>
+      <display:size>3.5</display:size>
+      <display:resolution>640x960</display:resolution>
+    </display:display>
+    <processor>
+      <clock-speed>1.0</clock-speed>
+      <cash-memory>1</cash-memory>
+    </processor>
+    <ram-capacity>512</ram-capacity>
+    <storage-capacity>16</storage-capacity>
+  </phone>
+
+  <!--3. iPhone 7 Plus
+
+  The best iPhone available right now
+
+  Weight: 188g 
+  Dimensions: 158.2 x 77.9 x 7.3mm 
+  OS: iOS 10 
+  Screen size: 5.5-inch 
+  Resolution: 1080 x 1920 
+  CPU: A10 Fusion 
+  RAM: 3GB 
+  Storage: 32/128/256GB 
+  Battery: 2900mAh 
+  Rear camera: 12MP+12MP 
+  Front camera: 7MP-->
+  <phone>
+    <brand>Apple</brand>
+    <model>iPhone 4</model>
+    <camera>
+      <megapixels>5</megapixels>
+      <optical-image-stabilization>False</optical-image-stabilization>
+    </camera>
+    <battery:battery xmlns:battery="https://www.w3.org/battery">
+      <battery:type>LiPo</battery:type>
+      <battery:capacity>1420</battery:capacity>
+    </battery:battery>
+    <display:display xmlns:display="https://www.w3.org/display">
+      <display:type>Retina</display:type>
+      <display:size>3.5</display:size>
+      <display:resolution>640x960</display:resolution>
+    </display:display>
+    <processor>
+      <clock-speed>1.0</clock-speed>
+      <cash-memory>1</cash-memory>
+    </processor>
+    <ram-capacity>512</ram-capacity>
+    <storage-capacity>16</storage-capacity>
+  </phone>
+
+  <!--2. Samsung Galaxy S7
+
+  One of two five star phones from Samsung
+
+  Weight: 152g 
+  Dimensions: 142.4 x 69.6 x 7.9 mm 
+  OS: Android Marshmallow 
+  Screen size: 5.1-inch 
+  Resolution: 1440 x 2560 
+  CPU: Exynos 8890 
+  RAM: 4GB 
+  Storage: 32GB/64GB 
+  Battery: 3000mAh 
+  Rear camera: 12MP 
+  Front camera: 5MP-->
+  <phone>
+    <brand>Apple</brand>
+    <model>iPhone 4</model>
+    <camera>
+      <megapixels>5</megapixels>
+      <optical-image-stabilization>False</optical-image-stabilization>
+    </camera>
+    <battery:battery xmlns:battery="https://www.w3.org/battery">
+      <battery:type>LiPo</battery:type>
+      <battery:capacity>1420</battery:capacity>
+    </battery:battery>
+    <display:display xmlns:display="https://www.w3.org/display">
+      <display:type>Retina</display:type>
+      <display:size>3.5</display:size>
+      <display:resolution>640x960</display:resolution>
+    </display:display>
+    <processor>
+      <clock-speed>1.0</clock-speed>
+      <cash-memory>1</cash-memory>
+    </processor>
+    <ram-capacity>512</ram-capacity>
+    <storage-capacity>16</storage-capacity>
+  </phone>
+  
+  <!--2. Samsung Galaxy S7
+
+  One of two five star phones from Samsung
+
+  Weight: 152g 
+  Dimensions: 142.4 x 69.6 x 7.9 mm 
+  OS: Android Marshmallow 
+  Screen size: 5.1-inch 
+  Resolution: 1440 x 2560 
+  CPU: Exynos 8890 
+  RAM: 4GB 
+  Storage: 32GB/64GB 
+  Battery: 3000mAh 
+  Rear camera: 12MP 
+  Front camera: 5MP-->
+  <phone>
+    <brand>Apple</brand>
+    <model>iPhone 4</model>
+    <camera>
+      <megapixels>5</megapixels>
+      <optical-image-stabilization>False</optical-image-stabilization>
+    </camera>
+    <battery:battery xmlns:battery="https://www.w3.org/battery">
+      <battery:type>LiPo</battery:type>
+      <battery:capacity>1420</battery:capacity>
+    </battery:battery>
+    <display:display xmlns:display="https://www.w3.org/display">
+      <display:type>Retina</display:type>
+      <display:size>3.5</display:size>
+      <display:resolution>640x960</display:resolution>
+    </display:display>
+    <processor>
+      <clock-speed>1.0</clock-speed>
+      <cash-memory>1</cash-memory>
+    </processor>
+    <ram-capacity>512</ram-capacity>
+    <storage-capacity>16</storage-capacity>
+  </phone>
+
+  <!--1. Samsung Galaxy S7 Edge
+
+  The best smartphone in the world - it's a work of art
+
+  Weight: 157g 
+  Dimensions: 150.9 x 72.6 x 7.7 mm 
+  OS: Android Marshmallow 
+  Screen size: 5.5-inch 
+  Resolution: 1440 x 2560 
+  CPU: Exynos 8890 
+  RAM: 4GB 
+  Storage: 32GB/64GB 
+  Battery: 3600mAh 
+  Rear camera: 12MP 
+  Front camera: 5MP-->
+  <phone>
+  <brand>Apple</brand>
+  <model>iPhone 4</model>
+  <camera>
+    <megapixels>5</megapixels>
+    <optical-image-stabilization>False</optical-image-stabilization>
+  </camera>
+  <battery:battery xmlns:battery="https://www.w3.org/battery">
+    <battery:type>LiPo</battery:type>
+    <battery:capacity>1420</battery:capacity>
+  </battery:battery>
+  <display:display xmlns:display="https://www.w3.org/display">
+    <display:type>Retina</display:type>
+    <display:size>3.5</display:size>
+    <display:resolution>640x960</display:resolution>
+  </display:display>
+  <processor>
+    <clock-speed>1.0</clock-speed>
+    <cash-memory>1</cash-memory>
+  </processor>
+  <ram-capacity>512</ram-capacity>
+  <storage-capacity>16</storage-capacity>
+</phone>
 </phones>
