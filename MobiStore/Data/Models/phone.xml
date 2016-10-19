@@ -5,17 +5,17 @@
         <model>iPhone 4</model>
         <camera>
             <megapixels>5</megapixels>
-            <optical-image-stabilization>False</optical-image-stabilization>
+            <resolution>1920x1080</resolution>
         </camera>
-        <battery:battery xmlns:battery="https://www.w3.org/battery">
-            <battery:type>LiPo</battery:type>
-            <battery:capacity>1420</battery:capacity>
-        </battery:battery>
-        <display:display xmlns:display="https://www.w3.org/display">
-            <display:type>Retina</display:type>
-            <display:size>3.5</display:size>
-            <display:resolution>640x960</display:resolution>
-        </display:display>
+        <battery>
+            <type>LiPo</type>
+            <capacity>1420</capacity>
+        </battery>
+        <display>
+            <type>Retina</type>
+            <size>3.5</size>
+            <resolution>640x960</resolution>
+        </display>
         <processor>
             <clock-speed>1.0</clock-speed>
             <cash-memory>1</cash-memory>
