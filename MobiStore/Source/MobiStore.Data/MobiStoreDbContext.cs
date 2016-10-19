@@ -4,6 +4,8 @@ using MobiStore.Data.Contracts;
 using MobiStore.Models.Common;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
+using MobiStore.Models;
+using MobiStore.Models.Reports;
 
 namespace MobiStore.Data
 {
@@ -23,6 +25,14 @@ namespace MobiStore.Data
         public virtual IDbSet<Processor> Processors { get; set; }
 
         public virtual IDbSet<MobileDevice> MobileDevices { get; set; }
+
+        public virtual IDbSet<Employee> Employees { get; set; }
+
+        public virtual IDbSet<Shop> Shops { get; set; }
+
+        public virtual IDbSet<Sale> Sales { get; set; }
+
+        public virtual IDbSet<SalesReport> SalesReports { get; set; }
 
         public static MobiStoreDbContext Create()
         {
