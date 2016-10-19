@@ -2,6 +2,7 @@
 using System.Data.OleDb;
 using System.IO;
 using System.IO.Compression;
+
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace MobiStore.Utils.Readers
@@ -49,12 +50,12 @@ namespace MobiStore.Utils.Readers
 
         private static DataTable ReadExcelData(string excelFilePath, string connectionString, string workSheetName)
         {
-            OleDbConnection excelConnection = new OleDbConnection(string.Format(connectionString, excelFilePath));
-            DataTable dataTable = new DataTable();
+            var excelConnection = new OleDbConnection(string.Format(connectionString, excelFilePath));
+            var dataTable = new DataTable();
 
             excelConnection.Open();
             string selectQuery = string.Format(SelectTableQuery, workSheetName);
-            OleDbDataAdapter dataAdapter = new OleDbDataAdapter(selectQuery, excelConnection);
+            var dataAdapter = new OleDbDataAdapter(selectQuery, excelConnection);
 
             dataAdapter.Fill(dataTable);
             excelConnection.Close();
