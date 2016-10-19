@@ -30,8 +30,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.Office.Interop.Excel\15.0.0.0__71e9bce111e9429c\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,15 +51,19 @@
     <Compile Include="Contracts\IXmlParser.cs" />
     <Compile Include="Importers\XmlImporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Readers\ExcelReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exporters\" />
-    <Folder Include="Parsers\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MobiStore.Data\MobiStore.Data.csproj">
       <Project>{dcd7c403-c4f3-481f-b56f-e5159bda74ab}</Project>
       <Name>MobiStore.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobiStore.Models\MobiStore.Models.csproj">
+      <Project>{C65AEEA6-5269-4FDF-8F27-0EF0DC517318}</Project>
+      <Name>MobiStore.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
