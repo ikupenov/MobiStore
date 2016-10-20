@@ -41,6 +41,8 @@ namespace MobiStore.Utils.Importers
                 {
                     Sale sale = CreateSale(row, db);
                     db.Sales.Add(sale);
+                    sale.SalesReport = report;
+                    sale.SalesReportId = report.Id;
                     report.Sales.Add(sale);
                 }
 
@@ -89,7 +91,7 @@ namespace MobiStore.Utils.Importers
             var totalValue = int.Parse(row["TotalValue"].ToString());
             var currency = (CurrencyType)Enum.Parse(typeof(CurrencyType), row["Currency"].ToString());
 
-            Sale report = new Sale
+            Sale sale = new Sale
             {
                 ShopId = shopId,
                 Shop = shop,
@@ -102,7 +104,7 @@ namespace MobiStore.Utils.Importers
                 TotalValue = totalValue,
                 Currency = currency
             };
-            return report;
+            return sale;
         }
 
         private static Shop CreateShop(Guid id, string name)

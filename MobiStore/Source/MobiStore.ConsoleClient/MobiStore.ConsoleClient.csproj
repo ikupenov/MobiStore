@@ -47,6 +47,10 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.Office.Interop.Excel\15.0.0.0__71e9bce111e9429c\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -65,11 +69,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="DataFiles\Excels\2016.10.17\MobiStore Banishora-2016.10.17-The first sale report.xls" />
+    <None Include="DataFiles\Excels\2016.10.17\MobiStore Dragoman-2016.10.17-The first sale report.xls" />
+    <None Include="DataFiles\Excels\2016.10.17\MobiStore Mladost-2016.10.17-The first sale report.xlsx.xls" />
+    <None Include="DataFiles\Excels\2016.10.18\MobiStore Banishora-2016.10.18-The first sale report.xls" />
+    <None Include="DataFiles\Excels\2016.10.18\MobiStore Dragoman-2016.10.18-The first sale report.xls" />
+    <None Include="DataFiles\Excels\2016.10.18\MobiStore Mladost-2016.10.18-The first sale report.xls" />
+    <None Include="DataFiles\Excels\2016.10.19\MobiStore Banishora-2016.10.19-The first sale report.xls" />
+    <None Include="DataFiles\Excels\2016.10.19\MobiStore Dragoman-2016.10.19-The first sale report.xls" />
+    <None Include="DataFiles\Excels\2016.10.19\MobiStore Mladost-2016.10.19-The first sale report.xls" />
+    <None Include="DataFiles\Excels\2016.10.20\MobiStore Mladost-2016.10.20-The first sale report.xls" />
     <None Include="DataFiles\Zips\Input.zip" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataFiles\Excels\" />
     <Folder Include="DataFiles\Jsons\" />
     <Folder Include="DataFiles\Xmls\" />
   </ItemGroup>
