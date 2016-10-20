@@ -104,6 +104,7 @@ namespace MobiStore.Utils.Importers
                 TotalValue = totalValue,
                 Currency = currency
             };
+
             return sale;
         }
 

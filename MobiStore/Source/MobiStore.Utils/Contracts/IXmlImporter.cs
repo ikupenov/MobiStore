@@ -1,7 +1,7 @@
 ﻿namespace MobiStore.Utils.Contracts
 {
-    public interface IXmlImporter<T> where T : class
+    public interface IXmlImporter
     {
-        void Import(T fileToImport);
+        void Import(string xmlFilePath);
     }
 }

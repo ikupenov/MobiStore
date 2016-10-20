@@ -8,6 +8,7 @@ namespace MobiStore.Data
         {
             IMongoClient client = new MongoClient(serverName);
             IMongoDatabase database = client.GetDatabase(databaseName);
+
             return database;
         }
     }

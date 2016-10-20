@@ -18,7 +18,7 @@
         </display:display>
         <processor>
             <clock-speed>1.0</clock-speed>
-            <cash-memory>1</cash-memory>
+            <cache-memory>1</cache-memory>
         </processor>
         <ram-capacity>512</ram-capacity>
         <storage-capacity>16</storage-capacity>

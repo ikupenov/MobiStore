@@ -1,8 +1,11 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Xml.Serialization;
 
 using MobiStore.Data;
 using MobiStore.Utils.Importers;
-using System;
+using MobiStore.Models;
+using MobiStore.Models.MobileDevices;
 using MobiStore.Utils.Exporters;
 
 namespace MobiStore.ConsoleClient
@@ -21,8 +24,10 @@ namespace MobiStore.ConsoleClient
             //MobiStoreData.Initialize();
             //MobiStoreDbContext.Create().Database.Initialize(true);
 
-            DirectoryInfo jsonDirectory = new DirectoryInfo("../../DataFiles/Jsons");
-            JsonReporter.CreateReports(new MobiStoreData(), jsonDirectory);
+            //DirectoryInfo jsonDirectory = new DirectoryInfo("../../DataFiles/Jsons");
+            //JsonReporter.CreateReports(new MobiStoreData(), jsonDirectory);
+
+            //var xmlImporter = new XmlImporter(new MobiStoreData(), new XmlSerializer(typeof(Shop)));
         }
     }
 }

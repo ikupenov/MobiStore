@@ -1,29 +1,49 @@
 ﻿using System;
+using System.IO;
+using System.Xml.Serialization;
 
 using MobiStore.Data.Contracts;
+using MobiStore.Models;
 using MobiStore.Utils.Contracts;
 
 namespace MobiStore.Utils.Importers
 {
-    public class XmlImporter<T> : IXmlImporter<T> where T : class
+    public class XmlImporter : IXmlImporter
     {
-        private IRepository<T> repository;
+        private const string NullExceptionMessage = "The provided parameter [{0}] in {1}'s constructor cannot be null.";
 
-        public XmlImporter(IRepository<T> repository)
+        private IMobiStoreData mobiStoreData;
+        private XmlSerializer serializer;
+
+        public XmlImporter(IMobiStoreData mobiStoreData, XmlSerializer serializer)
         {
-            if (repository == null)
+            if (mobiStoreData == null)
             {
-                var exceptionMessage =
-                    $"{this.GetType().Name} constructor parameter {repository.GetType().Name} cannot be null";
-                throw new ArgumentNullException(exceptionMessage);
+                var exceptionMsg = string.Format(NullExceptionMessage, mobiStoreData.GetType().Name, this.GetType().Name);
+                throw new ArgumentNullException(exceptionMsg);
             }
 
-            this.repository = repository;
+            if (serializer == null)
+            {
+                var exceptionMsg = string.Format(NullExceptionMessage, serializer.GetType().Name, this.GetType().Name);
+                throw new ArgumentNullException(exceptionMsg);
+            }
+
+            this.mobiStoreData = mobiStoreData;
+            this.serializer = serializer;
         }
 
-        public void Import(T fileToImport)
+        public void Import(string xmlFilePath)
         {
-            this.repository.Add(fileToImport);
+            using (var fileStream = new FileStream(xmlFilePath, FileMode.Open))
+            {
+                var shop = (Shop)this.serializer.Deserialize(fileStream);
+
+                foreach (var mobileDevice in shop.MobileDevices)
+                {
+                    this.mobiStoreData.MobileDevices.Add(mobileDevice);
+                }
+            }
         }
     }
 }
