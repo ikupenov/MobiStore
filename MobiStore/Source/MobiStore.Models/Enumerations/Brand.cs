@@ -14,6 +14,6 @@
         Acer = 9,
         BlackBerry = 10,
         OnePlus = 11,
-        Motorola
+        Motorola = 12
     }
 }
