@@ -41,8 +41,11 @@ namespace MobiStore.Utils.Importers
 
                 foreach (var mobileDevice in shop.MobileDevices)
                 {
+                    Console.WriteLine(mobileDevice.Brand);
                     this.mobiStoreData.MobileDevices.Add(mobileDevice);
                 }
+
+                this.mobiStoreData.SaveChanges();
             }
         }
     }

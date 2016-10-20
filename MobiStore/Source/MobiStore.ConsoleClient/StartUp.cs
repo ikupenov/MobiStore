@@ -28,6 +28,7 @@ namespace MobiStore.ConsoleClient
             //JsonReporter.CreateReports(new MobiStoreData(), jsonDirectory);
 
             var xmlImporter = new XmlImporter(new MobiStoreData(), new XmlSerializer(typeof(Shop)));
+            xmlImporter.Import(@"C:\Users\Ilian\Documents\Telerik\Telerik Projects\Database\MobiStore\MobiStore\Data\Models\shop.xml");
         }
     }
 }

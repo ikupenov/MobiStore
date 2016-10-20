@@ -1,8 +1,5 @@
 using System.Data.Entity.Migrations;
 
-using MobiStore.Models.Enumerations;
-using MobiStore.Models.MobileDevices.Components;
-
 namespace MobiStore.Data.Migrations
 {
     public sealed class Configuration : DbMigrationsConfiguration<MobiStoreDbContext>
