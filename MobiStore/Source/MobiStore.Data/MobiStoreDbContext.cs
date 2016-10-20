@@ -1,10 +1,10 @@
 ﻿using System.Data.Entity;
 
 using MobiStore.Data.Contracts;
+using MobiStore.Models;
 using MobiStore.Models.Common;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
-using MobiStore.Models;
 using MobiStore.Models.Reports;
 
 namespace MobiStore.Data

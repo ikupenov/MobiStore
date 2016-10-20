@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using MobiStore.Models.MobileDevices;
 using MobiStore.Models.Enumerations;
+using MobiStore.Models.MobileDevices;
 
 namespace MobiStore.Models.Reports
 {

@@ -5,13 +5,15 @@ using System.Data.Entity;
 using MobiStore.Data.Contracts;
 using MobiStore.Data.Migrations;
 using MobiStore.Data.Repositories;
+using MobiStore.Models;
 using MobiStore.Models.Common;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
+using MobiStore.Models.Reports;
 
 namespace MobiStore.Data
 {
-    public class MobiStoreData
+    public class MobiStoreData : IMobiStoreData
     {
         private IMobiStoreDbContext context;
         private IDictionary<Type, object> repositories;
@@ -64,6 +66,38 @@ namespace MobiStore.Data
             get
             {
                 return this.GetRepository<Country>();
+            }
+        }
+
+        public IRepository<Shop> Shops
+        {
+            get
+            {
+                return this.GetRepository<Shop>(); 
+            }
+        }
+
+        public IRepository<Employee> Employees
+        {
+            get
+            {
+                return this.GetRepository<Employee>(); 
+            }
+        }
+
+        public IRepository<Sale> Sales
+        {
+            get
+            {
+                return this.GetRepository<Sale>(); 
+            }
+        }
+
+        public IRepository<SalesReport> SalesReports
+        {
+            get
+            {
+                return this.GetRepository<SalesReport>(); 
             }
         }
 
