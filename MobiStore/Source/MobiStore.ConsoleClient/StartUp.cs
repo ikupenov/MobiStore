@@ -27,7 +27,7 @@ namespace MobiStore.ConsoleClient
             //DirectoryInfo jsonDirectory = new DirectoryInfo("../../DataFiles/Jsons");
             //JsonReporter.CreateReports(new MobiStoreData(), jsonDirectory);
 
-            //var xmlImporter = new XmlImporter(new MobiStoreData(), new XmlSerializer(typeof(Shop)));
+            var xmlImporter = new XmlImporter(new MobiStoreData(), new XmlSerializer(typeof(Shop)));
         }
     }
 }
