@@ -7,6 +7,7 @@ using MobiStore.Utils.Importers;
 using MobiStore.Models;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Utils.Exporters;
+using MobiStore.Utils.Importers.XmlImporters;
 
 namespace MobiStore.ConsoleClient
 {
@@ -27,8 +28,8 @@ namespace MobiStore.ConsoleClient
             //DirectoryInfo jsonDirectory = new DirectoryInfo("../../DataFiles/Jsons");
             //JsonReporter.CreateReports(new MobiStoreData(), jsonDirectory);
 
-            var xmlImporter = new XmlImporter(new MobiStoreData(), new XmlSerializer(typeof(Shop)));
-            xmlImporter.Import(@"C:\Users\belch\Desktop\MobiStore\MobiStore\Data\Models\shop.xml");
+            var xmlImporter = new MobileDeviceXmlImporter(new MobiStoreData(), new XmlSerializer(typeof(Shop)));
+            xmlImporter.Import(@"..\..\..\..\Data\Models\shop.xml");
         }
     }
 }

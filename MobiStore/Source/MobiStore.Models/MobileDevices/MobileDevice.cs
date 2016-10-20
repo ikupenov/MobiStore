@@ -25,6 +25,7 @@ namespace MobiStore.Models.MobileDevices
         public Brand Brand { get; set; }
 
         [XmlElement("brand")]
+        [NotMapped]
         public string BrandAsString
         {
             get

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Xml.Serialization;
 
 using MobiStore.Models.Common;
@@ -24,6 +25,7 @@ namespace MobiStore.Models.MobileDevices.Components
         public DisplayType Type { get; set; }
 
         [XmlElement("type")]
+        [NotMapped]
         public string TypeAsString
         {
             get
