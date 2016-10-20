@@ -3,6 +3,7 @@
     public enum DisplayType
     {
         Retina = 1,
-        AMO = 2
+        AMO = 2,
+        LED = 3
     }
 }

@@ -12,6 +12,8 @@
         Lenovo = 7,
         HP = 8,
         Acer = 9,
-        BlackBerry = 10
+        BlackBerry = 10,
+        OnePlus = 11,
+        Motorola
     }
 }

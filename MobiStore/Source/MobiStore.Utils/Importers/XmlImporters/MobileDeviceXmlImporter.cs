@@ -25,9 +25,9 @@ namespace MobiStore.Utils.Importers.XmlImporters
             using (var fileStream = new FileStream(xmlFilePath, FileMode.Open))
             {
                 var shop = (Shop)this.Serializer.Deserialize(fileStream);
-                var devices = shop.MobileDevices.ToList();
+                var mobileDevices = shop.MobileDevices.ToList();
 
-                foreach (MobileDevice mobileDevice in devices)
+                foreach (MobileDevice mobileDevice in mobileDevices)
                 {
                     Battery battery = this.mobileDeviceBuilder.CreateBattery(
                         mobileDevice.Battery.Type,

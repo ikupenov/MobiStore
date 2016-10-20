@@ -21,18 +21,180 @@
         <cache-memory>1</cache-memory>
     </processor>
   </mobile-device>
-</shop>
-  <!--8. LG G5
 
-  The best innovation in a smartphone we've seen this year
-  Weight: 159g
-  Dimensions: 149.4 x 73.9 x 7.7 mm
-  OS: Android Marshmallow
-  Screen size: 5.3-inch
-  Resolution: 2560 x 1440
-  CPU: value
-  RAM: 4GB
-  Storage: 32GB
-  Battery: 2800mAh
-  Rear camera: 16MP
-  Front camera: 8MP-->
+  <mobile-device>
+      <brand>LG</brand>
+      <model>G5</model>
+      <camera>
+        <megapixels>8</megapixels>
+        <resolution>1920x1080</resolution>
+      </camera>
+      <battery>
+        <type>LiIon</type>
+        <capacity>2800</capacity>
+      </battery>
+      <display>
+        <type>LED</type>
+        <size>5.3</size>
+        <resolution>640x960</resolution>
+      </display>
+      <processor>
+        <clock-speed>1.6</clock-speed>
+        <cache-memory>2</cache-memory>
+      </processor>
+    </mobile-device>
+
+    <mobile-device>
+      <brand>Sony</brand>
+      <model>Xperia XZ</model>
+      <camera>
+        <megapixels>13</megapixels>
+        <resolution>1920x1080</resolution>
+      </camera>
+      <battery>
+        <type>LiPo</type>
+        <capacity>2900</capacity>
+      </battery>
+      <display>
+        <type>LED</type>
+        <size>5.2</size>
+        <resolution>1920x1080</resolution>
+      </display>
+      <processor>
+        <clock-speed>2.0</clock-speed>
+        <cache-memory>2</cache-memory>
+      </processor>
+    </mobile-device>
+
+    <mobile-device>
+      <brand>OnePlus</brand>
+      <model>OnePlus 3</model>
+      <camera>
+        <megapixels>16</megapixels>
+        <resolution>1920x1080</resolution>
+      </camera>
+      <battery>
+        <type>LiPo</type>
+        <capacity>3000</capacity>
+      </battery>
+      <display>
+        <type>LED</type>
+        <size>5.5</size>
+        <resolution>1080x1920</resolution>
+      </display>
+      <processor>
+        <clock-speed>1.6</clock-speed>
+        <cache-memory>3</cache-memory>
+      </processor>
+    </mobile-device>
+
+    <mobile-device>
+      <brand>Motorola</brand>
+      <model>Moto Z</model>
+      <camera>
+        <megapixels>13</megapixels>
+        <resolution>1920x1080</resolution>
+      </camera>
+      <battery>
+        <type>LiPo</type>
+        <capacity>2600</capacity>
+      </battery>
+      <display>
+        <type>LED</type>
+        <size>5.5</size>
+        <resolution>1440x2560</resolution>
+      </display>
+      <processor>
+        <clock-speed>1.6</clock-speed>
+        <cache-memory>1</cache-memory>
+      </processor>
+    </mobile-device>
+
+  <mobile-device>
+    <brand>Apple</brand>
+    <model>iPhone 7</model>
+    <camera>
+      <megapixels>12</megapixels>
+      <resolution>1920x1080</resolution>
+    </camera>
+    <battery>
+      <battery>LiPo</battery>
+      <battery>1960</battery>
+    </battery>
+    <display>
+      <display>LED</display>
+      <display>4.7</display>
+      <display>750x1334</display>
+    </display>
+    <processor>
+      <clock-speed>1.0</clock-speed>
+      <cache-memory>1</cache-memory>
+    </processor>
+  </mobile-device>
+
+  <mobile-device>
+    <brand>Apple</brand>
+    <model>iPhone 7 Plus</model>
+    <camera>
+      <megapixels>12</megapixels>
+      <resolution>1920x1080</resolution>
+    </camera>
+    <battery>
+      <type>LiPo</type>
+      <capacity>2900</capacity>
+    </battery>
+    <display>
+      <type>LED</type>
+      <size>5.5</size>
+      <resolution>1080x1920</resolution>
+    </display>
+    <processor>
+      <clock-speed>1.0</clock-speed>
+      <cache-memory>1</cache-memory>
+    </processor>
+  </mobile-device>
+
+  <mobile-device>
+    <brand>Samsung</brand>
+    <model>Galaxy S7</model>
+    <camera>
+      <megapixels>12</megapixels>
+      <resolution>1920x1080</resolution>
+    </camera>
+    <battery>
+      <type>LiPo</type>
+      <capacity>3000</capacity>
+    </battery>
+    <display>
+      <type>LED</type>
+      <size>5.1</size>
+      <resolution>1440x2560</resolution>
+    </display>
+    <processor>
+      <clock-speed>1.0</clock-speed>
+      <cache-memory>1</cache-memory>
+    </processor>
+  </mobile-device>
+
+  <mobile-device>
+    <brand>Samsung</brand>
+    <model>Galaxy S7 Edge</model>
+    <camera>
+      <megapixels>12</megapixels>
+      <resolution>1920x1080</resolution>
+    </camera>
+    <battery>
+      <type>LiPo</type>
+      <capacity>3600</capacity>
+    </battery>
+    <display>
+      <type>LED</type>
+      <size>5.5</size>
+      <resolution>1440x2560</resolution>
+    </display>
+    <processor>
+      <clock-speed>2.0</clock-speed>
+      <cache-memory>3</cache-memory>
+    </processor>
+  </mobile-device>
+</shop>
