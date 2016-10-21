@@ -18,7 +18,7 @@ namespace MobiStore.ConsoleClient
             CreateDatabase();
             var seeder = new MongoSeeder();
 
-            // seeder.SeedDatabase("mongodb://localhost:27017", "MobiStore");
+            seeder.SeedDatabase("mongodb://localhost:27017", "MobiStore");
             var mongoDb = MongoDb.GetInstance("mongodb://localhost:27017", "MobiStore");
             var sqlServerDb = new MobiStoreData();
             var mongo = new MongoDb();

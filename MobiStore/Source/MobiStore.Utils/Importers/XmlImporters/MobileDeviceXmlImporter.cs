@@ -6,18 +6,18 @@ using MobiStore.Data.Contracts;
 using MobiStore.Models;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
-using MobiStore.Utils.Builders;
+using MobiStore.Utils.Factories;
 
 namespace MobiStore.Utils.Importers.XmlImporters
 {
     public class MobileDeviceXmlImporter : XmlImporter
     {
-        private MobileDeviceBuilder mobileDeviceBuilder;
+        private MobileDeviceFactory mobileDeviceBuilder;
 
         public MobileDeviceXmlImporter(IMobiStoreData mobiStoreData, XmlSerializer serializer)
             : base(mobiStoreData, serializer)
         {
-            this.mobileDeviceBuilder = new MobileDeviceBuilder();
+            this.mobileDeviceBuilder = new MobileDeviceFactory();
         }
 
         public override void Import(string xmlFilePath)
