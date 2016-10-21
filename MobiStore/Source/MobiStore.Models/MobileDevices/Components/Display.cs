@@ -32,6 +32,7 @@ namespace MobiStore.Models.MobileDevices.Components
             {
                 return this.Type.ToString();
             }
+
             set
             {
                 if (string.IsNullOrEmpty(value))
@@ -44,6 +45,7 @@ namespace MobiStore.Models.MobileDevices.Components
                 }
             }
         }
+
         [XmlElement("size")]
         public double Size { get; set; }
 

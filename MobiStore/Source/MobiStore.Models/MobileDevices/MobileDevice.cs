@@ -32,6 +32,7 @@ namespace MobiStore.Models.MobileDevices
             {
                 return this.Brand.ToString();
             }
+
             set
             {
                 if (string.IsNullOrEmpty(value))

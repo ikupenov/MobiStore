@@ -33,6 +33,5 @@ namespace MobiStore.Utils.Importers
         protected XmlSerializer Serializer { get; private set; }
 
         public abstract void Import(string xmlFilePath);
-
     }
 }

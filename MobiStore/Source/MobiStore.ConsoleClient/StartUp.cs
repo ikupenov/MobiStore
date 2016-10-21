@@ -1,13 +1,9 @@
-﻿using System;
-using System.IO;
-using System.Xml.Serialization;
+﻿using System.IO;
+using System.IO.Compression;
 
 using MobiStore.Data;
-using MobiStore.Utils.Importers;
-using MobiStore.Models;
-using MobiStore.Models.MobileDevices;
 using MobiStore.Utils.Exporters;
-using MobiStore.Utils.Importers.XmlImporters;
+using MobiStore.Utils.Importers;
 
 namespace MobiStore.ConsoleClient
 {
@@ -18,18 +14,30 @@ namespace MobiStore.ConsoleClient
 
         private static void Main()
         {
-            // ZipFile.ExtractToDirectory(PathOfZip, ExtractedFilePath);
-            //DirectoryInfo root = new DirectoryInfo(ExtractedFilePath);
-            //ExcelImporter.ImportReports(root, new MobiStoreData());
+            CreateDatabase();
+        }
 
+        private static void CreateDatabase()
+        {
             MobiStoreData.Initialize();
             MobiStoreDbContext.Create().Database.Initialize(true);
+        }
 
-            //DirectoryInfo jsonDirectory = new DirectoryInfo("../../DataFiles/Jsons");
-            //JsonReporter.CreateReports(new MobiStoreData(), jsonDirectory);
+        private static void ReadExcelReports()
+        {
+            DirectoryInfo root = new DirectoryInfo(ExtractedFilePath);
+            if (root.GetDirectories().Length == 0)
+            {
+                ZipFile.ExtractToDirectory(PathOfZip, ExtractedFilePath);
+            }
 
-            var xmlImporter = new MobileDeviceXmlImporter(new MobiStoreData(), new XmlSerializer(typeof(Shop)));
-            xmlImporter.Import(@"..\..\..\..\Data\Models\shop.xml");
+            ExcelImporter.ImportReports(root, new MobiStoreData());
+        }
+
+        private static void CreateJsonReports()
+        {
+            DirectoryInfo jsonDirectory = new DirectoryInfo("../../DataFiles/Jsons");
+            JsonReporter.CreateReports(new MobiStoreData(), jsonDirectory);
         }
     }
 }
