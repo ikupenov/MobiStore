@@ -5,6 +5,10 @@ using System.Xml.Serialization;
 using MobiStore.Data.Contracts;
 using MobiStore.Models;
 using MobiStore.Utils.Contracts;
+using System.Linq;
+using MobiStore.Data;
+using MobiStore.Models.MobileDevices;
+using MobiStore.Models.MobileDevices.Components;
 
 namespace MobiStore.Utils.Importers
 {
@@ -38,11 +42,46 @@ namespace MobiStore.Utils.Importers
             using (var fileStream = new FileStream(xmlFilePath, FileMode.Open))
             {
                 var shop = (Shop)this.serializer.Deserialize(fileStream);
+                var devices = shop.MobileDevices.ToList();
 
-                foreach (var mobileDevice in shop.MobileDevices)
+                foreach (var mobileDevice in devices)
                 {
-                    Console.WriteLine(mobileDevice.Brand);
-                    this.mobiStoreData.MobileDevices.Add(mobileDevice);
+                    var battery = new Battery
+                    {
+                        Type = mobileDevice.Battery.Type,
+                        TypeAsString = mobileDevice.Battery.TypeAsString,
+                        Capacity = mobileDevice.Battery.Capacity        
+                    };
+
+                    this.mobiStoreData.Batteries.Add(battery);
+
+                    var display = new Display
+                    {
+                        Resolution = mobileDevice.Display.Resolution,
+                        Size = mobileDevice.Display.Size,
+                        TypeAsString = mobileDevice.Display.TypeAsString,
+                        Type = mobileDevice.Display.Type
+                    };
+                    this.mobiStoreData.Displays.Add(display);
+
+                    var processor = new Processor
+                    {
+                        CacheMemory = mobileDevice.Processor.CacheMemory,
+                        ClockSpeed = mobileDevice.Processor.ClockSpeed
+                    };
+                    this.mobiStoreData.Processors.Add(processor);
+
+                    var deviceToAdd = new MobileDevice
+                    {
+                        Battery = battery,
+                        Display = display,
+                        Processor = processor,
+                        Brand = mobileDevice.Brand,
+                        BrandAsString = mobileDevice.BrandAsString,
+                        Model = mobileDevice.Model
+                    };
+
+                    this.mobiStoreData.MobileDevices.Add(deviceToAdd);
                 }
 
                 this.mobiStoreData.SaveChanges();
