@@ -4,11 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Xml.Serialization;
 
 using MobiStore.Models.Common;
+using MobiStore.Models.Contracts;
 using MobiStore.Models.Enumerations;
 
 namespace MobiStore.Models.MobileDevices.Components
 {
-    public class Battery
+    public class Battery : ICountryManufacturer
     {
         private ICollection<MobileDevice> mobileDevices;
 

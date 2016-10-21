@@ -3,12 +3,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Xml.Serialization;
 
 using MobiStore.Models.Common;
+using MobiStore.Models.Contracts;
 using MobiStore.Models.Enumerations;
 using MobiStore.Models.MobileDevices.Components;
 
 namespace MobiStore.Models.MobileDevices
 {
-    public class MobileDevice
+    public class MobileDevice : ICountryManufacturer
     {
         public MobileDevice()
         {

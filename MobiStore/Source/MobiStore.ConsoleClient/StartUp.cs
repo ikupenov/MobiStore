@@ -2,12 +2,9 @@
 using System.IO.Compression;
 
 using MobiStore.Data;
+using MobiStore.MongoDB;
 using MobiStore.Utils.Exporters;
 using MobiStore.Utils.Importers;
-using MobiStore.MongoDB;
-using MobiStore.Models.Common;
-using MongoDB.Bson;
-using MongoDB.Driver;
 
 namespace MobiStore.ConsoleClient
 {
@@ -21,12 +18,12 @@ namespace MobiStore.ConsoleClient
             CreateDatabase();
             var seeder = new MongoSeeder();
 
-            seeder.SeedDatabase("mongodb://localhost:27017", "MobiStore");
-            var db = MongoDb.GetInstance("mongodb://localhost:27017", "MobiStore");
-            var countries = db.GetCollection<Country>("countries");
+            // seeder.SeedDatabase("mongodb://localhost:27017", "MobiStore");
+            var mongoDb = MongoDb.GetInstance("mongodb://localhost:27017", "MobiStore");
+            var sqlServerDb = new MobiStoreData();
+            var mongo = new MongoDb();
 
-            var list = countries.Find(_ => true).ToList();
-            System.Console.WriteLine(list.Count);
+            mongo.TransferToSqlServer(mongoDb, sqlServerDb);
         }
 
         private static void CreateDatabase()

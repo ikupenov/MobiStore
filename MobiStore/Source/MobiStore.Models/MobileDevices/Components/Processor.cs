@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 
 using MobiStore.Models.Common;
+using MobiStore.Models.Contracts;
 
 namespace MobiStore.Models.MobileDevices.Components
 {
-    public class Processor
+    public class Processor : ICountryManufacturer
     {
         private ICollection<MobileDevice> mobileDevices;
 

@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ICountryManufacturer.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Enumerations\Brand.cs" />
     <Compile Include="Enumerations\CurrencyType.cs" />
