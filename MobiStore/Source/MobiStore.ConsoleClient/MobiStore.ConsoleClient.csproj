@@ -47,6 +47,18 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.Office.Interop.Excel\15.0.0.0__71e9bce111e9429c\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
+    <Reference Include="MongoDB.Bson, Version=2.3.0.157, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.3.0\lib\net45\MongoDB.Bson.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.3.0.157, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.3.0\lib\net45\MongoDB.Driver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.3.0.157, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.3.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -69,12 +81,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="DataFiles\Jsons\0d81f150-98b2-4546-af79-c663e2805bc6.json" />
+    <None Include="DataFiles\Jsons\62b4e66e-425e-4e61-920c-17277ed6257b.json" />
+    <None Include="DataFiles\Jsons\7260c795-d122-4d0a-be10-a69520db5c1d.json" />
+    <None Include="DataFiles\Jsons\79aff631-640c-44bc-a254-8f8732172858.json" />
+    <None Include="DataFiles\Jsons\b34d2367-6be0-4582-993c-618733179d6c.json" />
+    <None Include="DataFiles\Jsons\cb0ed40d-bfac-4e37-935a-015d774da60c.json" />
+    <None Include="DataFiles\Jsons\ce868b69-506e-4f72-b74e-b0f6d92699d1.json" />
+    <None Include="DataFiles\Jsons\d355e555-f393-47a4-9e52-bc5f86bbcc92.json" />
+    <None Include="DataFiles\Jsons\db3955cf-c765-483f-afba-7d7dc584f198.json" />
+    <None Include="DataFiles\Jsons\f9399ea8-0500-4b67-801b-0990dba88c8d.json" />
     <None Include="DataFiles\Zips\Input.zip" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataFiles\Excels\" />
-    <Folder Include="DataFiles\Jsons\" />
     <Folder Include="DataFiles\Xmls\" />
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +106,10 @@
     <ProjectReference Include="..\MobiStore.Models\MobiStore.Models.csproj">
       <Project>{c65aeea6-5269-4fdf-8f27-0ef0dc517318}</Project>
       <Name>MobiStore.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobiStore.MongoDB\MobiStore.MongoDB.csproj">
+      <Project>{c8520505-9b40-4af7-a8a1-7ef1d119aea8}</Project>
+      <Name>MobiStore.MongoDB</Name>
     </ProjectReference>
     <ProjectReference Include="..\MobiStore.Utils\MobiStore.Utils.csproj">
       <Project>{ea16ddb1-53c4-474b-953c-44aec837eb14}</Project>
