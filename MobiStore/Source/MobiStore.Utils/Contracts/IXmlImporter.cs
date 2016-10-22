@@ -1,7 +1,9 @@
-﻿namespace MobiStore.Utils.Contracts
+﻿using System.IO;
+
+namespace MobiStore.Utils.Contracts
 {
     public interface IXmlImporter
     {
-        void Import(string xmlFilePath);
+        void Import(DirectoryInfo xmlFilePath);
     }
 }

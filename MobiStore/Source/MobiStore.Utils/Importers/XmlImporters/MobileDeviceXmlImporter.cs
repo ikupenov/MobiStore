@@ -21,9 +21,9 @@ namespace MobiStore.Utils.Importers.XmlImporters
             this.mobileDeviceFactory = new MobileDeviceFactory();
         }
 
-        public override void Import(string xmlFilePath)
+        public override void Import(DirectoryInfo xmlFilePath)
         {
-            using (var fileStream = new FileStream(xmlFilePath, FileMode.Open))
+            using (var fileStream = new FileStream(xmlFilePath.FullName, FileMode.Open))
             {
                 var shop = (XmlModels.Shop)this.XmlSerializer.Deserialize(fileStream);
                 var mobileDevices = shop.MobileDevices.ToList();
@@ -57,27 +57,27 @@ namespace MobiStore.Utils.Importers.XmlImporters
                     processorsToInsert.Add(processor);
                     this.SqlServerDatabase.Processors.Add(processor);
 
-                    MobileDevice mobileDeviceToImport = this.mobileDeviceFactory.CreateMobileDevice(
+                    MobileDevice mobileDeviceToInsert = this.mobileDeviceFactory.CreateMobileDevice(
                         mobileDevice.Brand,
                         mobileDevice.Model,
                         battery,
                         display,
                         processor);
 
-                    mobileDevicesToInsert.Add(mobileDeviceToImport);
-                    this.SqlServerDatabase.MobileDevices.Add(mobileDeviceToImport);
+                    mobileDevicesToInsert.Add(mobileDeviceToInsert);
+                    this.SqlServerDatabase.MobileDevices.Add(mobileDeviceToInsert);
                 }
 
-                this.InsertCollectionToMongoAsync<Battery>(batteriesToInsert, "batteries");
-                this.InsertCollectionToMongoAsync<Display>(displaysToInsert, "displays");
-                this.InsertCollectionToMongoAsync<Processor>(processorsToInsert, "processors");
-                this.InsertCollectionToMongoAsync<MobileDevice>(mobileDevicesToInsert, "mobileDevices");
+                this.InsertCollectionIntoMongoAsync<Battery>(batteriesToInsert, "batteries");
+                this.InsertCollectionIntoMongoAsync<Display>(displaysToInsert, "displays");
+                this.InsertCollectionIntoMongoAsync<Processor>(processorsToInsert, "processors");
+                this.InsertCollectionIntoMongoAsync<MobileDevice>(mobileDevicesToInsert, "mobileDevices");
 
                 this.SqlServerDatabase.SaveChanges();
             }
         }
 
-        private async void InsertCollectionToMongoAsync<T>(IEnumerable<object> collectionToInsert, string documentName)
+        private async void InsertCollectionIntoMongoAsync<T>(IEnumerable<object> collectionToInsert, string documentName)
         {
             var collection = this.MongoDatabase.GetCollection<T>(documentName);
             await collection.InsertManyAsync(collectionToInsert as IEnumerable<T>);

@@ -4,6 +4,7 @@ using System.IO.Compression;
 using System.Xml.Serialization;
 
 using MobiStore.Data;
+using MobiStore.Models.Reports;
 using MobiStore.MongoDB;
 using MobiStore.Utils.Exporters;
 using MobiStore.Utils.Importers;
@@ -33,7 +34,11 @@ namespace MobiStore.ConsoleClient
             var mobileDeviceXmlImporter = new MobileDeviceXmlImporter(sqlServerDb, mongoDb, xmlSerializer);
 
             var currentDir = Directory.GetCurrentDirectory();
-            mobileDeviceXmlImporter.Import($@"{currentDir}\..\..\..\..\Data\Models\shop.xml");
+            var shopXmlDir = new DirectoryInfo($@"{currentDir}\..\..\..\..\Data\Models\shop.xml");
+            mobileDeviceXmlImporter.Import(shopXmlDir);
+
+            ReadExcelReports();
+            CreateXmlReports();
         }
 
         private static void CreateDatabase()
@@ -55,8 +60,14 @@ namespace MobiStore.ConsoleClient
 
         private static void CreateJsonReports()
         {
-            DirectoryInfo jsonDirectory = new DirectoryInfo("../../DataFiles/Jsons");
+            DirectoryInfo jsonDirectory = new DirectoryInfo(@"C:\Users\Ilian\Documents\Telerik\Telerik Projects\Database");
             JsonReporter.CreateReports(new MobiStoreData(), jsonDirectory);
+        }
+
+        private static void CreateXmlReports()
+        {
+            DirectoryInfo destinationDirectory = new DirectoryInfo(@"C:\Users\Ilian\Documents\Telerik\Telerik Projects\Database");
+            XmlReporter.CreateReports(new MobiStoreData(), destinationDirectory);
         }
     }
 }
