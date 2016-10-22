@@ -60,14 +60,16 @@ namespace MobiStore.ConsoleClient
 
         private static void CreateJsonReports()
         {
-            DirectoryInfo jsonDirectory = new DirectoryInfo(@"C:\Users\Ilian\Documents\Telerik\Telerik Projects\Database");
-            JsonReporter.CreateReports(new MobiStoreData(), jsonDirectory);
+            var currentDir = Directory.GetCurrentDirectory();
+            var destinationDir = new DirectoryInfo($@"{currentDir}\..\..\..\..\Data\Reports\Output\JSON");
+            JsonReporter.CreateReports(new MobiStoreData(), destinationDir);
         }
 
         private static void CreateXmlReports()
         {
-            DirectoryInfo destinationDirectory = new DirectoryInfo(@"C:\Users\Ilian\Documents\Telerik\Telerik Projects\Database");
-            XmlReporter.CreateReports(new MobiStoreData(), destinationDirectory);
+            var currentDir = Directory.GetCurrentDirectory();
+            var destinationDir = new DirectoryInfo($@"{currentDir}\..\..\..\..\Data\Reports\Output\XML");
+            XmlReporter.CreateReports(new MobiStoreData(), new XmlSerializer(typeof(XmlModels.Reporters.SalesReport)), destinationDir);
         }
     }
 }

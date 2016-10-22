@@ -1,40 +1,44 @@
 ﻿using System.IO;
 using System.Linq;
+using System.Xml;
+using System.Xml.Serialization;
 
 using MobiStore.Data.Contracts;
-using MobiStore.Models.Enumerations;
-
-using Newtonsoft.Json;
+using MobiStore.XmlModels.Reporters;
 
 namespace MobiStore.Utils.Exporters
 {
     public class XmlReporter
     {
-        public static void CreateReports(IMobiStoreData sqlServerDatabase, DirectoryInfo destinationDirectory)
+        public static void CreateReports(IMobiStoreData sqlServerDatabase, XmlSerializer xmlSerializer, DirectoryInfo destinationDirectory)
         {
             var allReports = sqlServerDatabase
                 .SalesReports
                 .All()
-                .Select(r => new
+                .Select(r => new SalesReport()
                 {
                     Id = r.Id,
-                    Sales = r.Sales.Select(s => new
+                    Sales = r.Sales.Select(s => new Sale()
                     {
+                        Id = s.Id,
                         Employee = s.Employee.Name,
                         SaleDate = s.SaleDate,
-                        ShopName = s.Shop.Name,
-                        Product = (Brand)s.Product.Brand,
+                        Shop = s.Shop.Name,
                         TotalValue = s.TotalValue
                     }).ToList()
                 }).ToList();
 
+            var xmlWriterSettings = new XmlWriterSettings();
+            xmlWriterSettings.Indent = true;
+
             foreach (var report in allReports)
             {
                 string fileName = $"{destinationDirectory}\\{report.Id}.xml";
-                var jsonObject = JsonConvert.SerializeObject(report);
-                var xmlDoc = JsonConvert.DeserializeXmlNode(jsonObject, "SalesReport");
 
-                xmlDoc.Save(fileName);
+                using (var writer = XmlWriter.Create(fileName, xmlWriterSettings))
+                {
+                    xmlSerializer.Serialize(writer, report);
+                }
             }
         }
     }

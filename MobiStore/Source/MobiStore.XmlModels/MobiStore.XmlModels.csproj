@@ -54,6 +54,8 @@
     <Compile Include="MobileDevices\Components\Processor.cs" />
     <Compile Include="MobileDevices\MobileDevice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reporters\Sale.cs" />
+    <Compile Include="Reporters\SalesReport.cs" />
     <Compile Include="Shop.cs" />
   </ItemGroup>
   <ItemGroup>
