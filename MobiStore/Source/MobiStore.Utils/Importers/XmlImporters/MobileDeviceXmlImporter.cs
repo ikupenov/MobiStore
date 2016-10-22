@@ -47,15 +47,15 @@ namespace MobiStore.Utils.Importers.XmlImporters
                         mobileDevice.Display.Size,
                         mobileDevice.Display.Resolution);
 
-                    this.SqlServerDatabase.Displays.Add(display);
                     displaysToInsert.Add(display);
+                    this.SqlServerDatabase.Displays.Add(display);
 
                     Processor processor = this.mobileDeviceFactory.CreateProcessor(
                         mobileDevice.Processor.CacheMemory,
                         mobileDevice.Processor.ClockSpeed);
 
-                    this.SqlServerDatabase.Processors.Add(processor);
                     processorsToInsert.Add(processor);
+                    this.SqlServerDatabase.Processors.Add(processor);
 
                     MobileDevice mobileDeviceToImport = this.mobileDeviceFactory.CreateMobileDevice(
                         mobileDevice.Brand,
@@ -64,8 +64,8 @@ namespace MobiStore.Utils.Importers.XmlImporters
                         display,
                         processor);
 
-                    this.SqlServerDatabase.MobileDevices.Add(mobileDeviceToImport);
                     mobileDevicesToInsert.Add(mobileDeviceToImport);
+                    this.SqlServerDatabase.MobileDevices.Add(mobileDeviceToImport);
                 }
 
                 this.InsertCollectionToMongoAsync<Battery>(batteriesToInsert, "batteries");
