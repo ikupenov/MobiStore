@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiStore.XmlModels", "Mobi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiStore.Factories", "MobiStore.Factories\MobiStore.Factories.csproj", "{742B5042-1E51-4AEA-9510-0AE6F06541FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiStore.MySQL", "MobiStore.MySQL\MobiStore.MySQL.csproj", "{1BDC4FFC-B29F-4DDD-A414-FC0B68F33E08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{742B5042-1E51-4AEA-9510-0AE6F06541FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{742B5042-1E51-4AEA-9510-0AE6F06541FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{742B5042-1E51-4AEA-9510-0AE6F06541FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BDC4FFC-B29F-4DDD-A414-FC0B68F33E08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BDC4FFC-B29F-4DDD-A414-FC0B68F33E08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BDC4FFC-B29F-4DDD-A414-FC0B68F33E08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BDC4FFC-B29F-4DDD-A414-FC0B68F33E08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
