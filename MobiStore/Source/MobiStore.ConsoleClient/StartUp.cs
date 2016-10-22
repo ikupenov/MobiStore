@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.IO.Compression;
 using System.Xml.Serialization;
 
@@ -31,7 +32,8 @@ namespace MobiStore.ConsoleClient
             var xmlSerializer = new XmlSerializer(typeof(XmlModels.Shop));
             var mobileDeviceXmlImporter = new MobileDeviceXmlImporter(sqlServerDb, mongoDb, xmlSerializer);
 
-            mobileDeviceXmlImporter.Import(@"C:\Users\belch\Desktop\MobiStore\MobiStore\Data\Models\shop.xml");
+            var currentDir = Directory.GetCurrentDirectory();
+            mobileDeviceXmlImporter.Import($@"{currentDir}\..\..\..\..\Data\Models\shop.xml");
         }
 
         private static void CreateDatabase()

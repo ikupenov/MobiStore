@@ -7,11 +7,7 @@ using MobiStore.Data.Contracts;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
 using MobiStore.Utils.Factories;
-using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
-
-using JsonConvert = Newtonsoft.Json.JsonConvert;
-using MongoDB.Bson;
 
 namespace MobiStore.Utils.Importers.XmlImporters
 {
@@ -42,26 +38,34 @@ namespace MobiStore.Utils.Importers.XmlImporters
                 var processorsToImportInMongo = new List<Processor>(mobileDevices.Count);
                 var mobileDevicesToImportInMongo = new List<MobileDevice>(mobileDevices.Count);
 
-                var btr = batteries.Find(new BsonDocument()).ToList();
-                System.Console.WriteLine();
-                foreach (var mobileDevice in mobileDevices)
+                var mongoBatteries = new List<Battery>(mobileDevices.Count);
+
+                foreach (XmlModels.MobileDevices.MobileDevice mobileDevice in mobileDevices)
                 {
                     Battery battery = this.mobileDeviceBuilder.CreateBattery(
                         mobileDevice.Battery.Type,
                         mobileDevice.Battery.Capacity);
-                    this.SqlServerDatabase.Batteries.Add(battery);
+
+                    //Battery mongoBattery = this.mobileDeviceBuilder.CreateBattery(
+                    //   battery.Type,
+                    //   battery.Capacity);
+
                     Battery mongoBattery = new Battery
                     {
-                        Capacity  = battery.Capacity,
-                        Type = battery.Type
+                        Type = battery.Type,
+                        Capacity = battery.Capacity
                     };
-                    batteriesToImportInMongo.Add(mongoBattery);
+
+                    batteriesToImportInMongo.Add(battery);
+                    mongoBatteries.Add(mongoBattery);
+                    this.SqlServerDatabase.Batteries.Add(battery);
 
                     Display display = this.mobileDeviceBuilder.CreateDisplay(
                         mobileDevice.Display.Type,
                         mobileDevice.Display.Size,
                         mobileDevice.Display.Resolution);
                     this.SqlServerDatabase.Displays.Add(display);
+
                     Display mongoDisplay = new Display
                     {
                        Size = display.Size,
@@ -74,6 +78,7 @@ namespace MobiStore.Utils.Importers.XmlImporters
                         mobileDevice.Processor.CacheMemory,
                         mobileDevice.Processor.ClockSpeed);
                     this.SqlServerDatabase.Processors.Add(processor);
+
                     Processor mongoProcessor = new Processor
                     {
                         CacheMemory = processor.CacheMemory,
@@ -88,6 +93,7 @@ namespace MobiStore.Utils.Importers.XmlImporters
                         display,
                         processor);
                     this.SqlServerDatabase.MobileDevices.Add(mobileDeviceToImport);
+
                     MobileDevice mongoDevice = new MobileDevice
                     {
                         Model = mobileDeviceToImport.Model,
@@ -99,10 +105,12 @@ namespace MobiStore.Utils.Importers.XmlImporters
                     mobileDevicesToImportInMongo.Add(mongoDevice);
                 }
 
+                batteries.InsertMany(mongoBatteries);
                 batteries.InsertMany(batteriesToImportInMongo);
                 displays.InsertMany(displaysToImportInMongo);
                 processors.InsertMany(processorsToImportInMongo);
                 devices.InsertMany(mobileDevicesToImportInMongo);
+
                 this.SqlServerDatabase.SaveChanges();
             }
         }
