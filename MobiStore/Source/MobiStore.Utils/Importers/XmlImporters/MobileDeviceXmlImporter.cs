@@ -28,10 +28,10 @@ namespace MobiStore.Utils.Importers.XmlImporters
         {
             using (var fileStream = new FileStream(xmlFilePath, FileMode.Open))
             {
-                var batteriesToImportInMongo = new LinkedList<Battery>();
-                var displaysToImportInMongo = new LinkedList<Display>();
-                var processorsToImportInMongo = new LinkedList<Processor>();
-                var mobileDevicesToImportInMongo = new LinkedList<MobileDevice>();
+                var batteriesToImportInMongo = new List<Battery>();
+                var displaysToImportInMongo = new List<Display>();
+                var processorsToImportInMongo = new List<Processor>();
+                var mobileDevicesToImportInMongo = new List<MobileDevice>();
 
                 var shop = (XmlModels.Shop)this.XmlSerializer.Deserialize(fileStream);
                 var mobileDevices = shop.MobileDevices.ToList();
@@ -43,8 +43,9 @@ namespace MobiStore.Utils.Importers.XmlImporters
                         mobileDevice.Battery.Capacity);
                     this.SqlServerDatabase.Batteries.Add(battery);
 
-                    var batteryAsBson = BsonSerializer.Deserialize<Battery>(battery);
-                    batteriesToImportInMongo.AddLast(batteryAsBson);
+                    var batteryAsJson = JsonConvert.SerializeObject(battery);
+                    var batteryAsBson = BsonSerializer.Deserialize<Battery>(batteryAsJson);
+                    batteriesToImportInMongo.Add(batteryAsBson);
 
                     Display display = this.mobileDeviceBuilder.CreateDisplay(
                         mobileDevice.Display.Type,
@@ -54,7 +55,7 @@ namespace MobiStore.Utils.Importers.XmlImporters
 
                     var displayAsJson = JsonConvert.SerializeObject(display);
                     var displayAsBson = BsonSerializer.Deserialize<Display>(displayAsJson);
-                    displaysToImportInMongo.AddLast(displayAsBson);
+                    displaysToImportInMongo.Add(displayAsBson);
 
                     Processor processor = this.mobileDeviceBuilder.CreateProcessor(
                         mobileDevice.Processor.CacheMemory,
@@ -63,7 +64,7 @@ namespace MobiStore.Utils.Importers.XmlImporters
 
                     var processorAsJson = JsonConvert.SerializeObject(processor);
                     var processorAsBson = BsonSerializer.Deserialize<Processor>(processorAsJson);
-                    processorsToImportInMongo.AddLast(processorAsBson);
+                    processorsToImportInMongo.Add(processorAsBson);
 
                     MobileDevice mobileDeviceToImport = this.mobileDeviceBuilder.CreateMobileDevice(
                         mobileDevice.Brand,
