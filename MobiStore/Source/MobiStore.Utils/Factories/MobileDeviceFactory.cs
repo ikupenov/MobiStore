@@ -1,5 +1,4 @@
-﻿using MobiStore.Models.Common;
-using MobiStore.Models.Enumerations;
+﻿using MobiStore.Models.Enumerations;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
 
@@ -7,7 +6,7 @@ namespace MobiStore.Utils.Factories
 {
     internal class MobileDeviceFactory
     {
-        internal Battery CreateBattery(BatteryType batteryType, int batteryCapacity, Country country = null)
+        internal Battery CreateBattery(BatteryType batteryType, int batteryCapacity)
         {
             var battery = new Battery
             {
@@ -21,8 +20,7 @@ namespace MobiStore.Utils.Factories
         internal Display CreateDisplay(
             DisplayType displayType,
             double displaySize,
-            string displayResolution,
-            Country country = null)
+            string displayResolution)
         {
             var display = new Display()
             {
@@ -34,7 +32,7 @@ namespace MobiStore.Utils.Factories
             return display;
         }
 
-        internal Processor CreateProcessor(double cacheMemory, double clockSpeed, Country country = null)
+        internal Processor CreateProcessor(double cacheMemory, double clockSpeed)
         {
             var processor = new Processor()
             {

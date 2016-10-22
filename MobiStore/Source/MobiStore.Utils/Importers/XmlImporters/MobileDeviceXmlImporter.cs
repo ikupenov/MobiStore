@@ -3,7 +3,6 @@ using System.Linq;
 using System.Xml.Serialization;
 
 using MobiStore.Data.Contracts;
-using MobiStore.Models;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
 using MobiStore.Utils.Factories;
@@ -24,10 +23,10 @@ namespace MobiStore.Utils.Importers.XmlImporters
         {
             using (var fileStream = new FileStream(xmlFilePath, FileMode.Open))
             {
-                var shop = (Shop)this.Serializer.Deserialize(fileStream);
+                var shop = (XmlModels.Shop)this.Serializer.Deserialize(fileStream);
                 var mobileDevices = shop.MobileDevices.ToList();
 
-                foreach (MobileDevice mobileDevice in mobileDevices)
+                foreach (XmlModels.MobileDevices.MobileDevice mobileDevice in mobileDevices)
                 {
                     Battery battery = this.mobileDeviceBuilder.CreateBattery(
                         mobileDevice.Battery.Type,

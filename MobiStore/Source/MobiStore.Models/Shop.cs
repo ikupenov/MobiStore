@@ -6,7 +6,6 @@ using MobiStore.Models.MobileDevices;
 
 namespace MobiStore.Models
 {
-    [XmlRoot("shop")]
     public class Shop
     {
         public Shop()
@@ -14,13 +13,10 @@ namespace MobiStore.Models
             this.Id = Guid.NewGuid();
         }
 
-        [XmlIgnore]
         public Guid Id { get; set; }
 
-        [XmlIgnore]
         public string Name { get; set; }
 
-        [XmlElement("mobile-device")]
         public List<MobileDevice> MobileDevices { get; set; }
     }
 }

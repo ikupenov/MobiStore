@@ -90,6 +90,10 @@
       <Project>{C65AEEA6-5269-4FDF-8F27-0EF0DC517318}</Project>
       <Name>MobiStore.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MobiStore.XmlModels\MobiStore.XmlModels.csproj">
+      <Project>{de4f3ae4-d79e-4763-9b1c-94402f2f333d}</Project>
+      <Name>MobiStore.XmlModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

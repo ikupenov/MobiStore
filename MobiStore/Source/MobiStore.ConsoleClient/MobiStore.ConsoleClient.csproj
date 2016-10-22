@@ -115,6 +115,10 @@
       <Project>{ea16ddb1-53c4-474b-953c-44aec837eb14}</Project>
       <Name>MobiStore.Utils</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MobiStore.XmlModels\MobiStore.XmlModels.csproj">
+      <Project>{de4f3ae4-d79e-4763-9b1c-94402f2f333d}</Project>
+      <Name>MobiStore.XmlModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
