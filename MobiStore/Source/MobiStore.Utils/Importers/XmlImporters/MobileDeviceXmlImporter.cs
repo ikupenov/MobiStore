@@ -13,12 +13,12 @@ namespace MobiStore.Utils.Importers.XmlImporters
 {
     public class MobileDeviceXmlImporter : XmlImporter
     {
-        private MobileDeviceFactory mobileDeviceBuilder;
+        private MobileDeviceFactory mobileDeviceFactory;
 
         public MobileDeviceXmlImporter(IMobiStoreData sqlServerData, IMongoDatabase mongoData, XmlSerializer serializer)
             : base(sqlServerData, mongoData, serializer)
         {
-            this.mobileDeviceBuilder = new MobileDeviceFactory();
+            this.mobileDeviceFactory = new MobileDeviceFactory();
         }
 
         public override void Import(string xmlFilePath)
@@ -35,14 +35,14 @@ namespace MobiStore.Utils.Importers.XmlImporters
 
                 foreach (var mobileDevice in mobileDevices)
                 {
-                    Battery battery = this.mobileDeviceBuilder.CreateBattery(
+                    Battery battery = this.mobileDeviceFactory.CreateBattery(
                         mobileDevice.Battery.Type,
                         mobileDevice.Battery.Capacity);
 
                     batteriesToInsert.Add(battery);
                     this.SqlServerDatabase.Batteries.Add(battery);
 
-                    Display display = this.mobileDeviceBuilder.CreateDisplay(
+                    Display display = this.mobileDeviceFactory.CreateDisplay(
                         mobileDevice.Display.Type,
                         mobileDevice.Display.Size,
                         mobileDevice.Display.Resolution);
@@ -50,14 +50,14 @@ namespace MobiStore.Utils.Importers.XmlImporters
                     this.SqlServerDatabase.Displays.Add(display);
                     displaysToInsert.Add(display);
 
-                    Processor processor = this.mobileDeviceBuilder.CreateProcessor(
+                    Processor processor = this.mobileDeviceFactory.CreateProcessor(
                         mobileDevice.Processor.CacheMemory,
                         mobileDevice.Processor.ClockSpeed);
 
                     this.SqlServerDatabase.Processors.Add(processor);
                     processorsToInsert.Add(processor);
 
-                    MobileDevice mobileDeviceToImport = this.mobileDeviceBuilder.CreateMobileDevice(
+                    MobileDevice mobileDeviceToImport = this.mobileDeviceFactory.CreateMobileDevice(
                         mobileDevice.Brand,
                         mobileDevice.Model,
                         battery,
