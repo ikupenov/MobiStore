@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using MobiStore.Models.Common;
 using MobiStore.Models.Contracts;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace MobiStore.Models.MobileDevices.Components
 {
@@ -26,6 +27,7 @@ namespace MobiStore.Models.MobileDevices.Components
 
         public virtual Country Country { get; set; }
 
+        [BsonIgnore]
         public virtual ICollection<MobileDevice> MobileDevices
         {
             get { return this.mobileDevices; }

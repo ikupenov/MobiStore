@@ -6,7 +6,7 @@ using MobiStore.Models.Common;
 using MobiStore.Models.Contracts;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
-using MongoDB.Bson;
+
 using MongoDB.Driver;
 
 namespace MobiStore.MongoDB
@@ -59,7 +59,7 @@ namespace MobiStore.MongoDB
         private void TransferBatteries(IMongoDatabase mongoDatabse, IMobiStoreData sqlServerDatabase)
         {
             var batteriesCollection = mongoDatabse.GetCollection<Battery>("batteries");
-            var mongoBatteries = batteriesCollection.Find(new BsonDocument()).ToList();
+            var mongoBatteries = batteriesCollection.Find(b => true).ToList();
             var batteriesTable = sqlServerDatabase.Batteries;
 
             foreach (var battery in mongoBatteries)

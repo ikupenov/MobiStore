@@ -28,63 +28,34 @@ namespace MobiStore.Utils.Importers.XmlImporters
                 var shop = (XmlModels.Shop)this.XmlSerializer.Deserialize(fileStream);
                 var mobileDevices = shop.MobileDevices.ToList();
 
-                var batteries = this.MongoDatabase.GetCollection<Battery>("batteries");
-                var displays = this.MongoDatabase.GetCollection<Display>("displays");
-                var processors = this.MongoDatabase.GetCollection<Processor>("processors");
-                var devices = this.MongoDatabase.GetCollection<MobileDevice>("mobileDevices");
+                var batteriesToInsert = new List<Battery>(mobileDevices.Count);
+                var displaysToInsert = new List<Display>(mobileDevices.Count);
+                var processorsToInsert = new List<Processor>(mobileDevices.Count);
+                var mobileDevicesToInsert = new List<MobileDevice>(mobileDevices.Count);
 
-                var batteriesToImportInMongo = new List<Battery>(mobileDevices.Count);
-                var displaysToImportInMongo = new List<Display>(mobileDevices.Count);
-                var processorsToImportInMongo = new List<Processor>(mobileDevices.Count);
-                var mobileDevicesToImportInMongo = new List<MobileDevice>(mobileDevices.Count);
-
-                var mongoBatteries = new List<Battery>(mobileDevices.Count);
-
-                foreach (XmlModels.MobileDevices.MobileDevice mobileDevice in mobileDevices)
+                foreach (var mobileDevice in mobileDevices)
                 {
                     Battery battery = this.mobileDeviceBuilder.CreateBattery(
                         mobileDevice.Battery.Type,
                         mobileDevice.Battery.Capacity);
 
-                    //Battery mongoBattery = this.mobileDeviceBuilder.CreateBattery(
-                    //   battery.Type,
-                    //   battery.Capacity);
-
-                    Battery mongoBattery = new Battery
-                    {
-                        Type = battery.Type,
-                        Capacity = battery.Capacity
-                    };
-
-                    batteriesToImportInMongo.Add(battery);
-                    mongoBatteries.Add(mongoBattery);
+                    batteriesToInsert.Add(battery);
                     this.SqlServerDatabase.Batteries.Add(battery);
 
                     Display display = this.mobileDeviceBuilder.CreateDisplay(
                         mobileDevice.Display.Type,
                         mobileDevice.Display.Size,
                         mobileDevice.Display.Resolution);
-                    this.SqlServerDatabase.Displays.Add(display);
 
-                    Display mongoDisplay = new Display
-                    {
-                       Size = display.Size,
-                       Type = display.Type,
-                       Resolution = display.Resolution
-                    };
-                    displaysToImportInMongo.Add(mongoDisplay);
+                    this.SqlServerDatabase.Displays.Add(display);
+                    displaysToInsert.Add(display);
 
                     Processor processor = this.mobileDeviceBuilder.CreateProcessor(
                         mobileDevice.Processor.CacheMemory,
                         mobileDevice.Processor.ClockSpeed);
-                    this.SqlServerDatabase.Processors.Add(processor);
 
-                    Processor mongoProcessor = new Processor
-                    {
-                        CacheMemory = processor.CacheMemory,
-                        ClockSpeed = processor.ClockSpeed
-                    };
-                    processorsToImportInMongo.Add(mongoProcessor);
+                    this.SqlServerDatabase.Processors.Add(processor);
+                    processorsToInsert.Add(processor);
 
                     MobileDevice mobileDeviceToImport = this.mobileDeviceBuilder.CreateMobileDevice(
                         mobileDevice.Brand,
@@ -92,27 +63,24 @@ namespace MobiStore.Utils.Importers.XmlImporters
                         battery,
                         display,
                         processor);
-                    this.SqlServerDatabase.MobileDevices.Add(mobileDeviceToImport);
 
-                    MobileDevice mongoDevice = new MobileDevice
-                    {
-                        Model = mobileDeviceToImport.Model,
-                        Brand = mobileDeviceToImport.Brand,
-                        Battery = mongoBattery,
-                        Display = mongoDisplay,
-                        Processor = mongoProcessor
-                    };
-                    mobileDevicesToImportInMongo.Add(mongoDevice);
+                    this.SqlServerDatabase.MobileDevices.Add(mobileDeviceToImport);
+                    mobileDevicesToInsert.Add(mobileDeviceToImport);
                 }
 
-                batteries.InsertMany(mongoBatteries);
-                batteries.InsertMany(batteriesToImportInMongo);
-                displays.InsertMany(displaysToImportInMongo);
-                processors.InsertMany(processorsToImportInMongo);
-                devices.InsertMany(mobileDevicesToImportInMongo);
+                this.InsertCollectionToMongoAsync<Battery>(batteriesToInsert, "batteries");
+                this.InsertCollectionToMongoAsync<Display>(displaysToInsert, "displays");
+                this.InsertCollectionToMongoAsync<Processor>(processorsToInsert, "processors");
+                this.InsertCollectionToMongoAsync<MobileDevice>(mobileDevicesToInsert, "mobileDevices");
 
                 this.SqlServerDatabase.SaveChanges();
             }
+        }
+
+        private async void InsertCollectionToMongoAsync<T>(IEnumerable<object> collectionToInsert, string documentName)
+        {
+            var collection = this.MongoDatabase.GetCollection<T>(documentName);
+            await collection.InsertManyAsync(collectionToInsert as IEnumerable<T>);
         }
     }
 }
