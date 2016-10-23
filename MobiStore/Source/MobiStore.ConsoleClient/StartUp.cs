@@ -11,6 +11,7 @@ using MobiStore.Utilities.Importers.XmlImporters;
 using MobiStore.Factories;
 using MobiStore.Factories.Factories;
 using MobiStore.Models.MobileDevices;
+using MobiStore.SqliteDatabase;
 using MongoDB.Driver;
 
 namespace MobiStore.ConsoleClient
@@ -24,7 +25,7 @@ namespace MobiStore.ConsoleClient
 
         private static void Main()
         {
-            // SqlServerDb.Initialize();
+            SqlServerDb.Initialize();
 
             //// ================ SEED MONGO ======================
             //var seeder = new MongoSeeder(new MongoModelsFactory());
@@ -51,6 +52,8 @@ namespace MobiStore.ConsoleClient
 
             //var mySqlDatabase = new MySqlDb();
             //MySqlSeeder.SeedDatabase(sqlServerDb, mySqlDatabase);
+
+            SqliteSeeder.SeedDatabase();
         }
 
         private static void ReadExcelReports()

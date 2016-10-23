@@ -7,8 +7,8 @@
     <ProjectGuid>{C8520505-9B40-4AF7-A8A1-7EF1D119AEA8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MobiStore.MongoDB</RootNamespace>
-    <AssemblyName>MobiStore.MongoDB</AssemblyName>
+    <RootNamespace>MobiStore.MongoDatabase</RootNamespace>
+    <AssemblyName>MobiStore.MongoDatabase</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

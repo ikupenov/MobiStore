@@ -129,13 +129,17 @@
       <Project>{c65aeea6-5269-4fdf-8f27-0ef0dc517318}</Project>
       <Name>MobiStore.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MobiStore.MongoDB\MobiStore.MongoDatabase.csproj">
+    <ProjectReference Include="..\MobiStore.MongoDatabase\MobiStore.MongoDatabase.csproj">
       <Project>{c8520505-9b40-4af7-a8a1-7ef1d119aea8}</Project>
       <Name>MobiStore.MongoDatabase</Name>
     </ProjectReference>
     <ProjectReference Include="..\MobiStore.MySqlDatabase\MobiStore.MySqlDatabase.csproj">
       <Project>{37219d8c-c8a1-4665-9311-c230da947981}</Project>
       <Name>MobiStore.MySqlDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobiStore.SqliteDatabase\MobiStore.SqliteDatabase.csproj">
+      <Project>{59692f8d-db40-4850-bfd1-9e0da70fd38e}</Project>
+      <Name>MobiStore.SqliteDatabase</Name>
     </ProjectReference>
     <ProjectReference Include="..\MobiStore.Utils\MobiStore.Utilities.csproj">
       <Project>{ea16ddb1-53c4-474b-953c-44aec837eb14}</Project>
