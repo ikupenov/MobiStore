@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace MobiStore.Utils.Exporters
 {
-    public class JsonReporter
+    public class XmlReporter
     {
         public static void CreateReports(IMobiStoreData sqlServerDatabase, DirectoryInfo destinationDirectory)
         {
@@ -30,13 +30,11 @@ namespace MobiStore.Utils.Exporters
 
             foreach (var report in allReports)
             {
-                string fileName = $"{destinationDirectory}\\{report.Id}.json";
+                string fileName = $"{destinationDirectory}\\{report.Id}.xml";
                 var jsonObject = JsonConvert.SerializeObject(report);
+                var xmlDoc = JsonConvert.DeserializeXmlNode(jsonObject, "SalesReport");
 
-                using (var writer = new StreamWriter(fileName))
-                {
-                    writer.WriteLine(jsonObject);
-                }
+                xmlDoc.Save(fileName);
             }
         }
     }

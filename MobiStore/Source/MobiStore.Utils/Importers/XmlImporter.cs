@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Xml.Serialization;
 
 using MobiStore.Data.Contracts;
@@ -42,6 +43,6 @@ namespace MobiStore.Utils.Importers
 
         protected XmlSerializer XmlSerializer { get; private set; }
 
-        public abstract void Import(string xmlFilePath);
+        public abstract void Import(DirectoryInfo xmlFilePath);
     }
 }
