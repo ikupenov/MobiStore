@@ -5,18 +5,18 @@ using SQLite.CodeFirst;
 
 namespace MobiStore.SqliteDatabase
 {
-    public class SqliteContext : DbContext
+    public class SqliteDb : DbContext
     {
-        public SqliteContext()
+        public SqliteDb()
             : base("Stores")
         {
         }
 
-        public DbSet<Shop> Shops { get; set; }
+        public IDbSet<Shop> Shops { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            var sqliteConnectionInitializer = new SqliteCreateDatabaseIfNotExists<SqliteContext>(modelBuilder);
+            var sqliteConnectionInitializer = new SqliteCreateDatabaseIfNotExists<SqliteDb>(modelBuilder);
             Database.SetInitializer(sqliteConnectionInitializer);
         }
     }

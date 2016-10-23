@@ -39,6 +39,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -91,6 +95,7 @@
   <ItemGroup>
     <Compile Include="Contracts\IXmlImporter.cs" />
     <Compile Include="Importers\XmlImporters\MobileDeviceXmlImporter.cs" />
+    <Compile Include="Reporters\ExcelReporter.cs" />
     <Compile Include="Reporters\JsonReporter.cs" />
     <Compile Include="Importers\XmlImporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,6 +115,14 @@
     <ProjectReference Include="..\MobiStore.Models\MobiStore.Models.csproj">
       <Project>{C65AEEA6-5269-4FDF-8F27-0EF0DC517318}</Project>
       <Name>MobiStore.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobiStore.MySqlDatabase\MobiStore.MySqlDatabase.csproj">
+      <Project>{37219d8c-c8a1-4665-9311-c230da947981}</Project>
+      <Name>MobiStore.MySqlDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobiStore.SqliteDatabase\MobiStore.SqliteDatabase.csproj">
+      <Project>{59692f8d-db40-4850-bfd1-9e0da70fd38e}</Project>
+      <Name>MobiStore.SqliteDatabase</Name>
     </ProjectReference>
     <ProjectReference Include="..\MobiStore.XmlModels\MobiStore.XmlModels.csproj">
       <Project>{de4f3ae4-d79e-4763-9b1c-94402f2f333d}</Project>

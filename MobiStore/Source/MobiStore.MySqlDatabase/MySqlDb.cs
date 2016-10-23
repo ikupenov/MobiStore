@@ -48,14 +48,14 @@ namespace MobiStore.MySqlDatabase
 
         private string MySqlPasswordPrompt()
         {
-            Console.Write("Enter your MySQL password for 'root' account: ");
-            Console.ForegroundColor = Console.BackgroundColor;
+            //Console.Write("Enter your MySQL password for 'root' account: ");
+            //Console.ForegroundColor = Console.BackgroundColor;
 
-            var password = Console.ReadLine().Trim();
+            //var password = Console.ReadLine().Trim();
 
-            Console.ResetColor();
+            //Console.ResetColor();
 
-            return password;
+            return "6567";
         }
     }
 }

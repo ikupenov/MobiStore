@@ -8,6 +8,7 @@ using MobiStore.Data;
 using MobiStore.Utilities.Importers;
 using MobiStore.MongoDatabase;
 using MobiStore.Factories.Factories;
+using MobiStore.MySqlDatabase;
 using MobiStore.SqliteDatabase;
 using MobiStore.Utilities.Reporters;
 using MobiStore.Utilities.Importers.XmlImporters;
@@ -78,12 +79,20 @@ namespace MobiStore.DesktopClient
         private void SQLiteButton_Click(object sender, EventArgs e)
         {
             SqliteSeeder.SeedDatabase();
+
+            var fileInfo = new FileInfo(@"..\..\..\..\Data\Reports\Output\Excel\reports-out.xlsx");
+            ExcelReporter.CreateReports(new MySqlDb(), new SqliteDb(), fileInfo);
         }
 
         private void SeedMongo()
         {
             var seeder = new MongoSeeder(new MongoModelsFactory());
             seeder.SeedDatabase(MongoServerName, MongoDatabaseName);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

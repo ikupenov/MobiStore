@@ -10,7 +10,7 @@ namespace MobiStore.Utilities.Reporters
 {
     public class XmlReporter
     {
-        public static void CreateReports(ISqlServerDb sqlServerDatabase, XmlSerializer xmlSerializer, DirectoryInfo destinationDirectory)
+        public static void CreateReports(ISqlServerDb sqlServerDatabase, XmlSerializer xmlSerializer, DirectoryInfo destinationDir)
         {
             var allReports = sqlServerDatabase
                 .SalesReports
@@ -35,7 +35,7 @@ namespace MobiStore.Utilities.Reporters
 
             foreach (var report in allReports)
             {
-                string fileName = $"{destinationDirectory}\\{report.Id}.xml";
+                string fileName = $"{destinationDir}\\{report.Id}.xml";
 
                 using (var writer = XmlWriter.Create(fileName, xmlWriterSettings))
                 {

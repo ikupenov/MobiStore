@@ -6,7 +6,7 @@ namespace MobiStore.SqliteDatabase
     {
         public static void SeedDatabase()
         {
-            var sqliteDb = new SqliteContext();
+            var sqliteDb = new SqliteDb();
 
             sqliteDb.Shops.Add(new Shop { Town = "Sofia", Name = "MobiStore Mladost" });
             sqliteDb.Shops.Add(new Shop { Town = "Sofia", Name = "MobiStore Banishora" });

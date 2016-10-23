@@ -13,12 +13,12 @@ namespace MobiStore.Utilities.Reporters
     {
         private const string NullObjectMessage = "{0} cannot be null.";
 
-        public static void CreateReports(ISqlServerDb sqlServerDatabase, DirectoryInfo destinationDirectory)
+        public static void CreateReports(ISqlServerDb sqlServerDatabase, DirectoryInfo destinationDir)
         {
             string nullDatabaseMessage = string.Format(NullObjectMessage, "Database");
             string nullDestinationDirectoryMessage = string.Format(NullObjectMessage, "Destination folder");
             ValidateIfObjectIsNull(sqlServerDatabase, nullDatabaseMessage);
-            ValidateIfObjectIsNull(destinationDirectory, nullDestinationDirectoryMessage);
+            ValidateIfObjectIsNull(destinationDir, nullDestinationDirectoryMessage);
 
             var allReports = sqlServerDatabase
                 .SalesReports
@@ -40,7 +40,7 @@ namespace MobiStore.Utilities.Reporters
 
             foreach (var report in allReports)
             {
-                string fileName = $"{destinationDirectory}\\{report.Id}.json";
+                string fileName = $"{destinationDir}\\{report.Id}.json";
                 var jsonObject = JsonConvert.SerializeObject(report);
 
                 using (var writer = new StreamWriter(fileName))
