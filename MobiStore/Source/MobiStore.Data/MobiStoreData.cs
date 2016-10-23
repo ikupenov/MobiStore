@@ -15,7 +15,7 @@ namespace MobiStore.Data
 {
     public class MobiStoreData : IMobiStoreData
     {
-        private IMobiStoreDbContext context;
+        private readonly IMobiStoreDbContext context;
         private IDictionary<Type, object> repositories;
 
         public MobiStoreData(IMobiStoreDbContext context)
@@ -29,6 +29,14 @@ namespace MobiStore.Data
         {
         }
         
+        public IMobiStoreDbContext Context
+        {
+            get
+            {
+                return this.context;
+            }
+        }
+
         public IRepository<Battery> Batteries
         {
             get

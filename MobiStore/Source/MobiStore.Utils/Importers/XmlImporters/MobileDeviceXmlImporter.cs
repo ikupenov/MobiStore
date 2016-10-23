@@ -11,6 +11,7 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 
 using JsonConvert = Newtonsoft.Json.JsonConvert;
+using MongoDB.Bson;
 
 namespace MobiStore.Utils.Importers.XmlImporters
 {
@@ -28,42 +29,57 @@ namespace MobiStore.Utils.Importers.XmlImporters
         {
             using (var fileStream = new FileStream(xmlFilePath, FileMode.Open))
             {
-                var batteriesToImportInMongo = new LinkedList<Battery>();
-                var displaysToImportInMongo = new LinkedList<Display>();
-                var processorsToImportInMongo = new LinkedList<Processor>();
-                var mobileDevicesToImportInMongo = new LinkedList<MobileDevice>();
-
                 var shop = (XmlModels.Shop)this.XmlSerializer.Deserialize(fileStream);
                 var mobileDevices = shop.MobileDevices.ToList();
 
+                var batteries = this.MongoDatabase.GetCollection<Battery>("batteries");
+                var displays = this.MongoDatabase.GetCollection<Display>("displays");
+                var processors = this.MongoDatabase.GetCollection<Processor>("processors");
+                var devices = this.MongoDatabase.GetCollection<MobileDevice>("mobileDevices");
+
+                var batteriesToImportInMongo = new List<Battery>(mobileDevices.Count);
+                var displaysToImportInMongo = new List<Display>(mobileDevices.Count);
+                var processorsToImportInMongo = new List<Processor>(mobileDevices.Count);
+                var mobileDevicesToImportInMongo = new List<MobileDevice>(mobileDevices.Count);
+
+                var btr = batteries.Find(new BsonDocument()).ToList();
+                System.Console.WriteLine();
                 foreach (var mobileDevice in mobileDevices)
                 {
                     Battery battery = this.mobileDeviceBuilder.CreateBattery(
                         mobileDevice.Battery.Type,
                         mobileDevice.Battery.Capacity);
                     this.SqlServerDatabase.Batteries.Add(battery);
-
-                    var batteryAsBson = BsonSerializer.Deserialize<Battery>(battery);
-                    batteriesToImportInMongo.AddLast(batteryAsBson);
+                    Battery mongoBattery = new Battery
+                    {
+                        Capacity  = battery.Capacity,
+                        Type = battery.Type
+                    };
+                    batteriesToImportInMongo.Add(mongoBattery);
 
                     Display display = this.mobileDeviceBuilder.CreateDisplay(
                         mobileDevice.Display.Type,
                         mobileDevice.Display.Size,
                         mobileDevice.Display.Resolution);
                     this.SqlServerDatabase.Displays.Add(display);
-
-                    var displayAsJson = JsonConvert.SerializeObject(display);
-                    var displayAsBson = BsonSerializer.Deserialize<Display>(displayAsJson);
-                    displaysToImportInMongo.AddLast(displayAsBson);
+                    Display mongoDisplay = new Display
+                    {
+                       Size = display.Size,
+                       Type = display.Type,
+                       Resolution = display.Resolution
+                    };
+                    displaysToImportInMongo.Add(mongoDisplay);
 
                     Processor processor = this.mobileDeviceBuilder.CreateProcessor(
                         mobileDevice.Processor.CacheMemory,
                         mobileDevice.Processor.ClockSpeed);
                     this.SqlServerDatabase.Processors.Add(processor);
-
-                    var processorAsJson = JsonConvert.SerializeObject(processor);
-                    var processorAsBson = BsonSerializer.Deserialize<Processor>(processorAsJson);
-                    processorsToImportInMongo.AddLast(processorAsBson);
+                    Processor mongoProcessor = new Processor
+                    {
+                        CacheMemory = processor.CacheMemory,
+                        ClockSpeed = processor.ClockSpeed
+                    };
+                    processorsToImportInMongo.Add(mongoProcessor);
 
                     MobileDevice mobileDeviceToImport = this.mobileDeviceBuilder.CreateMobileDevice(
                         mobileDevice.Brand,
@@ -72,24 +88,23 @@ namespace MobiStore.Utils.Importers.XmlImporters
                         display,
                         processor);
                     this.SqlServerDatabase.MobileDevices.Add(mobileDeviceToImport);
-
-                    //var mobileDeviceAsJson = JsonConvert.SerializeObject(mobileDeviceToImport);
-                    //var mobileDeviceAsBson = BsonSerializer.Deserialize<BsonDocument>(mobileDeviceAsJson);
-                    //mobileDevicesToImportInMongo.AddLast(mobileDeviceAsBson);
+                    MobileDevice mongoDevice = new MobileDevice
+                    {
+                        Model = mobileDeviceToImport.Model,
+                        Brand = mobileDeviceToImport.Brand,
+                        Battery = mongoBattery,
+                        Display = mongoDisplay,
+                        Processor = mongoProcessor
+                    };
+                    mobileDevicesToImportInMongo.Add(mongoDevice);
                 }
 
-                this.ImportManyToMongoAsync<Battery>(batteriesToImportInMongo, "batteries");
-                this.ImportManyToMongoAsync<Display>(displaysToImportInMongo, "displays");
-                this.ImportManyToMongoAsync<Processor>(processorsToImportInMongo, "processors");
-
+                batteries.InsertMany(batteriesToImportInMongo);
+                displays.InsertMany(displaysToImportInMongo);
+                processors.InsertMany(processorsToImportInMongo);
+                devices.InsertMany(mobileDevicesToImportInMongo);
                 this.SqlServerDatabase.SaveChanges();
             }
-        }
-
-        private async void ImportManyToMongoAsync<T>(IEnumerable<object> collectionToImport, string documentName)
-        {
-            var collection = this.MongoDatabase.GetCollection<T>(documentName);
-            await collection.InsertManyAsync(collectionToImport as IEnumerable<T>);
         }
     }
 }

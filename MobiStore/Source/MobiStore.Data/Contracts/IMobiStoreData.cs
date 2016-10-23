@@ -8,6 +8,8 @@ namespace MobiStore.Data.Contracts
 {
     public interface IMobiStoreData
     {
+        IMobiStoreDbContext Context { get; }
+
         IRepository<Battery> Batteries { get; }
 
         IRepository<Display> Displays { get; }

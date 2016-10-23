@@ -18,7 +18,7 @@ namespace MobiStore.Data.Repositories
             this.context = context;
             this.set = context.Set<T>();
         }
-
+        
         public IQueryable<T> All()
         {
             return this.set.AsQueryable();
