@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 
 using MobiStore.SqliteDatabase.Models;
+using SQLite.CodeFirst;
 
 namespace MobiStore.SqliteDatabase
 {
@@ -9,15 +10,14 @@ namespace MobiStore.SqliteDatabase
         public SqliteContext()
             : base("Stores")
         {
-
         }
 
         public DbSet<Shop> Shops { get; set; }
 
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    var sqliteConnectionInitializer = new SqliteCreateDatabaseIfNotExists<SqliteContext>(modelBuilder);
-        //    Database.SetInitializer(sqliteConnectionInitializer);
-        //}
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            var sqliteConnectionInitializer = new SqliteCreateDatabaseIfNotExists<SqliteContext>(modelBuilder);
+            Database.SetInitializer(sqliteConnectionInitializer);
+        }
     }
 }

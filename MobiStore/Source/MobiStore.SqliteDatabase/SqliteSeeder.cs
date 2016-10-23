@@ -9,10 +9,10 @@ namespace MobiStore.SqliteDatabase
             var sqliteDb = new SqliteContext();
 
             sqliteDb.Shops.Add(new Shop { Town = "Sofia", Name = "MobiStore Mladost" });
-            //sqliteDb.Shops.Add(new Shop { Town = "Sofia", Name = "MobiStore Banishora" });
-            //sqliteDb.Shops.Add(new Shop { Town = "Sofia", Name = "MobiStore Dragoman" });
+            sqliteDb.Shops.Add(new Shop { Town = "Sofia", Name = "MobiStore Banishora" });
+            sqliteDb.Shops.Add(new Shop { Town = "Sofia", Name = "MobiStore Dragoman" });
 
-            //sqliteDb.SaveChanges();
+            sqliteDb.SaveChanges();
         }
     }
 }

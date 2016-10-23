@@ -8,6 +8,7 @@ using MobiStore.Data;
 using MobiStore.Utilities.Importers;
 using MobiStore.MongoDatabase;
 using MobiStore.Factories.Factories;
+using MobiStore.SqliteDatabase;
 using MobiStore.Utilities.Reporters;
 using MobiStore.Utilities.Importers.XmlImporters;
 
@@ -76,7 +77,7 @@ namespace MobiStore.DesktopClient
 
         private void SQLiteButton_Click(object sender, EventArgs e)
         {
-
+            SqliteSeeder.SeedDatabase();
         }
 
         private void SeedMongo()
