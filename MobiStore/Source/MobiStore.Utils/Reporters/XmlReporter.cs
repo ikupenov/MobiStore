@@ -6,11 +6,11 @@ using System.Xml.Serialization;
 using MobiStore.Data.Contracts;
 using MobiStore.XmlModels.Reporters;
 
-namespace MobiStore.Utils.Exporters
+namespace MobiStore.Utilities.Reporters
 {
     public class XmlReporter
     {
-        public static void CreateReports(IMobiStoreData sqlServerDatabase, XmlSerializer xmlSerializer, DirectoryInfo destinationDirectory)
+        public static void CreateReports(ISqlServerDb sqlServerDatabase, XmlSerializer xmlSerializer, DirectoryInfo destinationDirectory)
         {
             var allReports = sqlServerDatabase
                 .SalesReports
@@ -25,8 +25,10 @@ namespace MobiStore.Utils.Exporters
                         SaleDate = s.SaleDate,
                         Shop = s.Shop.Name,
                         TotalValue = s.TotalValue
-                    }).ToList()
-                }).ToList();
+                    })
+                    .ToList()
+                })
+                .ToList();
 
             var xmlWriterSettings = new XmlWriterSettings();
             xmlWriterSettings.Indent = true;

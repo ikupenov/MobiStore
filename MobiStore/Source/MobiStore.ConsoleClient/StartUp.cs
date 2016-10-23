@@ -1,14 +1,13 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.IO.Compression;
 using System.Xml.Serialization;
 
 using MobiStore.Data;
-using MobiStore.Models.Reports;
-using MobiStore.MongoDB;
-using MobiStore.Utils.Exporters;
-using MobiStore.Utils.Importers;
-using MobiStore.Utils.Importers.XmlImporters;
+using MobiStore.MongoDatabase;
+using MobiStore.MySqlDatabase;
+using MobiStore.Utilities.Reporters;
+using MobiStore.Utilities.Importers;
+using MobiStore.Utilities.Importers.XmlImporters;
 
 namespace MobiStore.ConsoleClient
 {
@@ -19,32 +18,35 @@ namespace MobiStore.ConsoleClient
 
         private static void Main()
         {
-            CreateDatabase();
+            //CreateDatabase();
 
-            var seeder = new MongoSeeder();
+            //var seeder = new MongoSeeder();
 
-            seeder.SeedDatabase("mongodb://localhost:27017", "MobiStore");
-            var mongoDb = MongoDb.GetInstance("mongodb://localhost:27017", "MobiStore");
-            var sqlServerDb = new MobiStoreData();
-            var mongo = new MongoDb();
+            //seeder.SeedDatabase("mongodb://localhost:27017", "MobiStore");
+            //var mongoDb = MongoDb.GetInstance("mongodb://localhost:27017", "MobiStore");
+            var sqlServerDb = new SqlServerDb();
+            //var mongo = new MongoDb();
 
-            mongo.TransferToSqlServer(mongoDb, sqlServerDb);
+            //mongo.TransferToSqlServer(mongoDb, sqlServerDb);
 
-            var xmlSerializer = new XmlSerializer(typeof(XmlModels.Shop));
-            var mobileDeviceXmlImporter = new MobileDeviceXmlImporter(sqlServerDb, mongoDb, xmlSerializer);
+            //var xmlSerializer = new XmlSerializer(typeof(XmlModels.Shop));
+            //var mobileDeviceXmlImporter = new MobileDeviceXmlImporter(sqlServerDb, mongoDb, xmlSerializer);
 
-            var currentDir = Directory.GetCurrentDirectory();
-            var shopXmlDir = new DirectoryInfo($@"{currentDir}\..\..\..\..\Data\Models\shop.xml");
-            mobileDeviceXmlImporter.Import(shopXmlDir);
+            //var currentDir = Directory.GetCurrentDirectory();
+            //var shopXmlDir = new DirectoryInfo($@"{currentDir}\..\..\..\..\Data\Models\shop.xml");
+            //mobileDeviceXmlImporter.Import(shopXmlDir);
 
             ReadExcelReports();
-            CreateXmlReports();
+            //CreateXmlReports();
+
+            var mySqlDatabase = new MySqlDb();
+            MySqlSeeder.SeedDatabase(sqlServerDb, mySqlDatabase);
         }
 
         private static void CreateDatabase()
         {
-            MobiStoreData.Initialize();
-            MobiStoreDbContext.Create().Database.Initialize(true);
+            SqlServerDb.Initialize();
+            SqlServerContext.Create().Database.Initialize(true);
         }
 
         private static void ReadExcelReports()
@@ -55,21 +57,21 @@ namespace MobiStore.ConsoleClient
                 ZipFile.ExtractToDirectory(PathOfZip, ExtractedFilePath);
             }
 
-            ExcelImporter.ImportReports(root, new MobiStoreData());
+            ExcelImporter.ImportReports(root, new SqlServerDb());
         }
 
         private static void CreateJsonReports()
         {
             var currentDir = Directory.GetCurrentDirectory();
             var destinationDir = new DirectoryInfo($@"{currentDir}\..\..\..\..\Data\Reports\Output\JSON");
-            JsonReporter.CreateReports(new MobiStoreData(), destinationDir);
+            JsonReporter.CreateReports(new SqlServerDb(), destinationDir);
         }
 
         private static void CreateXmlReports()
         {
             var currentDir = Directory.GetCurrentDirectory();
             var destinationDir = new DirectoryInfo($@"{currentDir}\..\..\..\..\Data\Reports\Output\XML");
-            XmlReporter.CreateReports(new MobiStoreData(), new XmlSerializer(typeof(XmlModels.Reporters.SalesReport)), destinationDir);
+            XmlReporter.CreateReports(new SqlServerDb(), new XmlSerializer(typeof(XmlModels.Reporters.SalesReport)), destinationDir);
         }
     }
 }

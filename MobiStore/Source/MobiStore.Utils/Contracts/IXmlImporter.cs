@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace MobiStore.Utils.Contracts
+namespace MobiStore.Utilities.Contracts
 {
     public interface IXmlImporter
     {

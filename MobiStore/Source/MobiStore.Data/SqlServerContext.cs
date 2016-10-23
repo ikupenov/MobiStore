@@ -9,9 +9,9 @@ using MobiStore.Models.Reports;
 
 namespace MobiStore.Data
 {
-    public class MobiStoreDbContext : DbContext, IMobiStoreDbContext
+    public class SqlServerContext : DbContext, ISqlServerContext
     {
-        public MobiStoreDbContext()
+        public SqlServerContext()
             : base("MobiStore")
         {
         }
@@ -34,13 +34,13 @@ namespace MobiStore.Data
 
         public virtual IDbSet<SalesReport> SalesReports { get; set; }
 
-        public static MobiStoreDbContext Create()
+        public static SqlServerContext Create()
         {
-            MobiStoreDbContext instance = new MobiStoreDbContext();
+            SqlServerContext instance = new SqlServerContext();
             return instance;
         }
 
-        IDbSet<T> IMobiStoreDbContext.Set<T>()
+        IDbSet<T> ISqlServerContext.Set<T>()
         {
             return base.Set<T>();
         }

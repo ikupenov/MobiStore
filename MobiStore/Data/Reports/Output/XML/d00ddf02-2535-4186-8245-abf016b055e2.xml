@@ -7,16 +7,16 @@
     <shop-name>MobiStore Mladost</shop-name>
     <employee>Ivan</employee>
   </sales>
-  <sales id="a3a75608-1190-4713-9951-f0d587825e9c">
-    <total-value>3333</total-value>
-    <sale-date>2016-10-20T12:00:00</sale-date>
-    <shop-name>MobiStore Mladost</shop-name>
-    <employee>Sevda</employee>
-  </sales>
   <sales id="6004374b-7e48-40af-b24c-ab8b99d9b517">
     <total-value>4321</total-value>
     <sale-date>2016-10-20T11:00:00</sale-date>
     <shop-name>MobiStore Mladost</shop-name>
     <employee>Ivan</employee>
+  </sales>
+  <sales id="a3a75608-1190-4713-9951-f0d587825e9c">
+    <total-value>3333</total-value>
+    <sale-date>2016-10-20T12:00:00</sale-date>
+    <shop-name>MobiStore Mladost</shop-name>
+    <employee>Sevda</employee>
   </sales>
 </sales-report>

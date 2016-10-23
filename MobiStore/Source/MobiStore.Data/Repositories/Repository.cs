@@ -10,10 +10,10 @@ namespace MobiStore.Data.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private IMobiStoreDbContext context;
+        private ISqlServerContext context;
         private IDbSet<T> set;
 
-        public Repository(IMobiStoreDbContext context)
+        public Repository(ISqlServerContext context)
         {
             this.context = context;
             this.set = context.Set<T>();

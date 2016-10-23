@@ -6,16 +6,16 @@ using System.Xml.Serialization;
 using MobiStore.Data.Contracts;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
-using MobiStore.Utils.Factories;
+using MobiStore.Utilities.Factories;
 using MongoDB.Driver;
 
-namespace MobiStore.Utils.Importers.XmlImporters
+namespace MobiStore.Utilities.Importers.XmlImporters
 {
     public class MobileDeviceXmlImporter : XmlImporter
     {
         private MobileDeviceFactory mobileDeviceFactory;
 
-        public MobileDeviceXmlImporter(IMobiStoreData sqlServerData, IMongoDatabase mongoData, XmlSerializer serializer)
+        public MobileDeviceXmlImporter(ISqlServerDb sqlServerData, IMongoDatabase mongoData, XmlSerializer serializer)
             : base(sqlServerData, mongoData, serializer)
         {
             this.mobileDeviceFactory = new MobileDeviceFactory();

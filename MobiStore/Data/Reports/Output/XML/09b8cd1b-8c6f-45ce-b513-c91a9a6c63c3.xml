@@ -7,15 +7,15 @@
     <shop-name>MobiStore Dragoman</shop-name>
     <employee>Sevda</employee>
   </sales>
-  <sales id="b9d4a95a-f1d5-4bf8-a5c8-a37d50b115e5">
-    <total-value>2210</total-value>
-    <sale-date>2016-10-19T11:00:00</sale-date>
-    <shop-name>MobiStore Dragoman</shop-name>
-    <employee>Petur</employee>
-  </sales>
   <sales id="f52a8189-44e3-440b-b502-7011e3218ca5">
     <total-value>1105</total-value>
     <sale-date>2016-10-19T10:00:00</sale-date>
+    <shop-name>MobiStore Dragoman</shop-name>
+    <employee>Petur</employee>
+  </sales>
+  <sales id="b9d4a95a-f1d5-4bf8-a5c8-a37d50b115e5">
+    <total-value>2210</total-value>
+    <sale-date>2016-10-19T11:00:00</sale-date>
     <shop-name>MobiStore Dragoman</shop-name>
     <employee>Petur</employee>
   </sales>

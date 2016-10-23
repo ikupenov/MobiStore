@@ -13,23 +13,23 @@ using MobiStore.Models.Reports;
 
 namespace MobiStore.Data
 {
-    public class MobiStoreData : IMobiStoreData
+    public class SqlServerDb : ISqlServerDb
     {
-        private readonly IMobiStoreDbContext context;
+        private readonly ISqlServerContext context;
         private IDictionary<Type, object> repositories;
 
-        public MobiStoreData(IMobiStoreDbContext context)
+        public SqlServerDb(ISqlServerContext context)
         {
             this.context = context;
             this.repositories = new Dictionary<Type, object>();
         }
 
-        public MobiStoreData()
-            : this(new MobiStoreDbContext())
+        public SqlServerDb()
+            : this(new SqlServerContext())
         {
         }
         
-        public IMobiStoreDbContext Context
+        public ISqlServerContext Context
         {
             get
             {
@@ -111,7 +111,7 @@ namespace MobiStore.Data
 
         public static void Initialize()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MobiStoreDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<SqlServerContext, Configuration>());
         }
 
         public void SaveChanges()

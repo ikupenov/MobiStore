@@ -7,7 +7,7 @@ using MobiStore.Models.MobileDevices;
 
 namespace MobiStore.Data.Migrations
 {
-    public sealed class Configuration : DbMigrationsConfiguration<MobiStoreDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<SqlServerContext>
     {
         public Configuration()
         {
@@ -15,7 +15,7 @@ namespace MobiStore.Data.Migrations
             this.AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(MobiStoreDbContext context)
+        protected override void Seed(SqlServerContext context)
         {
             context.Employees.AddOrUpdate(
                 e => e.Name,

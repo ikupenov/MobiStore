@@ -9,7 +9,7 @@ using MobiStore.Models;
 using MobiStore.Models.Enumerations;
 using MobiStore.Models.Reports;
 
-namespace MobiStore.Utils.Importers
+namespace MobiStore.Utilities.Importers
 {
     public class ExcelImporter
     {
@@ -18,12 +18,12 @@ namespace MobiStore.Utils.Importers
         private const string OleDbConnectionString =
             "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties='Excel 8.0;HDR=YES;IMEX=1;'";
 
-        public static void ImportReports(DirectoryInfo rootDirectory, IMobiStoreData db)
+        public static void ImportReports(DirectoryInfo rootDirectory, ISqlServerDb db)
         {
             TraverseDirectory(rootDirectory, db);
         }
 
-        private static void TraverseDirectory(DirectoryInfo directory, IMobiStoreData db)
+        private static void TraverseDirectory(DirectoryInfo directory, ISqlServerDb db)
         {
             DirectoryInfo[] childDirectories = directory.GetDirectories();
             foreach (DirectoryInfo dir in childDirectories)
@@ -74,7 +74,7 @@ namespace MobiStore.Utils.Importers
             }
         }
 
-        private static Sale CreateSale(DataRow row, IMobiStoreData db)
+        private static Sale CreateSale(DataRow row, ISqlServerDb db)
         {
             string str = row["ShopId"].ToString();
             var shopId = Guid.Parse(row["ShopId"].ToString());

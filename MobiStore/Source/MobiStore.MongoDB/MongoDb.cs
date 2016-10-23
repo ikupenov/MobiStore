@@ -8,7 +8,7 @@ using MobiStore.Models.MobileDevices.Components;
 
 using MongoDB.Driver;
 
-namespace MobiStore.MongoDB
+namespace MobiStore.MongoDatabase
 {
     public class MongoDb
     {
@@ -25,7 +25,7 @@ namespace MobiStore.MongoDB
             return instance;
         }
 
-        public void TransferToSqlServer(IMongoDatabase mongoDataBase, IMobiStoreData sqlServerDatabase)
+        public void TransferToSqlServer(IMongoDatabase mongoDataBase, ISqlServerDb sqlServerDatabase)
         {
             this.TransferDisplays(mongoDataBase, sqlServerDatabase);
             this.TransferCountries(mongoDataBase, sqlServerDatabase);
@@ -34,7 +34,7 @@ namespace MobiStore.MongoDB
             this.TransferMobileDevices(mongoDataBase, sqlServerDatabase);
         }
 
-        private void TransferDisplays(IMongoDatabase mongoDatabse, IMobiStoreData sqlServerDatabase)
+        private void TransferDisplays(IMongoDatabase mongoDatabse, ISqlServerDb sqlServerDatabase)
         {
             var displaysCollection = mongoDatabse.GetCollection<Display>("displays");
             var mongoDisplays = displaysCollection.Find(d => true).ToList();
@@ -55,7 +55,7 @@ namespace MobiStore.MongoDB
             sqlServerDatabase.SaveChanges();
         }
 
-        private void TransferBatteries(IMongoDatabase mongoDatabse, IMobiStoreData sqlServerDatabase)
+        private void TransferBatteries(IMongoDatabase mongoDatabse, ISqlServerDb sqlServerDatabase)
         {
             var batteriesCollection = mongoDatabse.GetCollection<Battery>("batteries");
             var mongoBatteries = batteriesCollection.Find(b => true).ToList();
@@ -76,7 +76,7 @@ namespace MobiStore.MongoDB
             sqlServerDatabase.SaveChanges();
         }
 
-        private void TransferProcessors(IMongoDatabase mongoDatabse, IMobiStoreData sqlServerDatabase)
+        private void TransferProcessors(IMongoDatabase mongoDatabse, ISqlServerDb sqlServerDatabase)
         {
             var processorsCollection = mongoDatabse.GetCollection<Processor>("processors");
             var mongoProcessors = processorsCollection.Find(b => true).ToList();
@@ -97,7 +97,7 @@ namespace MobiStore.MongoDB
             sqlServerDatabase.SaveChanges();
         }
 
-        private void TransferCountries(IMongoDatabase mongoDatabse, IMobiStoreData sqlServerDatabase)
+        private void TransferCountries(IMongoDatabase mongoDatabse, ISqlServerDb sqlServerDatabase)
         {
             var countriesCollection = mongoDatabse.GetCollection<Country>("countries");
             var mongoCountries = countriesCollection.Find(b => true).ToList();
@@ -116,7 +116,7 @@ namespace MobiStore.MongoDB
             sqlServerDatabase.SaveChanges();
         }
 
-        private void TransferMobileDevices(IMongoDatabase mongoDatabse, IMobiStoreData sqlServerDatabase)
+        private void TransferMobileDevices(IMongoDatabase mongoDatabse, ISqlServerDb sqlServerDatabase)
         {
             var devicesCollection = mongoDatabse.GetCollection<MobileDevice>("mobileDevices");
             var mongoDevices = devicesCollection.Find(b => true).ToList();
@@ -172,7 +172,7 @@ namespace MobiStore.MongoDB
             sqlServerDatabase.SaveChanges();
         }
 
-        private Country GetCountry(IMobiStoreData sqlServerDatabase, ICountryManufacturer mongoObject)
+        private Country GetCountry(ISqlServerDb sqlServerDatabase, ICountryManufacturer mongoObject)
         {
             var country = sqlServerDatabase
                 .Countries
@@ -189,7 +189,7 @@ namespace MobiStore.MongoDB
             return country;
         }
 
-        private Display GetDisplay(MobileDevice device, IMobiStoreData sqlServerDatabase)
+        private Display GetDisplay(MobileDevice device, ISqlServerDb sqlServerDatabase)
         {
             Display display = null;
             if (device.Display != null)
@@ -209,7 +209,7 @@ namespace MobiStore.MongoDB
             return display;
         }
 
-        private Battery GetBattery(MobileDevice device, IMobiStoreData sqlServerDatabase)
+        private Battery GetBattery(MobileDevice device, ISqlServerDb sqlServerDatabase)
         {
             Battery battery = null;
             if (device.Battery != null)
@@ -228,7 +228,7 @@ namespace MobiStore.MongoDB
             return battery;
         }
 
-        private Processor GetProcessor(MobileDevice device, IMobiStoreData sqlServerDatabase)
+        private Processor GetProcessor(MobileDevice device, ISqlServerDb sqlServerDatabase)
         {
             Processor processor = null;
             if (device.Processor != null)

@@ -11,9 +11,9 @@ namespace MobiStore.Factories.Factories
 {
     public class MsSqlModelsFactory : ModelsFactory, IModelsFactory
     {
-        private readonly IMobiStoreData db;
+        private readonly ISqlServerDb db;
 
-        public MsSqlModelsFactory(IMobiStoreData db)
+        public MsSqlModelsFactory(ISqlServerDb db)
         {
             this.db = db;
         }

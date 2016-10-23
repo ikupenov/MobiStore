@@ -4,7 +4,7 @@ using MobiStore.Models.Enumerations;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
 
-namespace MobiStore.MongoDB
+namespace MobiStore.MongoDatabase
 {
     public static class ModelsFactory
     {

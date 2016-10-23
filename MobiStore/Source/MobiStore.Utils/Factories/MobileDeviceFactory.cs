@@ -3,7 +3,7 @@ using MobiStore.Models.Enumerations;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
 
-namespace MobiStore.Utils.Factories
+namespace MobiStore.Utilities.Factories
 {
     public  class MobileDeviceFactory
     {

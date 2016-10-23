@@ -4,7 +4,7 @@ using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
 using MongoDB.Bson;
 
-namespace MobiStore.MongoDB
+namespace MobiStore.MongoDatabase
 {
     public class MongoSeeder
     {

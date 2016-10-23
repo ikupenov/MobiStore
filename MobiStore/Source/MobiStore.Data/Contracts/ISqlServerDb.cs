@@ -6,9 +6,9 @@ using MobiStore.Models.Reports;
 
 namespace MobiStore.Data.Contracts
 {
-    public interface IMobiStoreData
+    public interface ISqlServerDb
     {
-        IMobiStoreDbContext Context { get; }
+        ISqlServerContext Context { get; }
 
         IRepository<Battery> Batteries { get; }
 

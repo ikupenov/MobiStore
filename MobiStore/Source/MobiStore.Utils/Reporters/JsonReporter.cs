@@ -6,11 +6,11 @@ using MobiStore.Models.Enumerations;
 
 using Newtonsoft.Json;
 
-namespace MobiStore.Utils.Exporters
+namespace MobiStore.Utilities.Reporters
 {
     public class JsonReporter
     {
-        public static void CreateReports(IMobiStoreData sqlServerDatabase, DirectoryInfo destinationDirectory)
+        public static void CreateReports(ISqlServerDb sqlServerDatabase, DirectoryInfo destinationDirectory)
         {
             var allReports = sqlServerDatabase
                 .SalesReports
@@ -25,8 +25,10 @@ namespace MobiStore.Utils.Exporters
                         ShopName = s.Shop.Name,
                         Product = (Brand)s.Product.Brand,
                         TotalValue = s.TotalValue
-                    }).ToList()
-                }).ToList();
+                    })
+                    .ToList()
+                })
+                .ToList();
 
             foreach (var report in allReports)
             {

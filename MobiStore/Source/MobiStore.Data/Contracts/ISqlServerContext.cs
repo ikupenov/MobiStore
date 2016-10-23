@@ -7,7 +7,7 @@ using MobiStore.Models.MobileDevices.Components;
 
 namespace MobiStore.Data.Contracts
 {
-    public interface IMobiStoreDbContext
+    public interface ISqlServerContext
     {
         IDbSet<Country> Countries { get; set; }
 

@@ -7,16 +7,16 @@
     <shop-name>MobiStore Banishora</shop-name>
     <employee>Sevda</employee>
   </sales>
-  <sales id="773794a0-1516-4c95-b81d-fd973bf3268b">
-    <total-value>1105</total-value>
-    <sale-date>2016-10-19T10:00:00</sale-date>
-    <shop-name>MobiStore Banishora</shop-name>
-    <employee>Sevda</employee>
-  </sales>
   <sales id="8064d8ec-42f9-4a97-9e3c-4df3e806a335">
     <total-value>2212</total-value>
     <sale-date>2016-10-19T12:00:00</sale-date>
     <shop-name>MobiStore Banishora</shop-name>
     <employee>Petur</employee>
+  </sales>
+  <sales id="773794a0-1516-4c95-b81d-fd973bf3268b">
+    <total-value>1105</total-value>
+    <sale-date>2016-10-19T10:00:00</sale-date>
+    <shop-name>MobiStore Banishora</shop-name>
+    <employee>Sevda</employee>
   </sales>
 </sales-report>

@@ -3,16 +3,16 @@ using System.IO;
 using System.Xml.Serialization;
 
 using MobiStore.Data.Contracts;
-using MobiStore.Utils.Contracts;
+using MobiStore.Utilities.Contracts;
 using MongoDB.Driver;
 
-namespace MobiStore.Utils.Importers
+namespace MobiStore.Utilities.Importers
 {
     public abstract class XmlImporter : IXmlImporter
     {
         private const string NullExceptionMessage = "The provided parameter [{0}] in {1}'s constructor cannot be null.";
 
-        protected XmlImporter(IMobiStoreData sqlServerData, IMongoDatabase mongoData, XmlSerializer xmlSerializer)
+        protected XmlImporter(ISqlServerDb sqlServerData, IMongoDatabase mongoData, XmlSerializer xmlSerializer)
         {
             if (sqlServerData == null)
             {
@@ -37,7 +37,7 @@ namespace MobiStore.Utils.Importers
             this.XmlSerializer = xmlSerializer;
         }
 
-        protected IMobiStoreData SqlServerDatabase { get; private set; }
+        protected ISqlServerDb SqlServerDatabase { get; private set; }
 
         protected IMongoDatabase MongoDatabase { get; private set; }
 

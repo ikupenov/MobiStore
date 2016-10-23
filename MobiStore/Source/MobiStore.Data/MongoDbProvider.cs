@@ -2,7 +2,7 @@
 
 namespace MobiStore.Data
 {
-    public static class MobiStoreMongoDb
+    public static class MongoDbProvider
     {
         public static IMongoDatabase GetDatabase(string serverName, string databaseName)
         {
