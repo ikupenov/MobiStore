@@ -100,7 +100,10 @@ namespace MobiStore.Factories.Factories
             var foundBattery = this.db
                 .Batteries
                 .All()
-                .FirstOrDefault(b => b == battery);
+                .FirstOrDefault(
+                    b => b.Capacity == battery.Capacity &&
+                    b.Type == battery.Type &&
+                    b.Country == battery.Country);
 
             if (foundBattery == null)
             {
@@ -122,7 +125,11 @@ namespace MobiStore.Factories.Factories
             var foundDisplay = this.db
                 .Displays
                 .All()
-                .FirstOrDefault(d => d == display);
+                .FirstOrDefault(
+                    d => d.Resolution == display.Resolution &&
+                    d.Size == display.Size &&
+                    d.Type == display.Type &&
+                    d.Country == display.Country);
 
             if (foundDisplay == null)
             {
@@ -144,7 +151,10 @@ namespace MobiStore.Factories.Factories
             var foundProcessor = this.db
                 .Processors
                 .All()
-                .FirstOrDefault(p => p == processor);
+                .FirstOrDefault(
+                    p => p.CacheMemory == processor.CacheMemory &&
+                    p.ClockSpeed == processor.ClockSpeed &&
+                    p.Country == processor.Country);
 
             if (foundProcessor == null)
             {

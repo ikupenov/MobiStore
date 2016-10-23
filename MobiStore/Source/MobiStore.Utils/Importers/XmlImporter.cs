@@ -4,6 +4,7 @@ using System.Xml.Serialization;
 
 using MobiStore.Data.Contracts;
 using MobiStore.Utilities.Contracts;
+
 using MongoDB.Driver;
 
 namespace MobiStore.Utilities.Importers
@@ -12,36 +13,73 @@ namespace MobiStore.Utilities.Importers
     {
         private const string NullExceptionMessage = "The provided parameter [{0}] in {1}'s constructor cannot be null.";
 
-        protected XmlImporter(ISqlServerDb sqlServerData, IMongoDatabase mongoData, XmlSerializer xmlSerializer)
+        private ISqlServerDb sqlServerDatabase;
+        private IMongoDatabase mongoDatabase;
+        private XmlSerializer xmlSerializer;
+
+        protected XmlImporter(ISqlServerDb sqlServerDatabase, IMongoDatabase mongoData, XmlSerializer xmlSerializer)
         {
-            if (sqlServerData == null)
-            {
-                var exceptionMsg = string.Format(NullExceptionMessage, sqlServerData.GetType().Name, this.GetType().Name);
-                throw new ArgumentNullException(exceptionMsg);
-            }
-
-            if (xmlSerializer == null)
-            {
-                var exceptionMsg = string.Format(NullExceptionMessage, xmlSerializer.GetType().Name, this.GetType().Name);
-                throw new ArgumentNullException(exceptionMsg);
-            }
-
-            if (mongoData == null)
-            {
-                var exceptionMsg = string.Format(NullExceptionMessage, mongoData.GetType().Name, this.GetType().Name);
-                throw new ArgumentNullException(exceptionMsg);
-            }
-
-            this.SqlServerDatabase = sqlServerData;
+            this.SqlServerDatabase = sqlServerDatabase;
             this.MongoDatabase = mongoData;
             this.XmlSerializer = xmlSerializer;
         }
 
-        protected ISqlServerDb SqlServerDatabase { get; private set; }
+        protected ISqlServerDb SqlServerDatabase
+        {
+            get
+            {
+                return this.sqlServerDatabase;
+            }
 
-        protected IMongoDatabase MongoDatabase { get; private set; }
+            private set
+            {
+                if (value == null)
+                {
+                    var exceptionMessage = string.Format(NullExceptionMessage, this.sqlServerDatabase.GetType().Name, this.GetType().Name);
+                    throw new ArgumentNullException(exceptionMessage);
+                }
 
-        protected XmlSerializer XmlSerializer { get; private set; }
+                this.sqlServerDatabase = value;
+            }
+        }
+
+        protected IMongoDatabase MongoDatabase
+        {
+            get
+            {
+                return this.mongoDatabase;
+            }
+
+            private set
+            {
+                if (value == null)
+                {
+                    var exceptionMessage = string.Format(NullExceptionMessage, this.mongoDatabase.GetType().Name, this.GetType().Name);
+                    throw new ArgumentNullException(exceptionMessage);
+                }
+
+                this.mongoDatabase = value;
+            }
+        }
+
+        protected XmlSerializer XmlSerializer
+        {
+            get
+            {
+                return this.xmlSerializer;
+            }
+
+            private set
+            {
+                if (value == null)
+                {
+                    var exceptionMessage = string.Format(NullExceptionMessage, this.xmlSerializer.GetType().Name, this.GetType().Name);
+                    throw new ArgumentNullException(exceptionMessage);
+                }
+
+                this.xmlSerializer = value;
+            }
+        }
 
         public abstract void Import(DirectoryInfo xmlFilePath);
     }

@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 
 using MobiStore.Data.Contracts;
+using MobiStore.Factories.Contracts;
 using MobiStore.Models.Common;
-using MobiStore.Models.Contracts;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
 
@@ -13,6 +13,13 @@ namespace MobiStore.MongoDatabase
     public class MongoDb
     {
         private static IMongoDatabase instance;
+
+        private readonly IModelsFactory mssqlModelsFactory;
+
+        public MongoDb(IModelsFactory mssqlModelsFactory)
+        {
+            this.mssqlModelsFactory = mssqlModelsFactory;
+        }
 
         public static IMongoDatabase GetInstance(string serverName, string databaseName)
         {
@@ -42,13 +49,8 @@ namespace MobiStore.MongoDatabase
 
             foreach (var display in mongoDisplays)
             {
-                var newDisplay = new Display
-                {
-                    Country = display.Country == null ? null : this.GetCountry(sqlServerDatabase, display),
-                    Resolution = display.Resolution,
-                    Size = display.Size,
-                    Type = display.Type
-                };
+                var newDisplay = this.mssqlModelsFactory
+                    .CreateDisplay(display.Type, display.Size, display.Resolution, display.Country);
                 displaysTable.Add(newDisplay);
             }
 
@@ -63,13 +65,8 @@ namespace MobiStore.MongoDatabase
 
             foreach (var battery in mongoBatteries)
             {
-                var newBattery = new Battery
-                {
-                    Capacity = battery.Capacity,
-                    Type = battery.Type,
-                    Country = battery.Country == null ? null : this.GetCountry(sqlServerDatabase, battery)
-                };
-
+                var newBattery = this.mssqlModelsFactory
+                    .CreateBattery(battery.Type, battery.Capacity, battery.Country);
                 batteriesTable.Add(newBattery);
             }
 
@@ -84,13 +81,8 @@ namespace MobiStore.MongoDatabase
 
             foreach (var processor in mongoProcessors)
             {
-                var newProcessor = new Processor
-                {
-                    CacheMemory = processor.CacheMemory,
-                    ClockSpeed = processor.ClockSpeed,
-                    Country = processor.Country == null ? null : this.GetCountry(sqlServerDatabase, processor),
-                };
-
+                var newProcessor = this.mssqlModelsFactory
+                    .CreateProcessor(processor.ClockSpeed, processor.CacheMemory, processor.Country);
                 processorsTable.Add(newProcessor);
             }
 
@@ -105,11 +97,7 @@ namespace MobiStore.MongoDatabase
 
             foreach (var country in mongoCountries)
             {
-                var newCountry = new Country
-                {
-                    Name = country.Name
-                };
-
+                var newCountry = this.mssqlModelsFactory.CreateCountry(country.Name);
                 countriesTable.Add(newCountry);
             }
 
@@ -124,127 +112,19 @@ namespace MobiStore.MongoDatabase
 
             foreach (var device in mongoDevices)
             {
-                Display display = this.GetDisplay(device, sqlServerDatabase);
-                Battery battery = this.GetBattery(device, sqlServerDatabase);
-                Processor processor = this.GetProcessor(device, sqlServerDatabase);
-                Country country = null;
-                
-                if (device.Country != null)
-                {
-                    country = new Country { Name = device.Country.Name };
-                    sqlServerDatabase.Countries.Add(country);
-                    sqlServerDatabase.SaveChanges();
-                }
-
-                var newDevice = new MobileDevice
-                {
-                    Brand = device.Brand,
-                    Model = device.Model,
-                };
-
-                if (display != null)
-                {
-                    newDevice.Display = display;
-                    newDevice.DisplayId = display.Id;
-                }
-
-                if (battery != null)
-                {
-                    newDevice.Battery = battery;
-                    newDevice.BatteryId = battery.Id;
-                }
-
-                if (processor != null)
-                {
-                    newDevice.Processor = processor;
-                    newDevice.ProcessorId = processor.Id;
-                }
-
-                if (country != null)
-                {
-                    newDevice.Country = country;
-                    newDevice.CountryId = country.Id;
-                }
+                var newDevice = this.mssqlModelsFactory
+                    .CreateMobileDevice(
+                    device.Brand, 
+                    device.Model, 
+                    device.Display, 
+                    device.Battery, 
+                    device.Processor,
+                    device.Country);
 
                 devicesTable.Add(newDevice);
             }
 
             sqlServerDatabase.SaveChanges();
-        }
-
-        private Country GetCountry(ISqlServerDb sqlServerDatabase, ICountryManufacturer mongoObject)
-        {
-            var country = sqlServerDatabase
-                .Countries
-                .All()
-                .FirstOrDefault(c => c.Name == mongoObject.Country.Name);
-
-            if (country == null)
-            {
-                country = new Country { Name = mongoObject.Country.Name };
-                sqlServerDatabase.Countries.Add(country);
-                sqlServerDatabase.SaveChanges();
-            }
-
-            return country;
-        }
-
-        private Display GetDisplay(MobileDevice device, ISqlServerDb sqlServerDatabase)
-        {
-            Display display = null;
-            if (device.Display != null)
-            {
-                display = new Display
-                {
-                    Country = device.Display.Country,
-                    Resolution = device.Display.Resolution,
-                    Size = device.Display.Size,
-                    Type = device.Display.Type
-                };
-
-                sqlServerDatabase.Displays.Add(display);
-                sqlServerDatabase.SaveChanges();
-            }
-
-            return display;
-        }
-
-        private Battery GetBattery(MobileDevice device, ISqlServerDb sqlServerDatabase)
-        {
-            Battery battery = null;
-            if (device.Battery != null)
-            {
-                battery = new Battery
-                {
-                    Capacity = device.Battery.Capacity,
-                    Country = device.Battery.Country,
-                    Type = device.Battery.Type
-                };
-
-                sqlServerDatabase.Batteries.Add(battery);
-                sqlServerDatabase.SaveChanges();
-            }
-
-            return battery;
-        }
-
-        private Processor GetProcessor(MobileDevice device, ISqlServerDb sqlServerDatabase)
-        {
-            Processor processor = null;
-            if (device.Processor != null)
-            {
-                processor = new Processor
-                {
-                    CacheMemory = device.Processor.CacheMemory,
-                    ClockSpeed = device.Processor.ClockSpeed,
-                    Country = device.Processor.Country
-                };
-
-                sqlServerDatabase.Processors.Add(processor);
-                sqlServerDatabase.SaveChanges();
-            }
-
-            return processor;
-        }
+        }      
     }
 }

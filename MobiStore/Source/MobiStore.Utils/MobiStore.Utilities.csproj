@@ -89,7 +89,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Factories\MobileDeviceFactory.cs" />
     <Compile Include="Contracts\IXmlImporter.cs" />
     <Compile Include="Importers\XmlImporters\MobileDeviceXmlImporter.cs" />
     <Compile Include="Reporters\JsonReporter.cs" />
@@ -103,6 +102,10 @@
     <ProjectReference Include="..\MobiStore.Data\MobiStore.Data.csproj">
       <Project>{dcd7c403-c4f3-481f-b56f-e5159bda74ab}</Project>
       <Name>MobiStore.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobiStore.Factories\MobiStore.Factories.csproj">
+      <Project>{742b5042-1e51-4aea-9510-0ae6f06541fe}</Project>
+      <Name>MobiStore.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MobiStore.Models\MobiStore.Models.csproj">
       <Project>{C65AEEA6-5269-4FDF-8F27-0EF0DC517318}</Project>

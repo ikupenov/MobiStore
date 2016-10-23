@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 
 using MobiStore.Data.Contracts;
@@ -10,8 +11,15 @@ namespace MobiStore.Utilities.Reporters
 {
     public class JsonReporter
     {
+        private const string NullObjectMessage = "{0} cannot be null.";
+
         public static void CreateReports(ISqlServerDb sqlServerDatabase, DirectoryInfo destinationDirectory)
         {
+            string nullDatabaseMessage = string.Format(NullObjectMessage, "Database");
+            string nullDestinationDirectoryMessage = string.Format(NullObjectMessage, "Destination folder");
+            ValidateIfObjectIsNull(sqlServerDatabase, nullDatabaseMessage);
+            ValidateIfObjectIsNull(destinationDirectory, nullDestinationDirectoryMessage);
+
             var allReports = sqlServerDatabase
                 .SalesReports
                 .All()
@@ -39,6 +47,14 @@ namespace MobiStore.Utilities.Reporters
                 {
                     writer.WriteLine(jsonObject);
                 }
+            }
+        }
+
+        private static void ValidateIfObjectIsNull(object objToValidate, string errorMessage)
+        {
+            if (objToValidate == null)
+            {
+                throw new ArgumentNullException(errorMessage);
             }
         }
     }

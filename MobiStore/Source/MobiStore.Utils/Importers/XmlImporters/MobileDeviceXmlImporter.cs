@@ -4,21 +4,23 @@ using System.Linq;
 using System.Xml.Serialization;
 
 using MobiStore.Data.Contracts;
+using MobiStore.Factories.Contracts;
+using MobiStore.Factories.Factories;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
-using MobiStore.Utilities.Factories;
+
 using MongoDB.Driver;
 
 namespace MobiStore.Utilities.Importers.XmlImporters
 {
     public class MobileDeviceXmlImporter : XmlImporter
     {
-        private MobileDeviceFactory mobileDeviceFactory;
+        private IModelsFactory mobileDeviceFactory;
 
         public MobileDeviceXmlImporter(ISqlServerDb sqlServerData, IMongoDatabase mongoData, XmlSerializer serializer)
             : base(sqlServerData, mongoData, serializer)
         {
-            this.mobileDeviceFactory = new MobileDeviceFactory();
+            this.mobileDeviceFactory = new MsSqlModelsFactory(sqlServerData);
         }
 
         public override void Import(DirectoryInfo xmlFilePath)
@@ -60,8 +62,8 @@ namespace MobiStore.Utilities.Importers.XmlImporters
                     MobileDevice mobileDeviceToInsert = this.mobileDeviceFactory.CreateMobileDevice(
                         mobileDevice.Brand,
                         mobileDevice.Model,
-                        battery,
                         display,
+                        battery,
                         processor);
 
                     mobileDevicesToInsert.Add(mobileDeviceToInsert);

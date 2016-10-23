@@ -18,8 +18,15 @@ namespace MobiStore.Utilities.Importers
         private const string OleDbConnectionString =
             "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties='Excel 8.0;HDR=YES;IMEX=1;'";
 
+        private const string NullObjectMessage = "{0} cannot be null.";
+
         public static void ImportReports(DirectoryInfo rootDirectory, ISqlServerDb db)
         {
+            string nullRootDirectoryMessage = string.Format(NullObjectMessage, "Excel root directory");
+            string nullDatabaseMessage = string.Format(NullObjectMessage, "Database");
+            ValidateIfObjectIsNull(rootDirectory, nullRootDirectoryMessage);
+            ValidateIfObjectIsNull(db, nullDatabaseMessage);
+
             TraverseDirectory(rootDirectory, db);
         }
 
@@ -53,18 +60,18 @@ namespace MobiStore.Utilities.Importers
 
         private static DataTable ReadFile(string path)
         {
-            using (OleDbConnection connection = new OleDbConnection())
+            using (var connection = new OleDbConnection())
             {
-                DataTable dataTable = new DataTable();
+                var dataTable = new DataTable();
                 string fileExtension = Path.GetExtension(path);
                 connection.ConnectionString = string.Format(OleDbConnectionString, path);
 
-                using (OleDbCommand command = new OleDbCommand())
+                using (var command = new OleDbCommand())
                 {
                     command.CommandText = string.Format(SelectQuery);
                     command.Connection = connection;
 
-                    using (OleDbDataAdapter dataAdapter = new OleDbDataAdapter())
+                    using (var dataAdapter = new OleDbDataAdapter())
                     {
                         dataAdapter.SelectCommand = command;
                         dataAdapter.Fill(dataTable);
@@ -91,7 +98,7 @@ namespace MobiStore.Utilities.Importers
             var totalValue = int.Parse(row["TotalValue"].ToString());
             var currency = (CurrencyType)Enum.Parse(typeof(CurrencyType), row["Currency"].ToString());
 
-            Sale sale = new Sale
+            var sale = new Sale
             {
                 ShopId = shopId,
                 Shop = shop,
@@ -117,6 +124,14 @@ namespace MobiStore.Utilities.Importers
             };
 
             return shop;
+        }
+
+        private static void ValidateIfObjectIsNull(object objToValidate, string errorMessage)
+        {
+            if (objToValidate == null)
+            {
+                throw new ArgumentNullException(errorMessage);
+            }
         }
     }
 }

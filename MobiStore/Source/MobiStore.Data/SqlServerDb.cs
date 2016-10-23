@@ -112,6 +112,7 @@ namespace MobiStore.Data
         public static void Initialize()
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<SqlServerContext, Configuration>());
+            SqlServerContext.Create().Database.Initialize(true);
         }
 
         public void SaveChanges()

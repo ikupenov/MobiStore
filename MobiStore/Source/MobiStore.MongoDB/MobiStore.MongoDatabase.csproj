@@ -79,7 +79,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModelsFactory.cs" />
     <Compile Include="MongoDb.cs" />
     <Compile Include="MongoSeeder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,6 +92,10 @@
     <ProjectReference Include="..\MobiStore.Data\MobiStore.Data.csproj">
       <Project>{dcd7c403-c4f3-481f-b56f-e5159bda74ab}</Project>
       <Name>MobiStore.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobiStore.Factories\MobiStore.Factories.csproj">
+      <Project>{742b5042-1e51-4aea-9510-0ae6f06541fe}</Project>
+      <Name>MobiStore.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MobiStore.Models\MobiStore.Models.csproj">
       <Project>{c65aeea6-5269-4fdf-8f27-0ef0dc517318}</Project>
