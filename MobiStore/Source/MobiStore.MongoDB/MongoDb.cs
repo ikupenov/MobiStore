@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
 using MobiStore.Data.Contracts;
 using MobiStore.Models.Common;

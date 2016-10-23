@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiStore.MongoDB", "MobiSt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiStore.XmlModels", "MobiStore.XmlModels\MobiStore.XmlModels.csproj", "{DE4F3AE4-D79E-4763-9B1C-94402F2F333D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiStore.Factories", "MobiStore.Factories\MobiStore.Factories.csproj", "{742B5042-1E51-4AEA-9510-0AE6F06541FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{DE4F3AE4-D79E-4763-9B1C-94402F2F333D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE4F3AE4-D79E-4763-9B1C-94402F2F333D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE4F3AE4-D79E-4763-9B1C-94402F2F333D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{742B5042-1E51-4AEA-9510-0AE6F06541FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{742B5042-1E51-4AEA-9510-0AE6F06541FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{742B5042-1E51-4AEA-9510-0AE6F06541FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{742B5042-1E51-4AEA-9510-0AE6F06541FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

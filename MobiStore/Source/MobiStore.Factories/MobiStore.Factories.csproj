@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DE4F3AE4-D79E-4763-9B1C-94402F2F333D}</ProjectGuid>
+    <ProjectGuid>{742B5042-1E51-4AEA-9510-0AE6F06541FE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MobiStore.XmlModels</RootNamespace>
-    <AssemblyName>MobiStore.XmlModels</AssemblyName>
+    <RootNamespace>MobiStore.Factories</RootNamespace>
+    <AssemblyName>MobiStore.Factories</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,14 +50,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MobileDevices\Components\Battery.cs" />
-    <Compile Include="MobileDevices\Components\Display.cs" />
-    <Compile Include="MobileDevices\Components\Processor.cs" />
-    <Compile Include="MobileDevices\MobileDevice.cs" />
+    <Compile Include="Contracts\IModelsFactory.cs" />
+    <Compile Include="Factories\ModelsFactory.cs" />
+    <Compile Include="Factories\MongoModelsFactory.cs" />
+    <Compile Include="Factories\MsSqlModelsFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shop.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MobiStore.Data\MobiStore.Data.csproj">
+      <Project>{dcd7c403-c4f3-481f-b56f-e5159bda74ab}</Project>
+      <Name>MobiStore.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MobiStore.Models\MobiStore.Models.csproj">
       <Project>{c65aeea6-5269-4fdf-8f27-0ef0dc517318}</Project>
       <Name>MobiStore.Models</Name>

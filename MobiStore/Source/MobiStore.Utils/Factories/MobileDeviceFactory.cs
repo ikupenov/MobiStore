@@ -1,12 +1,13 @@
-﻿using MobiStore.Models.Enumerations;
+﻿using MobiStore.Models.Common;
+using MobiStore.Models.Enumerations;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
 
 namespace MobiStore.Utils.Factories
 {
-    internal class MobileDeviceFactory
+    public  class MobileDeviceFactory
     {
-        internal Battery CreateBattery(BatteryType batteryType, int batteryCapacity)
+        public Battery CreateBattery(BatteryType batteryType, int batteryCapacity, Country country = null)
         {
             var battery = new Battery
             {
@@ -14,13 +15,20 @@ namespace MobiStore.Utils.Factories
                 Capacity = batteryCapacity
             };
 
+            if (country != null)
+            {
+                battery.Country = country;
+                battery.CountryId = country.Id;
+            }
+
             return battery;
         }
 
-        internal Display CreateDisplay(
+        public Display CreateDisplay(
             DisplayType displayType,
             double displaySize,
-            string displayResolution)
+            string displayResolution = null,
+            Country country = null)
         {
             var display = new Display()
             {
@@ -29,10 +37,16 @@ namespace MobiStore.Utils.Factories
                 Resolution = displayResolution
             };
 
+            if (country != null)
+            {
+                display.Country = country;
+                display.CountryId = country.Id;
+            }
+
             return display;
         }
 
-        internal Processor CreateProcessor(double cacheMemory, double clockSpeed)
+        public Processor CreateProcessor(double cacheMemory, double clockSpeed, Country country = null)
         {
             var processor = new Processor()
             {
@@ -40,24 +54,52 @@ namespace MobiStore.Utils.Factories
                 ClockSpeed = clockSpeed
             };
 
+            if (country != null)
+            {
+                processor.Country = country;
+                processor.CountryId = country.Id;
+            }
+
             return processor;
         }
 
-        internal MobileDevice CreateMobileDevice(
+        public MobileDevice CreateMobileDevice(
             Brand brand,
             string model,
-            Battery battery,
-            Display display,
-            Processor processor)
+            Battery battery = null,
+            Display display = null,
+            Processor processor = null,
+            Country country = null)
         {
             var mobileDevice = new MobileDevice()
             {
                 Brand = brand,
-                Model = model,
-                Battery = battery,
-                Display = display,
-                Processor = processor
+                Model = model
             };
+
+            if (battery != null)
+            {
+                mobileDevice.Battery = battery;
+                mobileDevice.BatteryId = battery.Id;
+            }
+
+            if (display != null)
+            {
+                mobileDevice.Display = display;
+                mobileDevice.DisplayId = display.Id;
+            }
+
+            if (processor != null)
+            {
+                mobileDevice.Processor = processor;
+                mobileDevice.ProcessorId = processor.Id;
+            }
+
+            if (country != null)
+            {
+                mobileDevice.Country = country;
+                mobileDevice.CountryId = country.Id;
+            }
 
             return mobileDevice;
         }
