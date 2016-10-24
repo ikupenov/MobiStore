@@ -88,12 +88,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\ICountryManufacturer.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Enumerations\Brand.cs" />
     <Compile Include="Enumerations\CurrencyType.cs" />
     <Compile Include="MobileDevices\Components\Battery.cs" />
-    <Compile Include="Common\Country.cs" />
     <Compile Include="MobileDevices\Components\Display.cs" />
     <Compile Include="Enumerations\BatteryType.cs" />
     <Compile Include="Enumerations\DisplayType.cs" />

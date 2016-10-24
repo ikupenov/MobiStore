@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using MobiStore.Models.Common;
-using MobiStore.Models.Contracts;
 using MobiStore.Models.Enumerations;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace MobiStore.Models.MobileDevices.Components
 {
-    public class Battery : ICountryManufacturer
+    public class Battery 
     {
         private ICollection<MobileDevice> mobileDevices;
 
@@ -23,11 +21,7 @@ namespace MobiStore.Models.MobileDevices.Components
         public BatteryType Type { get; set; }
 
         public int Capacity { get; set; }
-
-        public Guid? CountryId { get; set; }
-
-        public virtual Country Country { get; set; }
-
+        
         [BsonIgnore]
         public virtual ICollection<MobileDevice> MobileDevices
         {

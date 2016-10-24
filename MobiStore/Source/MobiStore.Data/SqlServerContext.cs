@@ -2,7 +2,6 @@
 
 using MobiStore.Data.Contracts;
 using MobiStore.Models;
-using MobiStore.Models.Common;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
 using MobiStore.Models.Reports;
@@ -15,9 +14,7 @@ namespace MobiStore.Data
             : base("MobiStore")
         {
         }
-
-        public virtual IDbSet<Country> Countries { get; set; }
-
+        
         public virtual IDbSet<Battery> Batteries { get; set; }
 
         public virtual IDbSet<Display> Displays { get; set; }

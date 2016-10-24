@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace MobiStore.MySqlDatabase.Contracts
 {
-    public interface IMySqlRepository<T> where T : class 
+    public interface IMySqlRepository<T> where T : class
     {
         void Add(T Entity);
 

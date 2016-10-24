@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 
 using MobiStore.Factories.Contracts;
-using MobiStore.Models.Common;
 using MobiStore.Models.Enumerations;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
@@ -24,25 +23,22 @@ namespace MobiStore.MongoDatabase
         public void SeedDatabase(string serverName, string databaseName)
         {
             var database = MongoDb.GetInstance(serverName, databaseName);
+            var batteriesCollection = database.GetCollection<Battery>("batteries");
+            long batteriesCount = batteriesCollection.Count(new BsonDocument());
 
-            var countriesCollection = database.GetCollection<Country>("countries");
-            long countriesCount = countriesCollection.Count(new BsonDocument());
-
-            if (countriesCount == 0)
+            if (batteriesCount == 0)
             {
                 var batteries = this.GetBatteries();
                 var displays = this.GetDisplays();
                 var processors = this.GetProcessors();
-                var countries = this.GetCountries();
                 var brands = new[] { Brand.Apple, Brand.HTC, Brand.Samsung };
                 var models = new[] { "IPhone", "Desire", "Galaxy" };
-                var devices = this.GetDevices(batteries, displays, processors, countries, brands, models);
+                var devices = this.GetDevices(batteries, displays, processors, brands, models);
                 
                 database.GetCollection<MobileDevice>("mobileDevices").InsertMany(devices);
                 database.GetCollection<Battery>("batteries").InsertMany(batteries);
                 database.GetCollection<Display>("displays").InsertMany(displays);
                 database.GetCollection<Processor>("processors").InsertMany(processors);
-                countriesCollection.InsertMany(countries);
             }
         }
 
@@ -76,21 +72,10 @@ namespace MobiStore.MongoDatabase
             return processors;
         }
 
-        private IList<Country> GetCountries()
-        {
-            var firstCountry = this.modelsFactory.CreateCountry("Bulgaria");
-            var secondCountry = this.modelsFactory.CreateCountry("England");
-            var thirdCountry = this.modelsFactory.CreateCountry("Russia");
-            var countries = new[] { firstCountry, secondCountry, thirdCountry };
-
-            return countries;
-        }
-
         private IEnumerable<MobileDevice> GetDevices(
             IList<Battery> batteries,
             IList<Display> displays,
             IList<Processor> processors,
-            IList<Country> countries,
             IList<Brand> brands,
             IList<string> models)
         {
@@ -103,8 +88,7 @@ namespace MobiStore.MongoDatabase
                     models[0],
                     displays[0],
                     batteries[0],
-                    processors[0],
-                    countries[0]);
+                    processors[0]);
 
                 devices.Add(currentDevice);
             }

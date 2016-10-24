@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using MobiStore.Models.Common;
-using MobiStore.Models.Contracts;
 using MobiStore.Models.Enumerations;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace MobiStore.Models.MobileDevices.Components
 {
-    public class Display : ICountryManufacturer
+    public class Display
     {
         private ICollection<MobileDevice> mobileDevices;
 
@@ -25,11 +23,7 @@ namespace MobiStore.Models.MobileDevices.Components
         public double Size { get; set; }
 
         public string Resolution { get; set; }
-
-        public Guid? CountryId { get; set; }
-
-        public virtual Country Country { get; set; }
-
+        
         [BsonIgnore]
         public virtual ICollection<MobileDevice> MobileDevices
         {

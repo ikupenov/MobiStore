@@ -1,15 +1,13 @@
 ﻿using System.Linq;
 
 using MobiStore.Data.Contracts;
-using MobiStore.Factories.Contracts;
-using MobiStore.Models.Common;
 using MobiStore.Models.Enumerations;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
 
 namespace MobiStore.Factories.Factories
 {
-    public class MsSqlModelsFactory : ModelsFactory, IModelsFactory
+    public class MsSqlModelsFactory : ModelsFactory
     {
         private readonly ISqlServerDb db;
 
@@ -18,51 +16,27 @@ namespace MobiStore.Factories.Factories
             this.db = db;
         }
 
-        public override Battery CreateBattery(BatteryType type, int capacity, Country country = null)
+        public override Battery CreateBattery(BatteryType type, int capacity)
         {
-            var battery = base.CreateBattery(type, capacity, country);
-
-            if (country != null)
-            {
-                country = this.GetCountry(country.Name);
-                battery.Country = country;
-                battery.CountryId = country.Id;
-            }
-
+            var battery = base.CreateBattery(type, capacity);
             return battery;
         }
 
-        public override Display CreateDisplay(DisplayType type, double size, string resolution, Country country = null)
+        public override Display CreateDisplay(DisplayType type, double size, string resolution)
         {
-            var display = base.CreateDisplay(type, size, resolution, country);
-
-            if (country != null)
-            {
-                country = this.GetCountry(country.Name);
-                display.Country = country;
-                display.CountryId = country.Id;
-            }
-
+            var display = base.CreateDisplay(type, size, resolution);
             return display;
         }
 
-        public override Processor CreateProcessor(double clockSpeed, double cacheMemory, Country country = null)
+        public override Processor CreateProcessor(double clockSpeed, double cacheMemory)
         {
-            var processor = base.CreateProcessor(clockSpeed, cacheMemory, country);
-
-            if (country != null)
-            {
-                country = this.GetCountry(country.Name);
-                processor.Country = country;
-                processor.CountryId = country.Id;
-            }
-
+            var processor = base.CreateProcessor(clockSpeed, cacheMemory);
             return processor;
         }
 
-        public override MobileDevice CreateMobileDevice(Brand brand, string model, Display display = null, Battery battery = null, Processor processor = null, Country country = null)
+        public override MobileDevice CreateMobileDevice(Brand brand, string model, Display display = null, Battery battery = null, Processor processor = null)
         {
-            var mobileDevice = base.CreateMobileDevice(brand, model, display, battery, processor, country);
+            var mobileDevice = base.CreateMobileDevice(brand, model, display, battery, processor);
 
             if (display != null)
             {
@@ -85,13 +59,6 @@ namespace MobiStore.Factories.Factories
                 mobileDevice.ProcessorId = foundProcessor.Id;
             }
 
-            if (country != null)
-            {
-                var foundCountry = this.GetCountry(country.Name);
-                mobileDevice.Country = foundCountry;
-                mobileDevice.CountryId = foundCountry.Id;
-            }
-
             return mobileDevice;
         }
 
@@ -102,19 +69,11 @@ namespace MobiStore.Factories.Factories
                 .All()
                 .FirstOrDefault(
                     b => b.Capacity == battery.Capacity &&
-                    b.Type == battery.Type &&
-                    b.Country == battery.Country);
+                    b.Type == battery.Type);
 
             if (foundBattery == null)
             {
                 foundBattery = new Battery { Capacity = battery.Capacity, Type = battery.Type };
-
-                if (battery.Country != null)
-                {
-                    var foundCountry = this.GetCountry(battery.Country.Name);
-                    foundBattery.Country = foundCountry;
-                    foundBattery.CountryId = foundCountry.Id;
-                }
             }
 
             return foundBattery;
@@ -128,19 +87,11 @@ namespace MobiStore.Factories.Factories
                 .FirstOrDefault(
                     d => d.Resolution == display.Resolution &&
                     d.Size == display.Size &&
-                    d.Type == display.Type &&
-                    d.Country == display.Country);
+                    d.Type == display.Type);
 
             if (foundDisplay == null)
             {
                 foundDisplay = new Display { Resolution = display.Resolution, Size = display.Size, Type = display.Type };
-
-                if (display.Country != null)
-                {
-                    var foundCountry = this.GetCountry(display.Country.Name);
-                    foundDisplay.Country = foundCountry;
-                    foundDisplay.CountryId = foundCountry.Id;
-                }
             }
 
             return foundDisplay;
@@ -153,38 +104,14 @@ namespace MobiStore.Factories.Factories
                 .All()
                 .FirstOrDefault(
                     p => p.CacheMemory == processor.CacheMemory &&
-                    p.ClockSpeed == processor.ClockSpeed &&
-                    p.Country == processor.Country);
+                    p.ClockSpeed == processor.ClockSpeed);
 
             if (foundProcessor == null)
             {
                 foundProcessor = new Processor { CacheMemory = processor.CacheMemory, ClockSpeed = processor.ClockSpeed };
-
-                if (processor.Country != null)
-                {
-                    var foundCountry = this.GetCountry(processor.Country.Name);
-                    foundProcessor.Country = foundCountry;
-                    foundProcessor.CountryId = foundCountry.Id;
-                }
             }
 
             return foundProcessor;
-        }
-
-        private Country GetCountry(string countryName)
-        {
-            var country = this.db
-                .Countries
-                .All()
-                .FirstOrDefault(c => c.Name == countryName);
-
-            if (country == null)
-            {
-                country = new Country { Name = countryName };
-                this.db.Countries.Add(country);
-            }
-
-            return country;
         }
     }
 }

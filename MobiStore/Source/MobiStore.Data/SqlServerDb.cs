@@ -6,7 +6,6 @@ using MobiStore.Data.Contracts;
 using MobiStore.Data.Migrations;
 using MobiStore.Data.Repositories;
 using MobiStore.Models;
-using MobiStore.Models.Common;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
 using MobiStore.Models.Reports;
@@ -68,15 +67,7 @@ namespace MobiStore.Data
                 return this.GetRepository<MobileDevice>();
             }
         }
-
-        public IRepository<Country> Countries
-        {
-            get
-            {
-                return this.GetRepository<Country>();
-            }
-        }
-
+        
         public IRepository<Shop> Shops
         {
             get

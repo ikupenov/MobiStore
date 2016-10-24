@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using MobiStore.Models.Common;
-using MobiStore.Models.Contracts;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace MobiStore.Models.MobileDevices.Components
 {
-    public class Processor : ICountryManufacturer
+    public class Processor
     {
         private ICollection<MobileDevice> mobileDevices;
 
@@ -22,11 +20,7 @@ namespace MobiStore.Models.MobileDevices.Components
         public double ClockSpeed { get; set; }
 
         public double CacheMemory { get; set; }
-
-        public Guid? CountryId { get; set; }
-
-        public virtual Country Country { get; set; }
-
+        
         [BsonIgnore]
         public virtual ICollection<MobileDevice> MobileDevices
         {

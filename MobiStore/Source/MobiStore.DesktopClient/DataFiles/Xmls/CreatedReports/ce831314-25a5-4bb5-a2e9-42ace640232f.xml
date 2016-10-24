@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sales-report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <id>63b02154-7ae9-4d97-8c3f-83538ca49748</id>
-  <sales id="32031fb0-4170-45ff-ae9f-3181d9198673">
-    <total-value>1250</total-value>
-    <sale-date>2016-10-17T17:00:00</sale-date>
-    <shop-name>MobiStore Dragoman</shop-name>
-    <employee>Ivan</employee>
-  </sales>
-  <sales id="1e504e02-f32d-496b-9f03-571be2de5f2e">
+  <id>ce831314-25a5-4bb5-a2e9-42ace640232f</id>
+  <sales id="508423ce-eb8c-4db1-8e6a-0a669c5c9e7a">
     <total-value>600</total-value>
     <sale-date>2016-10-17T17:00:00</sale-date>
     <shop-name>MobiStore Dragoman</shop-name>
     <employee>Sevda</employee>
   </sales>
-  <sales id="32bb2eae-ce7f-4424-8762-ce9d838a5f75">
+  <sales id="73686e3a-dbdf-40b1-9e8f-e021c1fae608">
     <total-value>500</total-value>
+    <sale-date>2016-10-17T17:00:00</sale-date>
+    <shop-name>MobiStore Dragoman</shop-name>
+    <employee>Ivan</employee>
+  </sales>
+  <sales id="ca7f3ef2-b432-46f6-86a5-faa4fce434a3">
+    <total-value>1250</total-value>
     <sale-date>2016-10-17T17:00:00</sale-date>
     <shop-name>MobiStore Dragoman</shop-name>
     <employee>Ivan</employee>

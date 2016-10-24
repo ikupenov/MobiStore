@@ -1,7 +1,6 @@
 ﻿using System;
 
 using MobiStore.Factories.Contracts;
-using MobiStore.Models.Common;
 using MobiStore.Models.Enumerations;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
@@ -13,16 +12,7 @@ namespace MobiStore.Factories
         private const string NullOrEmptyString = "{0} cannot be null or empty.";
         private const string NonPositiveNumber = "{0} must be a positive number.";
 
-        public virtual Country CreateCountry(string name)
-        {
-            string nullOrEmptyNameMessage = string.Format(NullOrEmptyString, "Country's name");
-            this.ValidateIfStringIsNullOrEmpty(name, nullOrEmptyNameMessage);
-
-            var country = new Country { Name = name };
-            return country;
-        }
-
-        public virtual Battery CreateBattery(BatteryType type, int capacity, Country country = null)
+        public virtual Battery CreateBattery(BatteryType type, int capacity)
         {
             string invalidCapacityMessage = string.Format(NonPositiveNumber, "Battery's capacity");
             this.ValidateIfNumberIsPositive(capacity, invalidCapacityMessage);
@@ -31,7 +21,7 @@ namespace MobiStore.Factories
             return battery;
         }
 
-        public virtual Display CreateDisplay(DisplayType type, double size, string resolution, Country country = null)
+        public virtual Display CreateDisplay(DisplayType type, double size, string resolution)
         {
             string invalidSizeMessage = string.Format(NonPositiveNumber, "Display's size");
             string nullOrEmptyResolution = string.Format(NullOrEmptyString, "Display's resolution");
@@ -42,7 +32,7 @@ namespace MobiStore.Factories
             return display;
         }
 
-        public virtual Processor CreateProcessor(double clockSpeed, double cacheMemory, Country country = null)
+        public virtual Processor CreateProcessor(double clockSpeed, double cacheMemory)
         {
             string invalidClockSpeedMessage = string.Format(NonPositiveNumber, "Processor's clock speed");
             string invalidCacheMemoryMessage = string.Format(NonPositiveNumber, "Processor's cache memory");
@@ -58,8 +48,7 @@ namespace MobiStore.Factories
             string model,
             Display display = null,
             Battery battery = null,
-            Processor processor = null,
-            Country country = null)
+            Processor processor = null)
         {
             string nullOrEmptyModelMessage = string.Format(NullOrEmptyString, "Mobile device's model");
             this.ValidateIfStringIsNullOrEmpty(model, nullOrEmptyModelMessage);

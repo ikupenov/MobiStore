@@ -1,14 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using MobiStore.Models.Common;
-using MobiStore.Models.Contracts;
 using MobiStore.Models.Enumerations;
 using MobiStore.Models.MobileDevices.Components;
 
 namespace MobiStore.Models.MobileDevices
 {
-    public class MobileDevice : ICountryManufacturer
+    public class MobileDevice 
     {
         public MobileDevice()
         {
@@ -20,18 +18,13 @@ namespace MobiStore.Models.MobileDevices
         public string Model { get; set; }
 
         public Brand Brand { get; set; }
-
-        public Guid? CountryId { get; set; }
-
+        
         public Guid? BatteryId { get; set; }
 
         public Guid? DisplayId { get; set; }
 
         public Guid? ProcessorId { get; set; }
-
-        [ForeignKey("CountryId")]
-        public virtual Country Country { get; set; }
-
+        
         [ForeignKey("BatteryId")]
         public virtual Battery Battery { get; set; }
 

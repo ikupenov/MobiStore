@@ -1,7 +1,6 @@
 ﻿using System.Data.Entity;
 
 using MobiStore.SqliteDatabase.Models;
-using SQLite.CodeFirst;
 
 namespace MobiStore.SqliteDatabase
 {

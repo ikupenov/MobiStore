@@ -1,7 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
-using MobiStore.Models.Common;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
 
@@ -9,8 +8,6 @@ namespace MobiStore.Data.Contracts
 {
     public interface ISqlServerContext
     {
-        IDbSet<Country> Countries { get; set; }
-
         IDbSet<Battery> Batteries { get; set; }
 
         IDbSet<Display> Displays { get; set; }

@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sales-report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <id>95823f9a-14d7-4686-99c9-81655bf8ba3e</id>
-  <sales id="122c7691-7321-496b-a4d6-1c9dbceabcc8">
-    <total-value>100</total-value>
-    <sale-date>2016-10-18T10:00:00</sale-date>
-    <shop-name>MobiStore Banishora</shop-name>
-    <employee>Sevda</employee>
-  </sales>
-  <sales id="a87790d1-cb78-4838-8963-6096f684c5f7">
+  <id>cf5e2651-4e50-4472-90d6-d729e54df66e</id>
+  <sales id="02d960b4-83b4-451a-a0e9-53faffa20f7c">
     <total-value>200</total-value>
     <sale-date>2016-10-18T11:00:00</sale-date>
     <shop-name>MobiStore Banishora</shop-name>
     <employee>Sevda</employee>
   </sales>
-  <sales id="e3c78b39-d5ab-4ce7-b5eb-a424c071476e">
+  <sales id="8b77a75d-0da6-423f-9ec3-c54d5dd59d9c">
     <total-value>300</total-value>
     <sale-date>2016-10-18T12:00:00</sale-date>
     <shop-name>MobiStore Banishora</shop-name>
     <employee>Petur</employee>
+  </sales>
+  <sales id="bffa9785-18f6-4a07-a175-f598e78e315d">
+    <total-value>100</total-value>
+    <sale-date>2016-10-18T10:00:00</sale-date>
+    <shop-name>MobiStore Banishora</shop-name>
+    <employee>Sevda</employee>
   </sales>
 </sales-report>

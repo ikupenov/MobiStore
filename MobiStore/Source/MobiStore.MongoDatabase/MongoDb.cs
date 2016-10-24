@@ -2,7 +2,6 @@
 
 using MobiStore.Data.Contracts;
 using MobiStore.Factories.Contracts;
-using MobiStore.Models.Common;
 using MobiStore.Models.MobileDevices;
 using MobiStore.Models.MobileDevices.Components;
 
@@ -35,7 +34,6 @@ namespace MobiStore.MongoDatabase
         public void TransferToSqlServer(IMongoDatabase mongoDataBase, ISqlServerDb sqlServerDatabase)
         {
             this.TransferDisplays(mongoDataBase, sqlServerDatabase);
-            this.TransferCountries(mongoDataBase, sqlServerDatabase);
             this.TransferBatteries(mongoDataBase, sqlServerDatabase);
             this.TransferProcessors(mongoDataBase, sqlServerDatabase);
             this.TransferMobileDevices(mongoDataBase, sqlServerDatabase);
@@ -50,7 +48,7 @@ namespace MobiStore.MongoDatabase
             foreach (var display in mongoDisplays)
             {
                 var newDisplay = this.mssqlModelsFactory
-                    .CreateDisplay(display.Type, display.Size, display.Resolution, display.Country);
+                    .CreateDisplay(display.Type, display.Size, display.Resolution);
                 displaysTable.Add(newDisplay);
             }
 
@@ -66,7 +64,7 @@ namespace MobiStore.MongoDatabase
             foreach (var battery in mongoBatteries)
             {
                 var newBattery = this.mssqlModelsFactory
-                    .CreateBattery(battery.Type, battery.Capacity, battery.Country);
+                    .CreateBattery(battery.Type, battery.Capacity);
                 batteriesTable.Add(newBattery);
             }
 
@@ -82,23 +80,8 @@ namespace MobiStore.MongoDatabase
             foreach (var processor in mongoProcessors)
             {
                 var newProcessor = this.mssqlModelsFactory
-                    .CreateProcessor(processor.ClockSpeed, processor.CacheMemory, processor.Country);
+                    .CreateProcessor(processor.ClockSpeed, processor.CacheMemory);
                 processorsTable.Add(newProcessor);
-            }
-
-            sqlServerDatabase.SaveChanges();
-        }
-
-        private void TransferCountries(IMongoDatabase mongoDatabse, ISqlServerDb sqlServerDatabase)
-        {
-            var countriesCollection = mongoDatabse.GetCollection<Country>("countries");
-            var mongoCountries = countriesCollection.Find(b => true).ToList();
-            var countriesTable = sqlServerDatabase.Countries;
-
-            foreach (var country in mongoCountries)
-            {
-                var newCountry = this.mssqlModelsFactory.CreateCountry(country.Name);
-                countriesTable.Add(newCountry);
             }
 
             sqlServerDatabase.SaveChanges();
@@ -114,12 +97,11 @@ namespace MobiStore.MongoDatabase
             {
                 var newDevice = this.mssqlModelsFactory
                     .CreateMobileDevice(
-                    device.Brand, 
-                    device.Model, 
-                    device.Display, 
-                    device.Battery, 
-                    device.Processor,
-                    device.Country);
+                    device.Brand,
+                    device.Model,
+                    device.Display,
+                    device.Battery,
+                    device.Processor);
 
                 devicesTable.Add(newDevice);
             }
