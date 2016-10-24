@@ -54,7 +54,6 @@ namespace MobiStore.Utilities.Reporters
 
                         rowCounter++;
                     }
-
                 }
 
                 writer.Save();

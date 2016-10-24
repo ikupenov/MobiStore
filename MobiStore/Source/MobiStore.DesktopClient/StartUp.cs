@@ -6,17 +6,17 @@ using System.Windows.Forms;
 
 namespace MobiStore.DesktopClient
 {
-    static class Program
+    public static class StartUp
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        public static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainWindow());
         }
     }
 }

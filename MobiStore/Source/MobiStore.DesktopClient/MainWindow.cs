@@ -5,27 +5,31 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 
 using MobiStore.Data;
-using MobiStore.Utilities.Importers;
-using MobiStore.MongoDatabase;
 using MobiStore.Factories.Factories;
+using MobiStore.MongoDatabase;
 using MobiStore.MySqlDatabase;
 using MobiStore.SqliteDatabase;
-using MobiStore.Utilities.Reporters;
+
+using MobiStore.Utilities.Importers;
 using MobiStore.Utilities.Importers.XmlImporters;
+using MobiStore.Utilities.Reporters;
 
 namespace MobiStore.DesktopClient
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
         private const string PathOfZip = "../../DataFiles/Zips/Input.zip";
         private const string ExtractedFilePath = "../../DataFiles/Excels";
         private const string MongoServerName = "mongodb://localhost:27017";
         private const string MongoDatabaseName = "MobiStore";
+        private const string XmlReportsFolderPath = "../../DataFiles/Xmls/CreatedReports";
+        private const string ExcelOutputReports = @"..\..\..\..\Data\Reports\Output\Excel\reports-out.xlsx";
+        private const string JsonOutputReports = "../../DataFiles/Jsons/CreatedReports";
 
-        public Form1()
+        public MainWindow()
         {
             SqlServerDb.Initialize();
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         private void LoadExcelReportsButton_Click(object sender, EventArgs e)
@@ -52,14 +56,14 @@ namespace MobiStore.DesktopClient
 
         private void GenerateXmlReportsButton_Click(object sender, EventArgs e)
         {
-            var destinationDir = new DirectoryInfo("../../DataFiles/Xmls/CreatedReports");
+            var destinationDir = new DirectoryInfo(XmlReportsFolderPath);
             XmlReporter.CreateReports(new SqlServerDb(), new XmlSerializer(typeof(XmlModels.Reporters.SalesReport)), destinationDir);
         }
 
         private void GenerateJsonReportsButton_Click(object sender, EventArgs e)
         {
             var currentDir = Directory.GetCurrentDirectory();
-            var destinationDir = new DirectoryInfo("../../DataFiles/Jsons/CreatedReports");
+            var destinationDir = new DirectoryInfo(JsonOutputReports);
             JsonReporter.CreateReports(new SqlServerDb(), destinationDir);
         }
 
@@ -80,19 +84,18 @@ namespace MobiStore.DesktopClient
         {
             SqliteSeeder.SeedDatabase();
 
-            var fileInfo = new FileInfo(@"..\..\..\..\Data\Reports\Output\Excel\reports-out.xlsx");
+            var fileInfo = new FileInfo(ExcelOutputReports);
             ExcelReporter.CreateReports(new MySqlDb(), new SqliteDb(), fileInfo);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
         }
 
         private void SeedMongo()
         {
             var seeder = new MongoSeeder(new MongoModelsFactory());
             seeder.SeedDatabase(MongoServerName, MongoDatabaseName);
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+        }        
     }
 }
