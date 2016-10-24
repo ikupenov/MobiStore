@@ -1,6 +1,4 @@
-﻿using System;
-
-using MobiStore.MySqlDatabase.Contracts;
+﻿using MobiStore.MySqlDatabase.Contracts;
 using MobiStore.MySqlDatabase.Models;
 using MobiStore.MySqlDatabase.Repositories;
 
@@ -48,14 +46,10 @@ namespace MobiStore.MySqlDatabase
 
         private string MySqlPasswordPrompt()
         {
-            //Console.Write("Enter your MySQL password for 'root' account: ");
-            //Console.ForegroundColor = Console.BackgroundColor;
+            // Enter your MySql 'root' password
+            var password = "6567";
 
-            //var password = Console.ReadLine().Trim();
-
-            //Console.ResetColor();
-
-            return "6567";
+            return password;
         }
     }
 }
