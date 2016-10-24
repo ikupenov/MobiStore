@@ -88,7 +88,7 @@
       </processor>
     </mobile-device>
 
-    <mobile-device>
+	<mobile-device>
       <brand>Motorola</brand>
       <model>Moto Z</model>
       <camera>
@@ -109,8 +109,8 @@
         <cache-memory>1</cache-memory>
       </processor>
     </mobile-device>
-
-  <mobile-device>
+	
+   <mobile-device>
     <brand>Apple</brand>
     <model>iPhone 7</model>
     <camera>

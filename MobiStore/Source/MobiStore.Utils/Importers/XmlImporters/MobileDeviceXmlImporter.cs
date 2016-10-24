@@ -43,14 +43,23 @@ namespace MobiStore.Utilities.Importers.XmlImporters
 
                     batteriesToInsert.Add(battery);
                     this.SqlServerDatabase.Batteries.Add(battery);
+                    this.SqlServerDatabase.SaveChanges();
 
-                    Display display = this.mobileDeviceFactory.CreateDisplay(
+                    Display display = null;
+                    if (mobileDevice.Display.Resolution != null)
+                    {
+                        display = this.mobileDeviceFactory.CreateDisplay(
                         mobileDevice.Display.Type,
                         mobileDevice.Display.Size,
                         mobileDevice.Display.Resolution);
+                    }
 
-                    displaysToInsert.Add(display);
-                    this.SqlServerDatabase.Displays.Add(display);
+                    if (display != null)
+                    {
+                        displaysToInsert.Add(display);
+                        this.SqlServerDatabase.Displays.Add(display);
+                        this.SqlServerDatabase.SaveChanges();
+                    }
 
                     Processor processor = this.mobileDeviceFactory.CreateProcessor(
                         mobileDevice.Processor.CacheMemory,
@@ -58,6 +67,7 @@ namespace MobiStore.Utilities.Importers.XmlImporters
 
                     processorsToInsert.Add(processor);
                     this.SqlServerDatabase.Processors.Add(processor);
+                    this.SqlServerDatabase.SaveChanges();
 
                     MobileDevice mobileDeviceToInsert = this.mobileDeviceFactory.CreateMobileDevice(
                         mobileDevice.Brand,
@@ -68,14 +78,13 @@ namespace MobiStore.Utilities.Importers.XmlImporters
 
                     mobileDevicesToInsert.Add(mobileDeviceToInsert);
                     this.SqlServerDatabase.MobileDevices.Add(mobileDeviceToInsert);
+                    this.SqlServerDatabase.SaveChanges();
                 }
 
                 this.InsertCollectionIntoMongoAsync<Battery>(batteriesToInsert, "batteries");
                 this.InsertCollectionIntoMongoAsync<Display>(displaysToInsert, "displays");
                 this.InsertCollectionIntoMongoAsync<Processor>(processorsToInsert, "processors");
                 this.InsertCollectionIntoMongoAsync<MobileDevice>(mobileDevicesToInsert, "mobileDevices");
-
-                this.SqlServerDatabase.SaveChanges();
             }
         }
 

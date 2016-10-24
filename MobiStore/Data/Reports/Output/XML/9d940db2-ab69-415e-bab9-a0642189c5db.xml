@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sales-report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id>9d940db2-ab69-415e-bab9-a0642189c5db</id>
+  <sales id="dc378f55-f029-49d6-86ca-27a7f88b5528">
+    <total-value>1105</total-value>
+    <sale-date>2016-10-19T10:00:00</sale-date>
+    <shop-name>MobiStore Mladost</shop-name>
+    <employee>Ivan</employee>
+  </sales>
+  <sales id="5f3c1fc3-56e5-425e-8da8-ae61c2a3b4b0">
+    <total-value>2210</total-value>
+    <sale-date>2016-10-19T11:00:00</sale-date>
+    <shop-name>MobiStore Mladost</shop-name>
+    <employee>Ivan</employee>
+  </sales>
+  <sales id="a817e1b7-e372-4946-95f3-fc9813afbf45">
+    <total-value>2212</total-value>
+    <sale-date>2016-10-19T12:00:00</sale-date>
+    <shop-name>MobiStore Mladost</shop-name>
+    <employee>Petur</employee>
+  </sales>
+</sales-report>

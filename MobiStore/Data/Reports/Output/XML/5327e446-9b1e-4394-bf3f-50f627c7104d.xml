@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sales-report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id>5327e446-9b1e-4394-bf3f-50f627c7104d</id>
+  <sales id="b10ad224-f0f5-4dbc-9e06-ca21dece772a">
+    <total-value>1250</total-value>
+    <sale-date>2016-10-17T17:00:00</sale-date>
+    <shop-name>MobiStore Banishora</shop-name>
+    <employee>Sevda</employee>
+  </sales>
+  <sales id="8ffde719-8266-4a94-8658-5628f89b288e">
+    <total-value>600</total-value>
+    <sale-date>2016-10-17T17:00:00</sale-date>
+    <shop-name>MobiStore Banishora</shop-name>
+    <employee>Sevda</employee>
+  </sales>
+  <sales id="c952014e-d8d1-40a4-ae87-48cfe9696951">
+    <total-value>500</total-value>
+    <sale-date>2016-10-17T17:00:00</sale-date>
+    <shop-name>MobiStore Banishora</shop-name>
+    <employee>Sevda</employee>
+  </sales>
+</sales-report>

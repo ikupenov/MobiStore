@@ -78,7 +78,7 @@ namespace MobiStore.Factories
 
         private void ValidateIfNumberIsPositive(decimal value, string errorMessage)
         {
-            if (!(value > 0))
+            if (value < 0)
             {
                 throw new ArgumentOutOfRangeException(errorMessage);
             }
