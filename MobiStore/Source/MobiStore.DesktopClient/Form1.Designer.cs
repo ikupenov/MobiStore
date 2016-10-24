@@ -41,6 +41,7 @@ namespace MobiStore.DesktopClient
             this.GenerateXmlReportsButton = new System.Windows.Forms.Button();
             this.GenerateJsonReportsButton = new System.Windows.Forms.Button();
             this.LoadDataFromXmlButton = new System.Windows.Forms.Button();
+            this.SQLiteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LoadExcelReportsButton
@@ -93,11 +94,23 @@ namespace MobiStore.DesktopClient
             this.LoadDataFromXmlButton.UseVisualStyleBackColor = true;
             this.LoadDataFromXmlButton.Click += new System.EventHandler(this.LoadDataFromXmlButton_Click);
             // 
+            // SQLiteButton
+            // 
+            this.SQLiteButton.Location = new System.Drawing.Point(12, 12);
+            this.SQLiteButton.Name = "SQLiteButton";
+            this.SQLiteButton.Size = new System.Drawing.Size(262, 451);
+            this.SQLiteButton.TabIndex = 5;
+            this.SQLiteButton.Text = "Автомонтьор - златни ръце,\r\nще ремонтирам всичко по теб.\r\nАвтомонтьор, супер разб" +
+    "ирач,\r\nще те работя аз от сутрин до здрач.\r\n\r\n";
+            this.SQLiteButton.UseVisualStyleBackColor = true;
+            this.SQLiteButton.Click += new System.EventHandler(this.SQLiteButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 475);
+            this.Controls.Add(this.SQLiteButton);
             this.Controls.Add(this.LoadDataFromXmlButton);
             this.Controls.Add(this.GenerateJsonReportsButton);
             this.Controls.Add(this.GenerateXmlReportsButton);
@@ -116,6 +129,7 @@ namespace MobiStore.DesktopClient
         private Button GenerateXmlReportsButton;
         private Button GenerateJsonReportsButton;
         private Button LoadDataFromXmlButton;
+        private Button SQLiteButton;
     }
 }
 

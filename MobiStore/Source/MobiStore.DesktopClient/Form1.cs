@@ -74,6 +74,11 @@ namespace MobiStore.DesktopClient
             Console.WriteLine();
         }
 
+        private void SQLiteButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void SeedMongo()
         {
             var seeder = new MongoSeeder(new MongoModelsFactory());
