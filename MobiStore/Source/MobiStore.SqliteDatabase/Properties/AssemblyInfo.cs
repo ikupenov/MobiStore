@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MobiStore.MySQL")]
+[assembly: AssemblyTitle("MobiStore.SqliteDatabase")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MobiStore.MySQL")]
+[assembly: AssemblyProduct("MobiStore.SqliteDatabase")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1bdc4ffc-b29f-4ddd-a414-fc0b68f33e08")]
+[assembly: Guid("59692f8d-db40-4850-bfd1-9e0da70fd38e")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -22,7 +22,7 @@ namespace MobiStore.MySqlDatabase
                 Shop = report.Shop,
                 Date = report.Date,
                 TotalValue = report.TotalValue
-            }).ToTable("sales");
+            }).ToTable("sales_reports");
 
             configs.Add(salesMapping);
             return configs;

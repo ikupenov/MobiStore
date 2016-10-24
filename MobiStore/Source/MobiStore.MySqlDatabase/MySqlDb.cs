@@ -8,7 +8,7 @@ namespace MobiStore.MySqlDatabase
 {
     public class MySqlDb
     {
-        private const string ConnectionString = "server=localhost;database=sales_reports;uid=root;pwd={0};";
+        private const string ConnectionString = "server=localhost;database=mobistore;uid=root;pwd={0};";
 
         private readonly MySqlContext context;
 
