@@ -122,6 +122,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="DataFiles\Excels\2016.10.17\MobiStore Banishora-2016.10.17-The first sale report.xls" />
+    <None Include="DataFiles\Excels\2016.10.17\MobiStore Dragoman-2016.10.17-The first sale report.xls" />
+    <None Include="DataFiles\Excels\2016.10.17\MobiStore Mladost-2016.10.17-The first sale report.xlsx.xls" />
+    <None Include="DataFiles\Excels\2016.10.18\MobiStore Banishora-2016.10.18-The first sale report.xls" />
+    <None Include="DataFiles\Excels\2016.10.18\MobiStore Dragoman-2016.10.18-The first sale report.xls" />
+    <None Include="DataFiles\Excels\2016.10.18\MobiStore Mladost-2016.10.18-The first sale report.xls" />
+    <None Include="DataFiles\Excels\2016.10.19\MobiStore Banishora-2016.10.19-The first sale report.xls" />
+    <None Include="DataFiles\Excels\2016.10.19\MobiStore Dragoman-2016.10.19-The first sale report.xls" />
+    <None Include="DataFiles\Excels\2016.10.19\MobiStore Mladost-2016.10.19-The first sale report.xls" />
+    <None Include="DataFiles\Excels\2016.10.20\MobiStore Mladost-2016.10.20-The first sale report.xls" />
+    <None Include="DataFiles\Pdfs\report.pdf" />
     <None Include="DataFiles\Zips\Input.zip" />
     <None Include="OpenAccessNuGet.targets" />
     <None Include="packages.config" />
@@ -136,7 +147,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MobiStore.Data\MobiStore.Data.csproj">
@@ -173,12 +186,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataFiles\Excels\" />
     <Folder Include="DataFiles\Jsons\CreatedReports\" />
     <Folder Include="DataFiles\Xmls\CreatedReports\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BG1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bahti kosmosa deiba.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="OpenAccessNuget.targets" />

@@ -13,6 +13,7 @@ using MobiStore.SqliteDatabase;
 using MobiStore.Utilities.Importers;
 using MobiStore.Utilities.Importers.XmlImporters;
 using MobiStore.Utilities.Reporters;
+using MobiStore.Utils.Reporters;
 
 namespace MobiStore.DesktopClient
 {
@@ -88,14 +89,23 @@ namespace MobiStore.DesktopClient
             ExcelReporter.CreateReports(new MySqlDb(), new SqliteDb(), fileInfo);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
-
         private void SeedMongo()
         {
             var seeder = new MongoSeeder(new MongoModelsFactory());
             seeder.SeedDatabase(MongoServerName, MongoDatabaseName);
-        }        
+        }
+
+        private void PdfReportButton_Click(object sender, EventArgs e)
+        {
+            var currentDir = Directory.GetCurrentDirectory();
+            string pdfOuputPath = $@"{currentDir}\..\..\DataFiles\Pdfs\report.pdf";
+            var reporter = new PdfReporter();
+
+            reporter.CreateReport(pdfOuputPath);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+        }
     }
 }

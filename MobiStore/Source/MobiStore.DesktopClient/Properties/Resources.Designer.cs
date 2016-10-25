@@ -63,6 +63,16 @@ namespace MobiStore.DesktopClient.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bahti_kosmosa_deiba {
+            get {
+                object obj = ResourceManager.GetObject("bahti kosmosa deiba", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BG1 {
             get {
                 object obj = ResourceManager.GetObject("BG1", resourceCulture);
