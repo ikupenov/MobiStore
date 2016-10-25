@@ -10,13 +10,10 @@ namespace MobiStore.MySqlDatabase
 
         private readonly MySqlContext context;
 
-        public MySqlDb()
+        public MySqlDb(string rootPassword)
         {
-            var password = this.MySqlPasswordPrompt();
-            this.context = new MySqlContext(string.Format(ConnectionString, password));
-
+            this.context = new MySqlContext(string.Format(ConnectionString, rootPassword));
             this.SalesRepository = new MySqlRepository<SalesReport>(this.context);
-
             this.VerifyDatabase();
         }
 
@@ -42,14 +39,6 @@ namespace MobiStore.MySqlDatabase
             {
                 schemaHandler.ExecuteDDLScript(script);
             }
-        }
-
-        private string MySqlPasswordPrompt()
-        {
-            // Enter your MySql 'root' password
-            var password = "6567";
-
-            return password;
         }
     }
 }

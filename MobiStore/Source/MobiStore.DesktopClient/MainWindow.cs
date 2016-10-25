@@ -109,7 +109,8 @@ namespace MobiStore.DesktopClient
             SqliteSeeder.SeedDatabase();
 
             var fileInfo = new FileInfo(ExcelOutputReports);
-            ExcelReporter.CreateReports(new MySqlDb(), new SqliteDb(), fileInfo);
+            string password = Prompt.ShowDialog("Please enter MySQL password", string.Empty);
+            ExcelReporter.CreateReports(new MySqlDb(password), new SqliteDb(), fileInfo);
             MessageBox.Show(ReportsFromSQLiteAndMySQLCreatedSuccessfully, string.Empty, MessageBoxButtons.OK);
         }
 
