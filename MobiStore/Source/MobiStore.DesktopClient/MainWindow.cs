@@ -27,6 +27,15 @@ namespace MobiStore.DesktopClient
         private const string ExcelOutputReports = @"..\..\..\..\Data\Reports\Output\Excel\reports-out.xlsx";
         private const string JsonOutputReports = "../../DataFiles/Jsons/CreatedReports";
 
+        private const string PdfReportsCreatedSuccessfully = "PDF reports are created successfully.";
+        private const string ExcelReportsLoadedSuccessfully = "Excel reports are loaded successfully.";
+        private const string DataLoadedFromMongoSuccessfully = "MongoDb data is transferred successfully to MSSQL Server.";
+        private const string XmlReportsAreGeneratedSuccessfuly = "XML reports are created successfully.";
+        private const string JsonReportsAreGeneratedSuccessfuly = "JSON reports are created successfully.";
+        private const string DataLoadedFromXmlSuccessfully = "Data from XML is loaded successfully.";
+        private const string ReportsFromSQLiteAndMySQLCreatedSuccessfully =
+            "Reports from SQLite and MySQL are created successfully.";
+
         public MainWindow()
         {
             SqlServerDb.Initialize();
@@ -42,6 +51,7 @@ namespace MobiStore.DesktopClient
             }
 
             ExcelImporter.ImportReports(root, new SqlServerDb());
+            MessageBox.Show(ExcelReportsLoadedSuccessfully, string.Empty, MessageBoxButtons.OK);
         }
 
         private void LoadDataFromMongoButton_Click(object sender, EventArgs e)
@@ -53,12 +63,24 @@ namespace MobiStore.DesktopClient
             var mongoDb = MongoDb.GetInstance(MongoServerName, MongoDatabaseName);
 
             mongo.TransferToSqlServer(mongoDb, sqlserverDb);
+            MessageBox.Show(DataLoadedFromMongoSuccessfully, string.Empty, MessageBoxButtons.OK);
+        }
+
+        private void PdfReportButton_Click(object sender, EventArgs e)
+        {
+            var currentDir = Directory.GetCurrentDirectory();
+            string pdfOuputPath = $@"{currentDir}\..\..\DataFiles\Pdfs\report.pdf";
+            var reporter = new PdfReporter();
+
+            reporter.CreateReport(pdfOuputPath);
+            MessageBox.Show(PdfReportsCreatedSuccessfully, string.Empty, MessageBoxButtons.OK);
         }
 
         private void GenerateXmlReportsButton_Click(object sender, EventArgs e)
         {
             var destinationDir = new DirectoryInfo(XmlReportsFolderPath);
             XmlReporter.CreateReports(new SqlServerDb(), new XmlSerializer(typeof(XmlModels.Reporters.SalesReport)), destinationDir);
+            MessageBox.Show(XmlReportsAreGeneratedSuccessfuly, string.Empty, MessageBoxButtons.OK);
         }
 
         private void GenerateJsonReportsButton_Click(object sender, EventArgs e)
@@ -66,6 +88,7 @@ namespace MobiStore.DesktopClient
             var currentDir = Directory.GetCurrentDirectory();
             var destinationDir = new DirectoryInfo(JsonOutputReports);
             JsonReporter.CreateReports(new SqlServerDb(), destinationDir);
+            MessageBox.Show(JsonReportsAreGeneratedSuccessfuly, string.Empty, MessageBoxButtons.OK);
         }
 
         private void LoadDataFromXmlButton_Click(object sender, EventArgs e)
@@ -78,7 +101,7 @@ namespace MobiStore.DesktopClient
             var mobileDeviceXmlImporter = new MobileDeviceXmlImporter(sqlServerDb, mongoDb, xmlSerializer);
 
             mobileDeviceXmlImporter.Import(shopXmlDir);
-            Console.WriteLine();
+            MessageBox.Show(DataLoadedFromXmlSuccessfully, string.Empty, MessageBoxButtons.OK);
         }
 
         private void SQLiteButton_Click(object sender, EventArgs e)
@@ -87,6 +110,7 @@ namespace MobiStore.DesktopClient
 
             var fileInfo = new FileInfo(ExcelOutputReports);
             ExcelReporter.CreateReports(new MySqlDb(), new SqliteDb(), fileInfo);
+            MessageBox.Show(ReportsFromSQLiteAndMySQLCreatedSuccessfully, string.Empty, MessageBoxButtons.OK);
         }
 
         private void SeedMongo()
@@ -94,16 +118,7 @@ namespace MobiStore.DesktopClient
             var seeder = new MongoSeeder(new MongoModelsFactory());
             seeder.SeedDatabase(MongoServerName, MongoDatabaseName);
         }
-
-        private void PdfReportButton_Click(object sender, EventArgs e)
-        {
-            var currentDir = Directory.GetCurrentDirectory();
-            string pdfOuputPath = $@"{currentDir}\..\..\DataFiles\Pdfs\report.pdf";
-            var reporter = new PdfReporter();
-
-            reporter.CreateReport(pdfOuputPath);
-        }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
         }

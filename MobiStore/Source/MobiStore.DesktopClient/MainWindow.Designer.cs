@@ -123,7 +123,6 @@ namespace MobiStore.DesktopClient
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.BackgroundImage = global::MobiStore.DesktopClient.Properties.Resources.bahti_kosmosa_deiba;
             this.ClientSize = new System.Drawing.Size(801, 475);
             this.Controls.Add(this.pdfReportButton);
             this.Controls.Add(this.sqliteButton);
