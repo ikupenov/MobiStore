@@ -39,6 +39,7 @@ namespace MobiStore.DesktopClient
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.loadExcelReportsButton = new System.Windows.Forms.Button();
             this.loadDataFromMongoButton = new System.Windows.Forms.Button();
             this.generateXmlReportsButton = new System.Windows.Forms.Button();
@@ -50,9 +51,10 @@ namespace MobiStore.DesktopClient
             // 
             // loadExcelReportsButton
             // 
-            this.loadExcelReportsButton.Location = new System.Drawing.Point(288, 31);
+            this.loadExcelReportsButton.Location = new System.Drawing.Point(384, 38);
+            this.loadExcelReportsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.loadExcelReportsButton.Name = "loadExcelReportsButton";
-            this.loadExcelReportsButton.Size = new System.Drawing.Size(234, 41);
+            this.loadExcelReportsButton.Size = new System.Drawing.Size(312, 50);
             this.loadExcelReportsButton.TabIndex = 0;
             this.loadExcelReportsButton.Text = "Load Excel Reports";
             this.loadExcelReportsButton.UseVisualStyleBackColor = true;
@@ -60,9 +62,10 @@ namespace MobiStore.DesktopClient
             // 
             // loadDataFromMongoButton
             // 
-            this.loadDataFromMongoButton.Location = new System.Drawing.Point(288, 91);
+            this.loadDataFromMongoButton.Location = new System.Drawing.Point(384, 112);
+            this.loadDataFromMongoButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.loadDataFromMongoButton.Name = "loadDataFromMongoButton";
-            this.loadDataFromMongoButton.Size = new System.Drawing.Size(234, 42);
+            this.loadDataFromMongoButton.Size = new System.Drawing.Size(312, 52);
             this.loadDataFromMongoButton.TabIndex = 1;
             this.loadDataFromMongoButton.Text = "Load Data from MongoDB";
             this.loadDataFromMongoButton.UseVisualStyleBackColor = true;
@@ -70,9 +73,10 @@ namespace MobiStore.DesktopClient
             // 
             // generateXmlReportsButton
             // 
-            this.generateXmlReportsButton.Location = new System.Drawing.Point(288, 217);
+            this.generateXmlReportsButton.Location = new System.Drawing.Point(384, 267);
+            this.generateXmlReportsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.generateXmlReportsButton.Name = "generateXmlReportsButton";
-            this.generateXmlReportsButton.Size = new System.Drawing.Size(234, 41);
+            this.generateXmlReportsButton.Size = new System.Drawing.Size(312, 50);
             this.generateXmlReportsButton.TabIndex = 2;
             this.generateXmlReportsButton.Text = "Generate XML Reports";
             this.generateXmlReportsButton.UseVisualStyleBackColor = true;
@@ -80,9 +84,10 @@ namespace MobiStore.DesktopClient
             // 
             // generateJsonReportsButton
             // 
-            this.generateJsonReportsButton.Location = new System.Drawing.Point(288, 278);
+            this.generateJsonReportsButton.Location = new System.Drawing.Point(384, 342);
+            this.generateJsonReportsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.generateJsonReportsButton.Name = "generateJsonReportsButton";
-            this.generateJsonReportsButton.Size = new System.Drawing.Size(234, 40);
+            this.generateJsonReportsButton.Size = new System.Drawing.Size(312, 49);
             this.generateJsonReportsButton.TabIndex = 3;
             this.generateJsonReportsButton.Text = "Generate JSON Reports";
             this.generateJsonReportsButton.UseVisualStyleBackColor = true;
@@ -90,9 +95,10 @@ namespace MobiStore.DesktopClient
             // 
             // loadDataFromXmlButton
             // 
-            this.loadDataFromXmlButton.Location = new System.Drawing.Point(288, 338);
+            this.loadDataFromXmlButton.Location = new System.Drawing.Point(384, 416);
+            this.loadDataFromXmlButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.loadDataFromXmlButton.Name = "loadDataFromXmlButton";
-            this.loadDataFromXmlButton.Size = new System.Drawing.Size(234, 39);
+            this.loadDataFromXmlButton.Size = new System.Drawing.Size(312, 48);
             this.loadDataFromXmlButton.TabIndex = 4;
             this.loadDataFromXmlButton.Text = "Load data from XML";
             this.loadDataFromXmlButton.UseVisualStyleBackColor = true;
@@ -100,9 +106,10 @@ namespace MobiStore.DesktopClient
             // 
             // sqliteButton
             // 
-            this.sqliteButton.Location = new System.Drawing.Point(288, 398);
+            this.sqliteButton.Location = new System.Drawing.Point(384, 490);
+            this.sqliteButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sqliteButton.Name = "sqliteButton";
-            this.sqliteButton.Size = new System.Drawing.Size(234, 41);
+            this.sqliteButton.Size = new System.Drawing.Size(312, 50);
             this.sqliteButton.TabIndex = 5;
             this.sqliteButton.Text = "Generate Reports fromSQLite and MySQL";
             this.sqliteButton.UseVisualStyleBackColor = true;
@@ -110,9 +117,10 @@ namespace MobiStore.DesktopClient
             // 
             // pdfReportButton
             // 
-            this.pdfReportButton.Location = new System.Drawing.Point(288, 154);
+            this.pdfReportButton.Location = new System.Drawing.Point(384, 190);
+            this.pdfReportButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pdfReportButton.Name = "pdfReportButton";
-            this.pdfReportButton.Size = new System.Drawing.Size(234, 40);
+            this.pdfReportButton.Size = new System.Drawing.Size(312, 49);
             this.pdfReportButton.TabIndex = 6;
             this.pdfReportButton.Text = "Create PDF Report";
             this.pdfReportButton.UseVisualStyleBackColor = true;
@@ -120,10 +128,11 @@ namespace MobiStore.DesktopClient
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(801, 475);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(1068, 585);
             this.Controls.Add(this.pdfReportButton);
             this.Controls.Add(this.sqliteButton);
             this.Controls.Add(this.loadDataFromXmlButton);
@@ -131,6 +140,7 @@ namespace MobiStore.DesktopClient
             this.Controls.Add(this.generateXmlReportsButton);
             this.Controls.Add(this.loadDataFromMongoButton);
             this.Controls.Add(this.loadExcelReportsButton);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainWindow";
             this.Text = "MobiStore";
             this.Load += new System.EventHandler(this.Form1_Load);
