@@ -29,7 +29,7 @@ namespace MobiStore.DesktopClient
             };
             Button confirmation = new Button
             {
-                Text = "Ok",
+                Text = "OK",
                 Left = 350,
                 Width = 100,
                 Top = 70,

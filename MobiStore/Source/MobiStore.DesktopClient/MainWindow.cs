@@ -42,6 +42,10 @@ namespace MobiStore.DesktopClient
             this.InitializeComponent();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+        }
+
         private void LoadExcelReportsButton_Click(object sender, EventArgs e)
         {
             DirectoryInfo root = new DirectoryInfo(ExtractedFilePath);
@@ -108,9 +112,13 @@ namespace MobiStore.DesktopClient
         {
             SqliteSeeder.SeedDatabase();
 
-            var fileInfo = new FileInfo(ExcelOutputReports);
             string password = Prompt.ShowDialog("Please enter MySQL password", string.Empty);
-            ExcelReporter.CreateReports(new MySqlDb(password), new SqliteDb(), fileInfo);
+            var mysqlDb = new MySqlDb(password);
+            MySqlSeeder.SeedDatabase(new SqlServerDb(), mysqlDb);
+
+            var fileInfo = new FileInfo(ExcelOutputReports);
+            ExcelReporter.CreateReports(mysqlDb, new SqliteDb(), fileInfo);
+
             MessageBox.Show(ReportsFromSQLiteAndMySQLCreatedSuccessfully, string.Empty, MessageBoxButtons.OK);
         }
 
@@ -118,10 +126,6 @@ namespace MobiStore.DesktopClient
         {
             var seeder = new MongoSeeder(new MongoModelsFactory());
             seeder.SeedDatabase(MongoServerName, MongoDatabaseName);
-        }
-        
-        private void Form1_Load(object sender, EventArgs e)
-        {
         }
     }
 }

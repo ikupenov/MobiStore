@@ -3,6 +3,7 @@ using System.Linq;
 
 using MobiStore.MySqlDatabase;
 using MobiStore.SqliteDatabase;
+
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 
@@ -22,51 +23,74 @@ namespace MobiStore.Utilities.Reporters
                 .ToList()
                 .Select(x => x.FirstOrDefault());
 
-            using (var writer = new ExcelPackage(fileInfo))
+            using (var excelPackage = new ExcelPackage(fileInfo))
             {
                 foreach (var shop in allShops)
                 {
                     var worksheetName = $"{shop.Name} - {shop.Town}";
 
-                    var isExisting =
-                        writer.Workbook.Worksheets.SingleOrDefault(x => x.Name == worksheetName) == null ? false : true;
-
+                    var isExisting = excelPackage.Workbook.Worksheets.Any(x => x.Name == worksheetName);
                     if (isExisting)
                     {
-                        writer.Workbook.Worksheets.Delete(worksheetName);
+                        excelPackage.Workbook.Worksheets.Delete(worksheetName);
                     }
 
-                    ExcelWorksheet ws = writer.Workbook.Worksheets.Add(worksheetName);
+                    ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add(worksheetName);
 
-                    ws.Cells["A1"].Value = "Employee";
-                    ws.Cells["B1"].Value = "Product";
-                    ws.Cells["C1"].Value = "Date";
-                    ws.Cells["D1"].Value = "Revenue";
+                    worksheet.Cells["A1"].Value = "Employee";
+                    worksheet.Cells["B1"].Value = "Product";
+                    worksheet.Cells["C1"].Value = "Date";
+                    worksheet.Cells["D1"].Value = "Revenue";
 
-                    ws.Cells["A1,B1,C1,D1"].Style.Font.Bold = true;
-                    ws.Cells["A1,B1,C1,D1"].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    worksheet.Cells["A1,B1,C1,D1"].Style.Font.Bold = true;
+                    worksheet.Cells["A1,B1,C1,D1"].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
 
-                    ws.Column(1).Width = 15;
-                    ws.Column(2).Width = 15;
-                    ws.Column(3).Width = 10;
+                    worksheet.Column(1).Width = 15;
+                    worksheet.Column(2).Width = 15;
+                    worksheet.Column(3).Width = 10;
 
-                    var rowCounter = 2;
+                    int rowCounter = 2;
+                    var rowCounterAsString = rowCounter.ToString();
+
+                    decimal totalRevenue = 0;
+
                     var shopReports = allReports.Where(x => x.Shop == shop.Name).OrderBy(x => x.Date);
                     foreach (var shopReport in shopReports)
                     {
-                        var rowCounterAsString = rowCounter.ToString();
+                        var shopReportDate = shopReport.Date;
 
-                        ws.Cells["A" + rowCounterAsString].Value = shopReport.Employee;
-                        ws.Cells["B" + rowCounterAsString].Value = shopReport.Product;
-                        ws.Cells["C" + rowCounterAsString].Value =
-                            $"{shopReport.Date.Day}/{shopReport.Date.Month}/{shopReport.Date.Year}";
-                        ws.Cells["D" + rowCounterAsString].Value = shopReport.TotalValue;
+                        worksheet.Cells["A" + rowCounterAsString].Value = shopReport.Employee;
+                        worksheet.Cells["B" + rowCounterAsString].Value = shopReport.Product;
+                        worksheet.Cells["C" + rowCounterAsString].Value = $"{shopReportDate.Day}/{shopReportDate.Month}/{shopReportDate.Year}";
+                        worksheet.Cells["D" + rowCounterAsString].Value = shopReport.TotalValue;
+
+                        totalRevenue += shopReport.TotalValue;
 
                         rowCounter++;
+                        rowCounterAsString = rowCounter.ToString();
+                    }
+
+                    {
+                        var currRowCellA = "A" + rowCounterAsString;
+                        var currRowCellB = "B" + rowCounterAsString;
+                        var currRowCellC = "C" + rowCounterAsString;
+                        var currRowCellD = "D" + rowCounterAsString;
+
+                        worksheet.Cells[$"{currRowCellA}:{currRowCellB}"].Merge = true;
+                        worksheet.Cells[$"{currRowCellA}:{currRowCellB}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                        worksheet.Cells[$"{currRowCellA}:{currRowCellB}"].Value = "Total Revenue: ";
+                        worksheet.Cells[currRowCellD].Value = totalRevenue;
+
+                        worksheet.Cells[$"{currRowCellD}"].Style.Font.Bold = true;
+                        worksheet.Cells[$"{currRowCellA},{currRowCellB},{currRowCellC},{currRowCellD}"].Style.Border
+                           .Top.Style = ExcelBorderStyle.Thick;
+                        worksheet.Cells[$"{currRowCellA},{currRowCellB},{currRowCellC},{currRowCellD}"].Style.Border
+                            .Bottom.Style = ExcelBorderStyle.Thick;
                     }
                 }
 
-                writer.Save();
+                excelPackage.Save();
             }
         }
     }
