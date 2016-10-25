@@ -51,7 +51,7 @@ namespace MobiStore.Utilities.Reporters
                     ws.Column(3).Width = 10;
 
                     var rowCounter = 2;
-                    var shopReports = allReports.Where(x => x.Shop == shop.Name);
+                    var shopReports = allReports.Where(x => x.Shop == shop.Name).OrderBy(x => x.Date);
                     foreach (var shopReport in shopReports)
                     {
                         var rowCounterAsString = rowCounter.ToString();
