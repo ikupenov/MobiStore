@@ -26,7 +26,17 @@ namespace MobiStore.Utilities.Reporters
             {
                 foreach (var shop in allShops)
                 {
-                    ExcelWorksheet ws = writer.Workbook.Worksheets.Add($"{shop.Name} - {shop.Town}");
+                    var worksheetName = $"{shop.Name} - {shop.Town}";
+
+                    var isExisting =
+                        writer.Workbook.Worksheets.SingleOrDefault(x => x.Name == worksheetName) == null ? false : true;
+
+                    if (isExisting)
+                    {
+                        writer.Workbook.Worksheets.Delete(worksheetName);
+                    }
+
+                    ExcelWorksheet ws = writer.Workbook.Worksheets.Add(worksheetName);
 
                     ws.Cells["A1"].Value = "Employee";
                     ws.Cells["B1"].Value = "Product";
