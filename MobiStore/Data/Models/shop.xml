@@ -4,91 +4,87 @@
     <model>iPhone 4</model>
     <brand>Apple</brand>
     <camera>
-        <megapixels>5</megapixels>
-        <resolution>1920x1080</resolution>
+      <megapixels>5</megapixels>
+      <resolution>1920x1080</resolution>
     </camera>
     <battery>
-        <type>LiPo</type>
-        <capacity>1420</capacity>
+      <type>LiPo</type>
+      <capacity>1420</capacity>
     </battery>
     <display>
-        <type>Retina</type>
-        <size>3.5</size>
-        <resolution>640x960</resolution>
+      <type>Retina</type>
+      <size>3.5</size>
+      <resolution>640x960</resolution>
     </display>
     <processor>
-        <clock-speed>1.0</clock-speed>
-        <cache-memory>1</cache-memory>
+      <clock-speed>1.0</clock-speed>
+      <cache-memory>1</cache-memory>
     </processor>
   </mobile-device>
-
   <mobile-device>
-      <brand>LG</brand>
-      <model>G5</model>
-      <camera>
-        <megapixels>8</megapixels>
-        <resolution>1920x1080</resolution>
-      </camera>
-      <battery>
-        <type>LiIon</type>
-        <capacity>2800</capacity>
-      </battery>
-      <display>
-        <type>LED</type>
-        <size>5.3</size>
-        <resolution>640x960</resolution>
-      </display>
-      <processor>
-        <clock-speed>1.6</clock-speed>
-        <cache-memory>2</cache-memory>
-      </processor>
-    </mobile-device>
-
-    <mobile-device>
-      <brand>Sony</brand>
-      <model>Xperia XZ</model>
-      <camera>
-        <megapixels>13</megapixels>
-        <resolution>1920x1080</resolution>
-      </camera>
-      <battery>
-        <type>LiPo</type>
-        <capacity>2900</capacity>
-      </battery>
-      <display>
-        <type>LED</type>
-        <size>5.2</size>
-        <resolution>1920x1080</resolution>
-      </display>
-      <processor>
-        <clock-speed>2.0</clock-speed>
-        <cache-memory>2</cache-memory>
-      </processor>
-    </mobile-device>
-
-    <mobile-device>
-      <brand>OnePlus</brand>
-      <model>OnePlus 3</model>
-      <camera>
-        <megapixels>16</megapixels>
-        <resolution>1920x1080</resolution>
-      </camera>
-      <battery>
-        <type>LiPo</type>
-        <capacity>3000</capacity>
-      </battery>
-      <display>
-        <type>LED</type>
-        <size>5.5</size>
-        <resolution>1080x1920</resolution>
-      </display>
-      <processor>
-        <clock-speed>1.6</clock-speed>
-        <cache-memory>3</cache-memory>
-      </processor>
-    </mobile-device>
-
-	<mobile-device>
+    <brand>LG</brand>
+    <model>G5</model>
+    <camera>
+      <megapixels>8</megapixels>
+      <resolution>1920x1080</resolution>
+    </camera>
+    <battery>
+      <type>LiIon</type>
+      <capacity>2800</capacity>
+    </battery>
+    <display>
+      <type>LED</type>
+      <size>5.3</size>
+      <resolution>640x960</resolution>
+    </display>
+    <processor>
+      <clock-speed>1.6</clock-speed>
+      <cache-memory>2</cache-memory>
+    </processor>
+  </mobile-device>
+  <mobile-device>
+    <brand>Sony</brand>
+    <model>Xperia XZ</model>
+    <camera>
+      <megapixels>13</megapixels>
+      <resolution>1920x1080</resolution>
+    </camera>
+    <battery>
+      <type>LiPo</type>
+      <capacity>2900</capacity>
+    </battery>
+    <display>
+      <type>LED</type>
+      <size>5.2</size>
+      <resolution>1920x1080</resolution>
+    </display>
+    <processor>
+      <clock-speed>2.0</clock-speed>
+      <cache-memory>2</cache-memory>
+    </processor>
+  </mobile-device>
+  <mobile-device>
+    <brand>OnePlus</brand>
+    <model>OnePlus 3</model>
+    <camera>
+      <megapixels>16</megapixels>
+      <resolution>1920x1080</resolution>
+    </camera>
+    <battery>
+      <type>LiPo</type>
+      <capacity>3000</capacity>
+    </battery>
+    <display>
+      <type>LED</type>
+      <size>5.5</size>
+      <resolution>1080x1920</resolution>
+    </display>
+    <processor>
+      <clock-speed>1.6</clock-speed>
+      <cache-memory>3</cache-memory>
+    </processor>
+  </mobile-device>
+  <mobile-device>
       <brand>Motorola</brand>
       <model>Moto Z</model>
       <camera>
@@ -109,7 +105,6 @@
         <cache-memory>1</cache-memory>
       </processor>
     </mobile-device>
-	
    <mobile-device>
     <brand>Apple</brand>
     <model>iPhone 7</model>
@@ -118,20 +113,19 @@
       <resolution>1920x1080</resolution>
     </camera>
     <battery>
-      <battery>LiPo</battery>
-      <battery>1960</battery>
+      <type>LiPo</type>
+      <capacity>1960</capacity>
     </battery>
     <display>
-      <display>LED</display>
-      <display>4.7</display>
-      <display>750x1334</display>
+      <type>LED</type>
+      <size>4.7</size>
+      <resolution>750x1334</resolution>
     </display>
     <processor>
       <clock-speed>1.0</clock-speed>
       <cache-memory>1</cache-memory>
     </processor>
   </mobile-device>
-
   <mobile-device>
     <brand>Apple</brand>
     <model>iPhone 7 Plus</model>
@@ -153,7 +147,6 @@
       <cache-memory>1</cache-memory>
     </processor>
   </mobile-device>
-
   <mobile-device>
     <brand>Samsung</brand>
     <model>Galaxy S7</model>
@@ -175,7 +168,6 @@
       <cache-memory>1</cache-memory>
     </processor>
   </mobile-device>
-
   <mobile-device>
     <brand>Samsung</brand>
     <model>Galaxy S7 Edge</model>

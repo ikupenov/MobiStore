@@ -14,22 +14,22 @@ namespace MobiStore.Data
             : base("MobiStore")
         {
         }
-        
-        public virtual IDbSet<Battery> Batteries { get; set; }
 
-        public virtual IDbSet<Display> Displays { get; set; }
+        public virtual DbSet<Battery> Batteries { get; set; }
 
-        public virtual IDbSet<Processor> Processors { get; set; }
+        public virtual DbSet<Display> Displays { get; set; }
 
-        public virtual IDbSet<MobileDevice> MobileDevices { get; set; }
+        public virtual DbSet<Processor> Processors { get; set; }
 
-        public virtual IDbSet<Employee> Employees { get; set; }
+        public virtual DbSet<MobileDevice> MobileDevices { get; set; }
 
-        public virtual IDbSet<Shop> Shops { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
 
-        public virtual IDbSet<Sale> Sales { get; set; }
+        public virtual DbSet<Shop> Shops { get; set; }
 
-        public virtual IDbSet<SalesReport> SalesReports { get; set; }
+        public virtual DbSet<Sale> Sales { get; set; }
+
+        public virtual DbSet<SalesReport> SalesReports { get; set; }
 
         public static SqlServerContext Create()
         {
@@ -37,7 +37,7 @@ namespace MobiStore.Data
             return instance;
         }
 
-        IDbSet<T> ISqlServerContext.Set<T>()
+        DbSet<T> ISqlServerContext.Set<T>()
         {
             return base.Set<T>();
         }

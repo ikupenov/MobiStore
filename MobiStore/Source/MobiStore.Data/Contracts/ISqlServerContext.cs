@@ -8,15 +8,15 @@ namespace MobiStore.Data.Contracts
 {
     public interface ISqlServerContext
     {
-        IDbSet<Battery> Batteries { get; set; }
+        DbSet<Battery> Batteries { get; set; }
 
-        IDbSet<Display> Displays { get; set; }
+        DbSet<Display> Displays { get; set; }
 
-        IDbSet<Processor> Processors { get; set; }
+        DbSet<Processor> Processors { get; set; }
 
-        IDbSet<MobileDevice> MobileDevices { get; set; }
+        DbSet<MobileDevice> MobileDevices { get; set; }
 
-        IDbSet<T> Set<T>() where T : class;
+        DbSet<T> Set<T>() where T : class;
 
         DbEntityEntry<T> Entry<T>(T entity) where T : class;
 

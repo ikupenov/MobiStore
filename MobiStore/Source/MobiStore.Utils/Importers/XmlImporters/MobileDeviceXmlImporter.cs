@@ -40,34 +40,18 @@ namespace MobiStore.Utilities.Importers.XmlImporters
                     Battery battery = this.mobileDeviceFactory.CreateBattery(
                         mobileDevice.Battery.Type,
                         mobileDevice.Battery.Capacity);
-
                     batteriesToInsert.Add(battery);
-                    this.SqlServerDatabase.Batteries.Add(battery);
-                    this.SqlServerDatabase.SaveChanges();
 
-                    Display display = null;
-                    if (mobileDevice.Display.Resolution != null)
-                    {
-                        display = this.mobileDeviceFactory.CreateDisplay(
+                    Display display = this.mobileDeviceFactory.CreateDisplay(
                         mobileDevice.Display.Type,
                         mobileDevice.Display.Size,
                         mobileDevice.Display.Resolution);
-                    }
-
-                    if (display != null)
-                    {
-                        displaysToInsert.Add(display);
-                        this.SqlServerDatabase.Displays.Add(display);
-                        this.SqlServerDatabase.SaveChanges();
-                    }
+                    displaysToInsert.Add(display);
 
                     Processor processor = this.mobileDeviceFactory.CreateProcessor(
                         mobileDevice.Processor.CacheMemory,
                         mobileDevice.Processor.ClockSpeed);
-
                     processorsToInsert.Add(processor);
-                    this.SqlServerDatabase.Processors.Add(processor);
-                    this.SqlServerDatabase.SaveChanges();
 
                     MobileDevice mobileDeviceToInsert = this.mobileDeviceFactory.CreateMobileDevice(
                         mobileDevice.Brand,
@@ -75,16 +59,20 @@ namespace MobiStore.Utilities.Importers.XmlImporters
                         display,
                         battery,
                         processor);
-
                     mobileDevicesToInsert.Add(mobileDeviceToInsert);
-                    this.SqlServerDatabase.MobileDevices.Add(mobileDeviceToInsert);
-                    this.SqlServerDatabase.SaveChanges();
                 }
 
                 this.InsertCollectionIntoMongoAsync<Battery>(batteriesToInsert, "batteries");
                 this.InsertCollectionIntoMongoAsync<Display>(displaysToInsert, "displays");
                 this.InsertCollectionIntoMongoAsync<Processor>(processorsToInsert, "processors");
                 this.InsertCollectionIntoMongoAsync<MobileDevice>(mobileDevicesToInsert, "mobileDevices");
+
+                this.SqlServerDatabase.Context.Batteries.AddRange(batteriesToInsert);
+                this.SqlServerDatabase.Context.Displays.AddRange(displaysToInsert);
+                this.SqlServerDatabase.Context.Processors.AddRange(processorsToInsert);
+                this.SqlServerDatabase.Context.MobileDevices.AddRange(mobileDevicesToInsert);
+
+                this.SqlServerDatabase.SaveChanges();
             }
         }
 
