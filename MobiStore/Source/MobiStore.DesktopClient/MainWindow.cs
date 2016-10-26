@@ -112,7 +112,7 @@ namespace MobiStore.DesktopClient
         {
             SqliteSeeder.SeedDatabase();
 
-            string password = Prompt.ShowDialog("Please enter MySQL password", string.Empty);
+            string password = Prompt.ShowDialog("Please enter MySQL password: ", string.Empty);
             var mysqlDb = new MySqlDb(password);
             MySqlSeeder.SeedDatabase(new SqlServerDb(), mysqlDb);
 

@@ -17,7 +17,7 @@ namespace MobiStore.DesktopClient
 
             var textLabel = new Label
             {
-                Left = 50,
+                Left = 170,
                 Top = 20,
                 Width = 200,
                 Text = text
@@ -27,7 +27,7 @@ namespace MobiStore.DesktopClient
             {
                 Left = 50,
                 Top = 50,
-                Width = 400
+                Width = 300
             };
             textBox.PasswordChar = '*';
 
@@ -36,7 +36,7 @@ namespace MobiStore.DesktopClient
                 Text = "OK",
                 Left = 350,
                 Width = 100,
-                Top = 70,
+                Top = 49,
                 DialogResult = DialogResult.OK
             };
 
