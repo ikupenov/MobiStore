@@ -6,7 +6,7 @@ namespace MobiStore.DesktopClient
     {
         public static string ShowDialog(string text, string caption)
         {
-            Form prompt = new Form()
+            var prompt = new Form
             {
                 Width = 500,
                 Height = 150,
@@ -14,20 +14,24 @@ namespace MobiStore.DesktopClient
                 Text = caption,
                 StartPosition = FormStartPosition.CenterScreen
             };
-            Label textLabel = new Label
+
+            var textLabel = new Label
             {
                 Left = 50,
                 Top = 20,
                 Width = 200,
                 Text = text
             };
-            TextBox textBox = new TextBox
+
+            var textBox = new TextBox
             {
                 Left = 50,
                 Top = 50,
                 Width = 400
             };
-            Button confirmation = new Button
+            textBox.PasswordChar = '*';
+
+            var confirmation = new Button
             {
                 Text = "OK",
                 Left = 350,
@@ -37,6 +41,7 @@ namespace MobiStore.DesktopClient
             };
 
             confirmation.Click += (sender, e) => prompt.Close();
+
             prompt.Controls.Add(textBox);
             prompt.Controls.Add(confirmation);
             prompt.Controls.Add(textLabel);
