@@ -9,11 +9,8 @@ namespace MobiStore.DesktopClient
         /// Required designer variable.
         /// </summary>
         private IContainer components = null;
-        private Button loadExcelReportsButton;
         private Button loadDataFromMongoButton;
-        private Button generateXmlReportsButton;
         private Button generateJsonReportsButton;
-        private Button loadDataFromXmlButton;
         private Button sqliteButton;
         private Button pdfReportButton;
 
@@ -40,32 +37,21 @@ namespace MobiStore.DesktopClient
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.loadExcelReportsButton = new System.Windows.Forms.Button();
             this.loadDataFromMongoButton = new System.Windows.Forms.Button();
-            this.generateXmlReportsButton = new System.Windows.Forms.Button();
             this.generateJsonReportsButton = new System.Windows.Forms.Button();
-            this.loadDataFromXmlButton = new System.Windows.Forms.Button();
             this.sqliteButton = new System.Windows.Forms.Button();
             this.pdfReportButton = new System.Windows.Forms.Button();
+            this.loadExcelReportsButton = new System.Windows.Forms.Button();
+            this.loadDataFromXmlButton = new System.Windows.Forms.Button();
+            this.generateXmlReportsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // loadExcelReportsButton
-            // 
-            this.loadExcelReportsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.loadExcelReportsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loadExcelReportsButton.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.loadExcelReportsButton.Location = new System.Drawing.Point(418, 57);
-            this.loadExcelReportsButton.Margin = new System.Windows.Forms.Padding(4);
-            this.loadExcelReportsButton.Name = "loadExcelReportsButton";
-            this.loadExcelReportsButton.Size = new System.Drawing.Size(312, 50);
-            this.loadExcelReportsButton.TabIndex = 0;
-            this.loadExcelReportsButton.Text = "Load Excel Reports";
-            this.loadExcelReportsButton.UseVisualStyleBackColor = false;
-            this.loadExcelReportsButton.Click += new System.EventHandler(this.LoadExcelReportsButton_Click);
             // 
             // loadDataFromMongoButton
             // 
+            this.loadDataFromMongoButton.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
             this.loadDataFromMongoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.loadDataFromMongoButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.loadDataFromMongoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loadDataFromMongoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loadDataFromMongoButton.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.loadDataFromMongoButton.Location = new System.Drawing.Point(418, 211);
@@ -77,23 +63,12 @@ namespace MobiStore.DesktopClient
             this.loadDataFromMongoButton.UseVisualStyleBackColor = false;
             this.loadDataFromMongoButton.Click += new System.EventHandler(this.LoadDataFromMongoButton_Click);
             // 
-            // generateXmlReportsButton
-            // 
-            this.generateXmlReportsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.generateXmlReportsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.generateXmlReportsButton.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.generateXmlReportsButton.Location = new System.Drawing.Point(418, 474);
-            this.generateXmlReportsButton.Margin = new System.Windows.Forms.Padding(4);
-            this.generateXmlReportsButton.Name = "generateXmlReportsButton";
-            this.generateXmlReportsButton.Size = new System.Drawing.Size(312, 50);
-            this.generateXmlReportsButton.TabIndex = 2;
-            this.generateXmlReportsButton.Text = "Generate XML Reports";
-            this.generateXmlReportsButton.UseVisualStyleBackColor = false;
-            this.generateXmlReportsButton.Click += new System.EventHandler(this.GenerateXmlReportsButton_Click);
-            // 
             // generateJsonReportsButton
             // 
+            this.generateJsonReportsButton.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
             this.generateJsonReportsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.generateJsonReportsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.generateJsonReportsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.generateJsonReportsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generateJsonReportsButton.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.generateJsonReportsButton.Location = new System.Drawing.Point(418, 302);
@@ -105,23 +80,12 @@ namespace MobiStore.DesktopClient
             this.generateJsonReportsButton.UseVisualStyleBackColor = false;
             this.generateJsonReportsButton.Click += new System.EventHandler(this.GenerateJsonReportsButton_Click);
             // 
-            // loadDataFromXmlButton
-            // 
-            this.loadDataFromXmlButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.loadDataFromXmlButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loadDataFromXmlButton.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.loadDataFromXmlButton.Location = new System.Drawing.Point(418, 155);
-            this.loadDataFromXmlButton.Margin = new System.Windows.Forms.Padding(4);
-            this.loadDataFromXmlButton.Name = "loadDataFromXmlButton";
-            this.loadDataFromXmlButton.Size = new System.Drawing.Size(312, 48);
-            this.loadDataFromXmlButton.TabIndex = 4;
-            this.loadDataFromXmlButton.Text = "Load data from XML";
-            this.loadDataFromXmlButton.UseVisualStyleBackColor = false;
-            this.loadDataFromXmlButton.Click += new System.EventHandler(this.LoadDataFromXmlButton_Click);
-            // 
             // sqliteButton
             // 
+            this.sqliteButton.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
             this.sqliteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sqliteButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sqliteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sqliteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sqliteButton.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.sqliteButton.Location = new System.Drawing.Point(418, 359);
@@ -135,7 +99,10 @@ namespace MobiStore.DesktopClient
             // 
             // pdfReportButton
             // 
+            this.pdfReportButton.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
             this.pdfReportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pdfReportButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pdfReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pdfReportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pdfReportButton.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.pdfReportButton.Location = new System.Drawing.Point(418, 417);
@@ -146,6 +113,57 @@ namespace MobiStore.DesktopClient
             this.pdfReportButton.Text = "Generate PDF Report";
             this.pdfReportButton.UseVisualStyleBackColor = false;
             this.pdfReportButton.Click += new System.EventHandler(this.PdfReportButton_Click);
+            // 
+            // loadExcelReportsButton
+            // 
+            this.loadExcelReportsButton.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
+            this.loadExcelReportsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.loadExcelReportsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.loadExcelReportsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loadExcelReportsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadExcelReportsButton.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.loadExcelReportsButton.Location = new System.Drawing.Point(418, 57);
+            this.loadExcelReportsButton.Margin = new System.Windows.Forms.Padding(4);
+            this.loadExcelReportsButton.Name = "loadExcelReportsButton";
+            this.loadExcelReportsButton.Size = new System.Drawing.Size(312, 50);
+            this.loadExcelReportsButton.TabIndex = 0;
+            this.loadExcelReportsButton.Text = "Load Excel Reports";
+            this.loadExcelReportsButton.UseVisualStyleBackColor = false;
+            this.loadExcelReportsButton.Click += new System.EventHandler(this.LoadExcelReportsButton_Click);
+            // 
+            // loadDataFromXmlButton
+            // 
+            this.loadDataFromXmlButton.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
+            this.loadDataFromXmlButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.loadDataFromXmlButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.loadDataFromXmlButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loadDataFromXmlButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadDataFromXmlButton.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.loadDataFromXmlButton.Location = new System.Drawing.Point(418, 155);
+            this.loadDataFromXmlButton.Margin = new System.Windows.Forms.Padding(4);
+            this.loadDataFromXmlButton.Name = "loadDataFromXmlButton";
+            this.loadDataFromXmlButton.Size = new System.Drawing.Size(312, 48);
+            this.loadDataFromXmlButton.TabIndex = 4;
+            this.loadDataFromXmlButton.Text = "Load data from XML";
+            this.loadDataFromXmlButton.UseVisualStyleBackColor = false;
+            this.loadDataFromXmlButton.Click += new System.EventHandler(this.LoadDataFromXmlButton_Click);
+            // 
+            // generateXmlReportsButton
+            // 
+            this.generateXmlReportsButton.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
+            this.generateXmlReportsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.generateXmlReportsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.generateXmlReportsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.generateXmlReportsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.generateXmlReportsButton.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.generateXmlReportsButton.Location = new System.Drawing.Point(418, 474);
+            this.generateXmlReportsButton.Margin = new System.Windows.Forms.Padding(4);
+            this.generateXmlReportsButton.Name = "generateXmlReportsButton";
+            this.generateXmlReportsButton.Size = new System.Drawing.Size(312, 50);
+            this.generateXmlReportsButton.TabIndex = 2;
+            this.generateXmlReportsButton.Text = "Generate XML Reports";
+            this.generateXmlReportsButton.UseVisualStyleBackColor = false;
+            this.generateXmlReportsButton.Click += new System.EventHandler(this.GenerateXmlReportsButton_Click);
             // 
             // MainWindow
             // 
@@ -163,7 +181,6 @@ namespace MobiStore.DesktopClient
             this.Controls.Add(this.loadExcelReportsButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "MainWindow";
@@ -174,5 +191,9 @@ namespace MobiStore.DesktopClient
         }
 
         #endregion
+
+        private Button loadExcelReportsButton;
+        private Button loadDataFromXmlButton;
+        private Button generateXmlReportsButton;
     }
 }
