@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 using MobiStore.Models.Enumerations;
 using MongoDB.Bson.Serialization.Attributes;
@@ -18,8 +19,10 @@ namespace MobiStore.Models.MobileDevices.Components
 
         public Guid Id { get; set; }
 
+        [Required]
         public BatteryType Type { get; set; }
 
+        [Required]
         public int Capacity { get; set; }
         
         [BsonIgnore]

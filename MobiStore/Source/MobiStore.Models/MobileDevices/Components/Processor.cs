@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 using MongoDB.Bson.Serialization.Attributes;
 
@@ -17,8 +18,10 @@ namespace MobiStore.Models.MobileDevices.Components
 
         public Guid Id { get; set; }
 
+        [Required]
         public double ClockSpeed { get; set; }
 
+        [Required]
         public double CacheMemory { get; set; }
         
         [BsonIgnore]

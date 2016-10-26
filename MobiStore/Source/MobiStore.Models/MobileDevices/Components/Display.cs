@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 using MobiStore.Models.Enumerations;
 using MongoDB.Bson.Serialization.Attributes;
@@ -18,10 +19,13 @@ namespace MobiStore.Models.MobileDevices.Components
 
         public Guid Id { get; set; }
 
+        [Required]
         public DisplayType Type { get; set; }
 
+        [Required]
         public double Size { get; set; }
 
+        [Required]
         public string Resolution { get; set; }
         
         [BsonIgnore]

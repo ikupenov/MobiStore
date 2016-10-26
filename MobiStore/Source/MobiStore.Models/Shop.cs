@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using System.ComponentModel.DataAnnotations;
 
 using MobiStore.Models.MobileDevices;
 
@@ -15,6 +15,8 @@ namespace MobiStore.Models
 
         public Guid Id { get; set; }
 
+        [Required]
+        [MaxLength(30)]
         public string Name { get; set; }
 
         public List<MobileDevice> MobileDevices { get; set; }
